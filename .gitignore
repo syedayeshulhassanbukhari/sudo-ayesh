@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Local backups of removed / original images (not part of the site)
+_removed-assets/
+# Source copy of the CV (the published copy lives in public/)
+sudo-ash-v1.pdf

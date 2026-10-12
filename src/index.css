@@ -1,162 +1,170 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 240 20% 2%;
-    --foreground: 240 5% 96%;
-    --card: 240 10% 4%;
-    --card-foreground: 240 5% 96%;
-    --popover: 240 10% 4%;
-    --popover-foreground: 240 5% 96%;
+    --background: 217 33% 17%;
+    --foreground: 210 40% 98%;
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
     --primary: 217 91% 60%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 240 4% 16%;
-    --secondary-foreground: 240 5% 96%;
-    --muted: 240 4% 16%;
-    --muted-foreground: 240 5% 65%;
+    --secondary: 215 25% 27%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 215 25% 27%;
+    --muted-foreground: 215 20% 65%;
     --accent: 25 95% 53%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 4% 20%;
-    --input: 240 4% 20%;
+    --border: 215 25% 27%;
+    --input: 215 25% 27%;
     --ring: 217 91% 60%;
-    --radius: 0.625rem;
+    --radius: 0.75rem;
   }
 
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 88px;
   }
 
   body {
-    font-family: 'Inter', system-ui, sans-serif;
-    background-color: #050507;
-    color: #F4F4F5;
+    @apply font-sans text-toon-text antialiased;
+    background-color: #1e293b;
+    background-image:
+      radial-gradient(circle at 15% 40%, rgba(59, 130, 246, 0.08), transparent 28%),
+      radial-gradient(circle at 85% 25%, rgba(249, 115, 22, 0.07), transparent 28%);
+    background-attachment: fixed;
     overflow-x: hidden;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Space Grotesk', system-ui, sans-serif;
+  /* Pixel-hand cursor (public/pointer.png, 32px, hotspot on the fingertip).
+     Text fields keep the I-beam so typing still feels normal. */
+  html {
+    cursor: url('/pointer.png') 7 0, auto;
+  }
+  a, button, summary, label, select, [role='button'], [role='img'] {
+    cursor: url('/pointer.png') 7 0, pointer;
+  }
+  input:not([type='checkbox']):not([type='radio']), textarea {
+    cursor: text;
+  }
+  button:disabled {
+    cursor: url('/pointer.png') 7 0, not-allowed;
   }
 
-  .font-pixel {
-    font-family: 'Press Start 2P', monospace;
+  ::selection {
+    background: #f97316;
+    color: #0f172a;
+  }
+
+  ::-webkit-scrollbar { width: 12px; }
+  ::-webkit-scrollbar-track { background: #0f172a; }
+  ::-webkit-scrollbar-thumb {
+    background: #3b82f6;
+    border: 2px solid #0f172a;
+    border-radius: 6px;
+  }
+  ::-webkit-scrollbar-thumb:hover { background: #f97316; }
+
+  :focus-visible {
+    outline: 3px solid #fde047;
+    outline-offset: 3px;
   }
 }
 
 @layer components {
-  .liquid-glass {
-    background: rgba(255, 255, 255, 0.01);
-    background-blend-mode: luminosity;
-    backdrop-filter: blur(6px) saturate(140%);
-    -webkit-backdrop-filter: blur(6px) saturate(140%);
-    border: none;
-    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1), 0 8px 32px rgba(0, 0, 0, 0.15);
-    position: relative;
-    overflow: hidden;
+  /* Thick-outlined card with a hard offset shadow */
+  .toon-card {
+    @apply relative rounded-[1.75rem] border-4 border-toon-blue bg-toon-card shadow-pop-lg;
   }
 
-  .liquid-glass::before {
+  /* Little "screws" in the top corners of a card */
+  .toon-screws::before,
+  .toon-screws::after {
     content: '';
     position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    padding: 1.4px;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.15) 20%, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0.15) 80%, rgba(255, 255, 255, 0.5) 100%);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none;
-    mix-blend-mode: screen;
-    opacity: 0.25;
+    top: 14px;
+    width: 12px;
+    height: 12px;
+    border-radius: 9999px;
+    background: #1e3a8a;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  }
+  .toon-screws::before { left: 16px; }
+  .toon-screws::after { right: 16px; }
+
+  .toon-heading {
+    @apply font-display uppercase text-white;
+    text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.55);
   }
 
-  .liquid-glass::after {
+  /* Chunky buttons with a pressable bottom edge */
+  .btn-toon {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 font-display text-sm uppercase tracking-wide transition-all duration-150;
+    border-bottom-width: 5px;
+  }
+  .btn-toon:hover { transform: translateY(-2px); }
+  .btn-toon:active { transform: translateY(2px); border-bottom-width: 2px; }
+
+  .btn-blue { @apply bg-toon-blue text-white border-toon-blue-dark; }
+  .btn-orange { @apply bg-toon-orange text-white border-toon-orange-dark; }
+  .btn-ghost { @apply border-2 border-toon-line bg-transparent text-slate-200 hover:border-toon-blue hover:text-white; border-bottom-width: 5px; }
+
+  /* Ticket badges with punched side notches */
+  .ticket {
+    @apply relative px-6 py-5 text-center font-display text-base uppercase leading-tight;
+    border: 3px dashed rgba(255, 255, 255, 0.35);
+    border-radius: 0.75rem;
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.45);
+  }
+  .ticket::before,
+  .ticket::after {
     content: '';
     position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    background: radial-gradient(ellipse 90% 40% at 50% 0%, rgba(255, 255, 255, 0.18) 0%, transparent 55%), radial-gradient(ellipse 60% 35% at 65% 10%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
-    mix-blend-mode: overlay;
-    pointer-events: none;
+    top: 50%;
+    width: 18px;
+    height: 18px;
+    border-radius: 9999px;
+    background: #0f172a;
+    transform: translateY(-50%);
+  }
+  .ticket::before { left: -11px; }
+  .ticket::after { right: -11px; }
+  .ticket-blue { @apply bg-toon-blue text-white; }
+  .ticket-orange { @apply bg-toon-orange text-white; }
+  .ticket-white { @apply bg-slate-50 text-toon-card; border-color: rgba(15, 23, 42, 0.3); }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-toon-blue/50 bg-toon-blue/10 px-3 py-1 font-tech text-xs font-semibold text-blue-200;
+  }
+  .tag {
+    @apply rounded-md border border-toon-line bg-toon-bg/60 px-2 py-1 font-tech text-xs font-semibold text-slate-300;
   }
 
-  .liquid-glass-strong {
-    background: rgba(255, 255, 255, 0.01);
-    background-blend-mode: luminosity;
-    backdrop-filter: blur(40px) saturate(150%);
-    -webkit-backdrop-filter: blur(40px) saturate(150%);
-    border: none;
-    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.15), 0 8px 32px rgba(0, 0, 0, 0.2);
-    position: relative;
-    overflow: hidden;
+  .dot-grid {
+    background-image: radial-gradient(rgba(148, 163, 184, 0.12) 1px, transparent 1px);
+    background-size: 18px 18px;
   }
 
-  .liquid-glass-strong::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    padding: 1.4px;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.15) 20%, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0.15) 80%, rgba(255, 255, 255, 0.5) 100%);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none;
-    mix-blend-mode: screen;
-    opacity: 0.3;
+  /* Scroll reveal (see src/hooks/useReveal.ts) */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
   }
-
-  .liquid-glass-strong::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    background: radial-gradient(ellipse 90% 40% at 50% 0%, rgba(255, 255, 255, 0.22) 0%, transparent 55%), radial-gradient(ellipse 60% 35% at 65% 10%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
-    mix-blend-mode: overlay;
-    pointer-events: none;
-  }
-
-  .text-gradient {
-    background: linear-gradient(135deg, #3B82F6 0%, #F97316 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .glow-blue {
-    box-shadow: 0 0 40px rgba(59, 130, 246, 0.15);
-  }
-
-  .ticket-badge {
-    position: relative;
-    background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(59, 130, 246, 0.05));
-    border: 1px solid rgba(59, 130, 246, 0.3);
-    clip-path: polygon(8px 0%, calc(100% - 8px) 0%, 100% 8px, 100% calc(100% - 8px), calc(100% - 8px) 100%, 8px 100%, 0% calc(100% - 8px), 0% 8px);
-  }
-
-  .ticket-badge-orange {
-    background: linear-gradient(135deg, rgba(249, 115, 22, 0.15), rgba(249, 115, 22, 0.05));
-    border: 1px solid rgba(249, 115, 22, 0.3);
-    clip-path: polygon(8px 0%, calc(100% - 8px) 0%, 100% 8px, 100% calc(100% - 8px), calc(100% - 8px) 100%, 8px 100%, 0% calc(100% - 8px), 0% 8px);
-  }
-
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
-  }
-
-  .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
   }
 }
 
-@layer utilities {
-  .perspective-1000 {
-    perspective: 1000px;
-  }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .btn-toon:hover, .btn-toon:active { transform: none; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
 }

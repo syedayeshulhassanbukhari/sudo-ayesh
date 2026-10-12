@@ -1,261 +1,95 @@
-import { useRef, useEffect } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Star } from 'lucide-react';
+import { Sparkle } from 'lucide-react';
+import {
+  EXPERIENCE, EDUCATION, CERTIFICATIONS, FOCUS_AREAS, CORE_SKILLS, SECONDARY_SKILLS,
+  type TimelineItem,
+} from '@/data/portfolio';
+import { SkillIcon } from '@/components/SkillIcon';
 
-gsap.registerPlugin(ScrollTrigger);
+function Timeline({ heading, items }: { heading: string; items: TimelineItem[] }) {
+  return (
+    <div>
+      <h3 className="toon-heading flex items-center gap-3 text-2xl md:text-[1.7rem]">
+        {heading} <span aria-hidden="true" className="h-1 w-8 rounded bg-white" />
+      </h3>
+      <ol className="mt-6 space-y-6 border-l-2 border-dashed border-toon-line pl-7">
+        {items.map(item => (
+          <li key={item.title + item.date} className="relative">
+            <span aria-hidden="true" className="absolute -left-[41px] top-0 flex h-6 w-6 items-center justify-center rounded-full border-2 border-toon-line bg-toon-card">
+              <Sparkle size={12} className="text-toon-orange" fill="currentColor" />
+            </span>
+            <p className="font-tech text-sm font-bold uppercase tracking-wide text-toon-blue">{item.date}</p>
+            <p className="mt-0.5 font-tech text-lg font-bold leading-snug text-white">{item.title}</p>
+            <p className="font-tech text-[15px] leading-snug text-toon-muted">{item.org}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  );
+}
 
-type SkillItem = { name: string; src?: string; icon?: React.ReactNode };
-
-const experiences = [
-  {
-    date: 'Current',
-    title: 'Unreal Engine Intern (R&D)',
-    company: 'R&D City University of Science and Information Technology',
-  },
-  {
-    date: 'JAN 2026 - MAR 2026',
-    title: 'DG ISPR',
-    company: 'Army Public School & College System, Peshawar',
-  },
-  {
-    date: 'JUL 2025 - AUG 2025',
-    title: 'App Development (Internship)',
-    company: 'Dev-Spire Solutions',
-  },
-];
-
-const education = [
-  {
-    date: 'Current',
-    title: 'B.Sc. in Software Engineering',
-    school: 'City University of Science and Information Technology, Peshawar',
-  },
-  {
-    date: '2020 - 2022',
-    title: 'F.SC in Computer Science',
-    school: 'Peshawar Model Degree College, Peshawar',
-  },
-  {
-    date: '2019 - 2020',
-    title: 'Matriculation',
-    school: 'Peshawar Model School (BOYS III), Peshawar',
-  },
-];
-
-const certifications = [
-  { date: '2022', title: 'Diploma in Information Technology' },
-  { date: '2023', title: 'NAVTTC Graphic Designing Course' },
-];
-
-const technicalSkills = [
-  { name: 'UNREAL ENGINE', color: 'blue' },
-  { name: 'GAME DESIGN', color: 'white' },
-  { name: 'TECH ART', color: 'orange' },
-  { name: 'CI/CD PIPELINES', color: 'blue' },
-];
-
-const softSkills = [
-  { name: 'FAST LEARNER', color: 'blue' },
-  { name: 'PROBLEM SOLVER', color: 'blue' },
-  { name: 'SYSTEMS THINKING', color: 'white' },
-];
-
-const coreArsenal: SkillItem[] = [
-  { name: 'Unreal Engine', src: '/core/UE.png' },
-  { name: 'C++', src: '/core/Cpp.svg' },
-  { name: 'Blueprints', icon: '🔵' },
-  { name: 'Blender', src: '/core/Blender.svg' },
-  { name: 'Dart', src: '/core/Dart.svg' },
-  { name: 'Flutter', src: '/core/Flutter.svg' },
-];
-
-const secondarySkills: SkillItem[] = [
-  { name: 'Docker', src: '/core/Dcoker.svg' },
-  { name: 'Linux', src: '/core/linux.svg' },
-  { name: 'Web', src: '/core/webdevelopment.png' },
-];
+const ticketTone = { blue: 'ticket-blue', white: 'ticket-white', orange: 'ticket-orange' } as const;
+const ticketTilt = ['rotate-[1deg]', '-rotate-[1.5deg]', 'rotate-[2deg]', '-rotate-[1deg]', 'rotate-[1.5deg]'];
 
 export default function Experience() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const cardsRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const section = sectionRef.current;
-    const cards = cardsRef.current;
-    if (!section || !cards) return;
-
-    const cardElements = cards.querySelectorAll('.exp-card');
-    cardElements.forEach((card, i) => {
-      gsap.fromTo(card,
-        { opacity: 0, y: 50 },
-        {
-          opacity: 1, y: 0, duration: 0.8, ease: 'power3.out',
-          scrollTrigger: {
-            trigger: card,
-            start: 'top 85%',
-            toggleActions: 'play none none none',
-          },
-          delay: i * 0.1,
-        }
-      );
-    });
-  }, []);
-
   return (
-    <section ref={sectionRef} id="about" className="relative w-full py-24 px-6">
-      <div ref={cardsRef} className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Experience + Education + Certification Card */}
-        <div className="exp-card liquid-glass rounded-3xl p-6 lg:col-span-1" style={{ opacity: 0 }}>
-          {/* Experience */}
-          <div className="mb-8">
-            <h3 className="text-lg font-bold text-white mb-6 tracking-wide">EXPERIENCE —</h3>
-            <div className="space-y-5">
-              {experiences.map((exp, i) => (
-                <div key={i} className="relative pl-5 border-l border-[#3B82F6]/30">
-                  <Star size={12} className="absolute -left-[7px] top-0 text-[#F97316]" fill="#F97316" />
-                  <p className="text-[10px] text-[#3B82F6] uppercase tracking-wider mb-1">{exp.date}</p>
-                  <h4 className="text-sm font-semibold text-white mb-0.5">{exp.title}</h4>
-                  <p className="text-xs text-[#52525B]">{exp.company}</p>
-                </div>
-              ))}
-            </div>
-          </div>
+    <section id="about" aria-labelledby="about-heading" className="px-4 py-16 md:px-6 md:py-24">
+      <h2 id="about-heading" className="sr-only">About, experience and skills</h2>
+      <div className="mx-auto grid max-w-6xl items-start gap-10 lg:grid-cols-3 lg:gap-8">
+        {/* Experience / education / certification */}
+        <div className="toon-card toon-screws reveal -rotate-[0.6deg] space-y-10 px-7 pb-10 pt-12">
+          <Timeline heading="Experience" items={EXPERIENCE} />
+          <Timeline heading="Education" items={EDUCATION} />
+          <Timeline heading="Certification" items={CERTIFICATIONS} />
+        </div>
 
-          {/* Education */}
-          <div className="mb-8">
-            <h3 className="text-lg font-bold text-white mb-6 tracking-wide">EDUCATION —</h3>
-            <div className="space-y-5">
-              {education.map((edu, i) => (
-                <div key={i} className="relative pl-5 border-l border-[#3B82F6]/30">
-                  <Star size={12} className="absolute -left-[7px] top-0 text-[#F97316]" fill="#F97316" />
-                  <p className="text-[10px] text-[#3B82F6] uppercase tracking-wider mb-1">{edu.date}</p>
-                  <h4 className="text-sm font-semibold text-white mb-0.5">{edu.title}</h4>
-                  <p className="text-xs text-[#52525B]">{edu.school}</p>
-                </div>
+        {/* Focus areas as a chain of tickets */}
+        <div className="toon-card toon-screws reveal rotate-[0.6deg] px-7 pb-10 pt-12" style={{ transitionDelay: '100ms' }}>
+          <h3 className="toon-heading text-center text-3xl leading-tight">Technical<br />Skills</h3>
+          <div className="mt-8 flex flex-col items-center">
+            <span aria-hidden="true" className="h-4 w-4 rounded-full border-[3px] border-toon-blue" />
+            <ul className="w-full">
+              {FOCUS_AREAS.map((f, i) => (
+                <li key={f.name} className="flex flex-col items-center">
+                  <span aria-hidden="true" className="h-7 border-l-2 border-dashed border-toon-line" />
+                  <div className={`ticket ${ticketTone[f.tone]} ${ticketTilt[i % ticketTilt.length]} w-[92%]`}>
+                    {f.name}
+                  </div>
+                </li>
               ))}
-            </div>
+            </ul>
+            <span aria-hidden="true" className="h-7 border-l-2 border-dashed border-toon-line" />
+            <span aria-hidden="true" className="h-4 w-4 rounded-full border-[3px] border-toon-blue" />
           </div>
+        </div>
 
-          {/* Certification */}
+        {/* Tool belt */}
+        <div className="reveal flex flex-col justify-center gap-14 py-4 lg:self-center" style={{ transitionDelay: '200ms' }}>
           <div>
-            <h3 className="text-lg font-bold text-white mb-6 tracking-wide">CERTIFICATION —</h3>
-            <div className="space-y-5">
-              {certifications.map((cert, i) => (
-                <div key={i} className="relative pl-5 border-l border-[#3B82F6]/30">
-                  <Star size={12} className="absolute -left-[7px] top-0 text-[#F97316]" fill="#F97316" />
-                  <p className="text-[10px] text-[#3B82F6] uppercase tracking-wider mb-1">{cert.date}</p>
-                  <h4 className="text-sm font-semibold text-white">{cert.title}</h4>
-                </div>
+            <h3 className="toon-heading text-center text-3xl">Core Arsenal</h3>
+            <ul className="mt-7 flex flex-wrap justify-center gap-x-4 gap-y-5">
+              {CORE_SKILLS.map(s => (
+                <li key={s.name} className="flex w-[76px] flex-col items-center gap-2">
+                  <span className="flex h-16 w-16 items-center justify-center rounded-2xl border-b-[5px] border-amber-200/70 bg-[#fef9e7] shadow-pop transition-transform hover:-translate-y-1">
+                    <SkillIcon icon={s.icon} badge={s.badge} className="h-8 w-8 text-2xl" />
+                  </span>
+                  <span className="text-center font-tech text-sm font-bold leading-tight text-white">{s.name}</span>
+                </li>
               ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Technical Skills Card */}
-        <div className="exp-card liquid-glass rounded-3xl px-4 py-3 lg:col-span-1" style={{ opacity: 0 }}>
-          <h3 className="text-lg font-bold text-white mb-3 tracking-wide text-center">TECHNICAL SKILLS</h3>
-          <div className="space-y-2">
-            {technicalSkills.map((skill, i) => (
-              <div
-                key={i}
-                className={`py-2 px-3 text-center font-semibold text-xs tracking-wider ${
-                  skill.color === 'blue'
-                    ? 'ticket-badge text-[#3B82F6]'
-                    : skill.color === 'orange'
-                    ? 'ticket-badge-orange text-[#F97316]'
-                    : 'bg-white/5 border border-white/10 text-white clip-path-ticket'
-                }`}
-                style={skill.color === 'white' ? {
-                  clipPath: 'polygon(8px 0%, calc(100% - 8px) 0%, 100% 8px, 100% calc(100% - 8px), calc(100% - 8px) 100%, 8px 100%, 0% calc(100% - 8px), 0% 8px)',
-                } : undefined}
-              >
-                {skill.name}
-              </div>
-            ))}
+            </ul>
           </div>
 
-          <div className="mt-3">
-            <h3 className="text-lg font-bold text-white mb-2 tracking-wide text-center">SOFT SKILLS</h3>
-            <div className="space-y-2">
-              {softSkills.map((skill, i) => (
-                <div
-                  key={i}
-                  className={`py-2 px-3 text-center font-semibold text-xs tracking-wider ${
-                    skill.color === 'blue'
-                      ? 'ticket-badge text-[#3B82F6]'
-                      : 'bg-white/5 border border-white/10 text-white'
-                  }`}
-                  style={skill.color === 'white' ? {
-                    clipPath: 'polygon(8px 0%, calc(100% - 8px) 0%, 100% 8px, 100% calc(100% - 8px), calc(100% - 8px) 100%, 8px 100%, 0% calc(100% - 8px), 0% 8px)',
-                  } : undefined}
-                >
-                  {skill.name}
-                </div>
+          <div>
+            <h3 className="toon-heading text-center text-2xl md:text-3xl">Secondary Tools</h3>
+            <ul className="mt-7 flex flex-wrap justify-center gap-x-3 gap-y-4">
+              {SECONDARY_SKILLS.map(s => (
+                <li key={s.name} className="flex w-[60px] flex-col items-center gap-1.5">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-xl border-2 border-toon-line bg-toon-card shadow-pop transition-transform hover:-translate-y-1">
+                    <SkillIcon icon={s.icon} badge={s.badge} surface="dark" className="h-6 w-6" />
+                  </span>
+                  <span className="text-center font-tech text-xs font-semibold text-slate-400">{s.name}</span>
+                </li>
               ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Core Arsenal + Secondary Skills */}
-        <div className="exp-card space-y-6 lg:col-span-1" style={{ opacity: 0 }}>
-          <div className="liquid-glass rounded-3xl p-6">
-            <h3 className="text-lg font-bold text-white mb-6 tracking-wide text-center">CORE ARSENAL</h3>
-            <div className="grid grid-cols-3 gap-4">
-              {coreArsenal.map((tool, i) => (
-                <div key={i} className="flex flex-col items-center gap-2 group">
-                  <div className="w-14 h-14 rounded-xl bg-[#0A0A0C] border border-[#1f1f23] flex items-center justify-center text-2xl group-hover:border-[#3B82F6]/50 transition-colors duration-300">
-                      {tool.src ? (
-                        // eslint-disable-next-line @next/next/no-img-element
-                        <img
-                          src={tool.src ? encodeURI(tool.src) : undefined}
-                          alt={tool.name}
-                          title={tool.name}
-                          className="w-8 h-8 object-contain"
-                          onError={(e) => {
-                            // hide broken images and log for debugging
-                            // eslint-disable-next-line no-console
-                            console.warn('Failed to load image:', (e.currentTarget as HTMLImageElement).src);
-                            (e.currentTarget as HTMLImageElement).style.display = 'none';
-                          }}
-                        />
-                      ) : (
-                        tool.icon
-                      )}
-                  </div>
-                  <span className="text-[10px] text-[#52525B] uppercase tracking-wider">{tool.name}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="liquid-glass rounded-3xl p-6">
-            <h3 className="text-lg font-bold text-white mb-6 tracking-wide text-center">SECONDARY SKILLS</h3>
-            <div className="grid grid-cols-4 gap-3">
-              {secondarySkills.map((tool, i) => (
-                <div key={i} className="flex flex-col items-center gap-2 group">
-                  <div className="w-12 h-12 rounded-xl bg-[#0A0A0C] border border-[#1f1f23] flex items-center justify-center text-xl group-hover:border-[#3B82F6]/50 transition-colors duration-300">
-                    {tool.src ? (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img
-                        src={tool.src ? encodeURI(tool.src) : undefined}
-                        alt={tool.name}
-                        title={tool.name}
-                        className="w-8 h-8 object-contain"
-                        onError={(e) => {
-                          // eslint-disable-next-line no-console
-                          console.warn('Failed to load image:', (e.currentTarget as HTMLImageElement).src);
-                          (e.currentTarget as HTMLImageElement).style.display = 'none';
-                        }}
-                      />
-                    ) : (
-                      tool.icon
-                    )}
-                  </div>
-                  <span className="text-[9px] text-[#52525B] uppercase tracking-wider text-center">{tool.name}</span>
-                </div>
-              ))}
-            </div>
+            </ul>
           </div>
         </div>
       </div>

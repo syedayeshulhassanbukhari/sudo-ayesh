@@ -1,172 +1,207 @@
-import { useState, useRef, useEffect } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ExternalLink } from 'lucide-react';
+import { useMemo, useState } from 'react';
+import { Link } from 'react-router';
+import { ArrowRight, ExternalLink, List, GitCommitVertical } from 'lucide-react';
+import { PROJECTS, PROJECT_CATEGORIES, projectsSorted, type Project, type ProjectLink } from '@/data/portfolio';
+import { ProjectArt } from '@/components/ProjectArt';
+import { useReveal } from '@/hooks/useReveal';
 
-gsap.registerPlugin(ScrollTrigger);
+type Filter = (typeof PROJECT_CATEGORIES)[number];
+type View = 'list' | 'timeline';
 
-type Category = 'All' | 'Game AI & Systems' | 'Gameplay & Jams' | 'Tools & ML';
+const statusStyle: Record<string, string> = {
+  Wishlist: 'border-sky-400/60 bg-sky-400/10 text-sky-200',
+  'In Development': 'border-amber-400/60 bg-amber-400/10 text-amber-200',
+  Live: 'border-emerald-400/60 bg-emerald-400/10 text-emerald-200',
+  Shipped: 'border-emerald-400/60 bg-emerald-400/10 text-emerald-200',
+  Completed: 'border-slate-400/60 bg-slate-400/10 text-slate-200',
+};
 
-interface Project {
-  title: string;
-  status: string;
-  statusColor: string;
-  description: string;
-  image: string;
-  tags: string[];
-  category: Category;
-  link?: string;
+const linkStyle: Record<ProjectLink['kind'], string> = {
+  play: 'btn-orange',
+  site: 'btn-orange',
+  store: 'btn-blue',
+  devlog: 'btn-blue',
+  video: 'bg-red-600 text-white border-red-800',
+  code: 'btn-ghost',
+};
+
+export function StatusChip({ project }: { project: Project }) {
+  if (!project.status) return null;
+  return (
+    <span className={`chip ${statusStyle[project.status]}`}>
+      <span aria-hidden="true" className="h-2 w-2 rounded-full bg-current" />
+      {project.status}
+    </span>
+  );
 }
 
-const projects: Project[] = [
-  {
-    title: 'Unwanted Guest',
-    status: 'IN DEVELOPMENT',
-    statusColor: 'bg-[#52525B]',
-    description: 'Professional Internship: Engineered highly modular core gameplay mechanics, AI behaviors, and interactive environment systems for an unannounced horror title.',
-    image: '/image-project-unwanted-guest.jpg',
-    tags: ['Unity', 'C#', 'AI State Machines', 'System Architecture'],
-    category: 'Game AI & Systems',
-  },
-  {
-    title: 'Locked In Fear',
-    status: 'COMPLETED',
-    statusColor: 'bg-emerald-500',
-    description: 'Locked In Fear is an immersive horror experience that challenges your ability to stay calm under pressure.',
-    image: '/projectImages/5.png',
-    tags: ['Godot', 'Horror', 'Interactive'],
-    category: 'Gameplay & Jams',
-    link: 'https://lockedinfear.me/html/index.html',
-  },
-];
+export function ProjectLinks({ project, size = 'md' }: { project: Project; size?: 'sm' | 'md' }) {
+  return (
+    <>
+      {project.links.map(l => (
+        <a
+          key={l.url}
+          href={l.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`btn-toon ${linkStyle[l.kind]} ${size === 'sm' ? 'px-4 py-2 text-xs' : ''}`}
+        >
+          {l.label} <ExternalLink size={14} aria-hidden="true" />
+        </a>
+      ))}
+    </>
+  );
+}
 
-const categories: Category[] = ['All', 'Game AI & Systems'];
+function ProjectRow({ project }: { project: Project }) {
+  const href = `/project/${project.slug}`;
+  return (
+    <article className="toon-card toon-screws reveal group grid gap-6 p-4 pt-9 md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] md:p-6 md:pt-9">
+      <Link to={href} className="block aspect-video overflow-hidden rounded-xl border-2 border-[#1e3a8a]" tabIndex={-1} aria-hidden="true">
+        <ProjectArt project={project} className="transition-transform duration-500 group-hover:scale-105" />
+      </Link>
 
-export default function Projects() {
-  const [activeCategory, setActiveCategory] = useState<Category>('All');
-  const [visibleCount, setVisibleCount] = useState(3);
-  const sectionRef = useRef<HTMLElement>(null);
-  const gridRef = useRef<HTMLDivElement>(null);
+      <div className="flex flex-col">
+        <div className="flex flex-wrap items-center gap-2">
+          <StatusChip project={project} />
+          {project.categories.map(c => (
+            <span key={c} className="chip">{c}</span>
+          ))}
+          <span className="rounded-md border border-toon-line px-2.5 py-1 font-mono text-xs text-slate-300">{project.period}</span>
+        </div>
 
-  const filteredProjects = activeCategory === 'All'
-    ? projects
-    : projects.filter(p => p.category === activeCategory);
+        <h3 className="mt-3 font-display text-2xl leading-tight text-white md:text-3xl">
+          <Link to={href} className="hover:text-toon-orange focus-visible:text-toon-orange">
+            {project.title}
+          </Link>
+        </h3>
+        <p className="mt-1 font-mono text-xs uppercase tracking-widest text-toon-orange">
+          {project.kind} · {project.role}
+        </p>
+        <p className="mt-3 font-tech text-[17px] leading-relaxed text-slate-300">{project.summary}</p>
 
-  const visibleProjects = filteredProjects.slice(0, visibleCount);
+        <div className="mt-auto flex flex-wrap items-end justify-between gap-4 pt-5">
+          <ul className="flex flex-wrap gap-2" aria-label="Tech">
+            {project.tags.slice(0, 5).map(t => <li key={t} className="tag">#{t}</li>)}
+          </ul>
+          <div className="flex flex-wrap gap-3">
+            <ProjectLinks project={project} size="sm" />
+            <Link to={href} className="btn-toon btn-ghost px-4 py-2 text-xs" aria-label={`Details about ${project.title}`}>
+              Details <ArrowRight size={14} aria-hidden="true" />
+            </Link>
+          </div>
+        </div>
+      </div>
+    </article>
+  );
+}
 
-  useEffect(() => {
-    const grid = gridRef.current;
-    if (!grid) return;
-
-    const cards = grid.querySelectorAll('.project-card');
-    cards.forEach((card, i) => {
-      gsap.fromTo(card,
-        { opacity: 0, y: 40, scale: 0.95 },
-        {
-          opacity: 1, y: 0, scale: 1, duration: 0.6, ease: 'power3.out',
-          scrollTrigger: {
-            trigger: card,
-            start: 'top 90%',
-            toggleActions: 'play none none none',
-          },
-          delay: i * 0.1,
-        }
-      );
-    });
-  }, [activeCategory, visibleCount]);
+function TimelineView({ projects }: { projects: Project[] }) {
+  const byYear = useMemo(() => {
+    const groups = new Map<string, Project[]>();
+    for (const p of projects) {
+      const y = p.sortKey.slice(0, 4);
+      groups.set(y, [...(groups.get(y) ?? []), p]);
+    }
+    return [...groups.entries()];
+  }, [projects]);
 
   return (
-    <section ref={sectionRef} id="projects" className="relative w-full py-24 px-6">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl lg:text-5xl font-bold text-white inline-block mr-4">PROJECTS</h2>
-          <span className="text-[#F97316] text-sm uppercase tracking-widest font-medium border border-[#F97316]/30 px-4 py-2 rounded-full">Recent Work</span>
+    <div className="relative mx-auto max-w-4xl">
+      <span aria-hidden="true" className="absolute bottom-0 left-4 top-0 border-l-4 border-dashed border-toon-line md:left-1/2 md:-translate-x-1/2" />
+      {byYear.map(([year, items]) => (
+        <div key={year} className="relative pb-6">
+          <div className="relative z-10 mb-8 flex md:justify-center">
+            <span className="rounded-xl border-4 border-toon-card bg-toon-orange px-4 py-1 font-display text-xl text-white shadow-pop">{year}</span>
+          </div>
+          <ol className="space-y-10">
+            {items.map((p, i) => (
+              <li key={p.slug} className={`reveal relative pl-12 md:w-1/2 md:pl-0 ${i % 2 ? 'md:ml-auto md:pl-10' : 'md:pr-10'}`}>
+                <span
+                  aria-hidden="true"
+                  className={`absolute left-[7px] top-6 h-6 w-6 rounded-full border-4 border-toon-card bg-toon-blue md:left-auto ${i % 2 ? 'md:-left-3' : 'md:-right-3'}`}
+                />
+                <Link to={`/project/${p.slug}`} className="toon-card group block overflow-hidden p-0 transition-transform hover:-translate-y-1">
+                  <div className="aspect-[2/1] overflow-hidden border-b-4 border-toon-blue">
+                    <ProjectArt project={p} className="transition-transform duration-500 group-hover:scale-105" />
+                  </div>
+                  <div className="p-5">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <StatusChip project={p} />
+                      <span className="font-mono text-xs text-slate-400">{p.period}</span>
+                    </div>
+                    <h3 className="mt-2 font-display text-xl text-white group-hover:text-toon-orange">{p.title}</h3>
+                    <p className="mt-1 font-tech text-[15px] leading-snug text-slate-300">{p.summary}</p>
+                  </div>
+                </Link>
+              </li>
+            ))}
+          </ol>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+export default function Projects() {
+  const [filter, setFilter] = useState<Filter>('All');
+  const [view, setView] = useState<View>('list');
+  const shown = useMemo(() => {
+    const all = view === 'list' ? PROJECTS : projectsSorted();
+    return filter === 'All' ? all : all.filter(p => p.categories.includes(filter));
+  }, [filter, view]);
+  useReveal([filter, view]);
+
+  return (
+    <section id="projects" aria-labelledby="projects-heading" className="px-4 py-16 md:px-6 md:py-24">
+      <div className="mx-auto max-w-6xl">
+        <div className="flex flex-wrap items-end justify-between gap-6">
+          <div>
+            <h2 id="projects-heading" className="toon-heading text-5xl md:text-7xl">Projects</h2>
+            <p className="mt-2 font-tech text-lg font-bold uppercase tracking-[0.2em] text-toon-blue">Games, tools &amp; client work</p>
+          </div>
+          <div role="group" aria-label="View" className="flex gap-2">
+            {([['list', 'List View', List], ['timeline', 'Timeline', GitCommitVertical]] as const).map(([v, label, Icon]) => (
+              <button
+                key={v}
+                type="button"
+                onClick={() => setView(v)}
+                aria-pressed={view === v}
+                className={`flex items-center gap-2 rounded-full border-[3px] px-5 py-2 font-display text-sm uppercase transition-colors ${
+                  view === v ? 'border-toon-blue bg-toon-blue text-white' : 'border-toon-line bg-toon-card text-slate-300 hover:border-toon-blue'
+                }`}
+              >
+                <Icon size={16} aria-hidden="true" /> {label}
+              </button>
+            ))}
+          </div>
         </div>
 
-        {/* Filter Buttons */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
-          {categories.map((cat) => (
+        <div role="group" aria-label="Filter projects" className="mt-8 flex flex-wrap gap-3">
+          {PROJECT_CATEGORIES.map(c => (
             <button
-              key={cat}
-              onClick={() => {
-                setActiveCategory(cat);
-                setVisibleCount(3);
-              }}
-              className={`px-5 py-2.5 rounded-lg text-xs font-semibold tracking-wider uppercase transition-all duration-300 ${
-                activeCategory === cat
-                  ? 'bg-[#F97316] text-white'
-                  : 'bg-[#0A0A0C] border border-[#1f1f23] text-[#52525B] hover:text-white hover:border-[#3B82F6]/50'
+              key={c}
+              type="button"
+              onClick={() => setFilter(c)}
+              aria-pressed={filter === c}
+              className={`rounded-full border-[3px] px-5 py-2 font-tech text-base font-bold transition-colors ${
+                filter === c ? 'border-toon-blue bg-toon-blue text-white' : 'border-toon-line bg-toon-card text-slate-300 hover:border-toon-blue hover:text-white'
               }`}
             >
-              {cat}
+              {c}
             </button>
           ))}
         </div>
 
-        {/* Project Grid */}
-        <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {visibleProjects.map((project, i) => (
-            <div
-              key={`${activeCategory}-${i}`}
-              className="project-card liquid-glass rounded-2xl overflow-hidden group hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-500"
-              style={{ opacity: 0 }}
-            >
-              {/* Image */}
-              <div className="relative aspect-video overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0C] via-transparent to-transparent" />
-                <span className={`absolute top-3 right-3 ${project.statusColor} text-[10px] font-bold text-white px-3 py-1 rounded-full uppercase tracking-wider`}>
-                  {project.status}
-                </span>
-              </div>
-
-              {/* Content */}
-              <div className="p-5">
-                <h3 className="text-lg font-bold text-[#3B82F6] mb-2">{project.title}</h3>
-                <p className="text-sm text-[#A1A1AA] leading-relaxed mb-4">{project.description}</p>
-
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map((tag, j) => (
-                    <span key={j} className="text-[10px] text-[#52525B] bg-[#0A0A0C] px-2.5 py-1 rounded-full border border-[#1f1f23]">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Link */}
-                {project.link && (
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-xs font-bold text-white bg-red-500 hover:bg-red-600 px-4 py-2.5 rounded-lg transition-colors duration-300 w-full justify-center"
-                  >
-                    <ExternalLink size={14} />
-                    PLAY
-                  </a>
-                )}
-              </div>
+        <div className="mt-10">
+          {view === 'list' ? (
+            <div className="space-y-8">
+              {shown.map(p => <ProjectRow key={p.slug} project={p} />)}
             </div>
-          ))}
+          ) : (
+            <TimelineView projects={shown} />
+          )}
         </div>
-
-        {/* Show More */}
-        {visibleCount < filteredProjects.length && (
-          <div className="text-center mt-10">
-            <button
-              onClick={() => setVisibleCount(prev => prev + 3)}
-              className="px-8 py-3 bg-[#0A0A0C] border border-[#1f1f23] text-white text-xs font-bold uppercase tracking-widest rounded-xl hover:border-[#3B82F6]/50 hover:text-[#3B82F6] transition-all duration-300"
-            >
-              SHOW MORE ({filteredProjects.length - visibleCount})
-            </button>
-          </div>
-        )}
       </div>
     </section>
   );

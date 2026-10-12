@@ -4,7 +4,28 @@ module.exports = {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      fontFamily: {
+        display: ['"Bungee"', 'system-ui', 'sans-serif'],
+        sans: ['"Lexend"', 'system-ui', 'sans-serif'],
+        tech: ['"Rajdhani"', 'system-ui', 'sans-serif'],
+        mono: ['"Share Tech Mono"', 'ui-monospace', 'monospace'],
+        script: ['"Caveat"', 'cursive'],
+        hand: ['"Patrick Hand"', 'cursive'],
+      },
       colors: {
+        toon: {
+          blue: '#3b82f6',
+          'blue-dark': '#1d4ed8',
+          orange: '#f97316',
+          'orange-dark': '#c2410c',
+          yellow: '#fde047',
+          bg: '#1e293b',
+          card: '#0f172a',
+          deep: '#151c28',
+          text: '#f8fafc',
+          muted: '#94a3b8',
+          line: '#334155',
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -58,6 +79,8 @@ module.exports = {
       },
       boxShadow: {
         xs: "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+        pop: "4px 4px 0 0 rgba(0,0,0,0.55)",
+        'pop-lg': "8px 8px 0 0 rgba(0,0,0,0.55)",
       },
       keyframes: {
         "accordion-down": {

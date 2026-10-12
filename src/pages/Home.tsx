@@ -1,20 +1,24 @@
-import { useState } from 'react'
-import '../App.css'
+import { useMemo } from 'react';
+import Hero from '@/sections/Hero';
+import Experience from '@/sections/Experience';
+import Projects from '@/sections/Projects';
+import Logbook from '@/sections/Logbook';
+import Contact from '@/sections/Contact';
+import { useReveal } from '@/hooks/useReveal';
+import { useDocumentMeta } from '@/hooks/useDocumentMeta';
+import { homeMeta } from '@/seo/meta';
 
 export default function Home() {
-  const [count, setCount] = useState(0)
+  useDocumentMeta(useMemo(() => homeMeta(), []));
+  useReveal();
 
   return (
     <>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
+      <Hero />
+      <Experience />
+      <Projects />
+      <Logbook />
+      <Contact />
     </>
-  )
+  );
 }
