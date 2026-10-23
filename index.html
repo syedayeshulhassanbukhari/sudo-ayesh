@@ -3,6 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- The site is dark already: tell browsers, and stop dark-mode extensions from recolouring it. -->
+    <meta name="color-scheme" content="dark" />
+    <meta name="darkreader-lock" />
+    <!-- Lets CSS hide scroll-reveal content only when JS is there to reveal it again. -->
+    <script>document.documentElement.classList.add('js')</script>
     <!-- seo:head --><!-- /seo:head -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -10,7 +15,6 @@
   </head>
   <body>
     <div id="root"></div>
-    <!-- seo:body --><!-- /seo:body -->
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

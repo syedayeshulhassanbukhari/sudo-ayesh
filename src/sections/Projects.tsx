@@ -3,7 +3,9 @@ import { Link } from 'react-router';
 import { ArrowRight, ExternalLink, List, GitCommitVertical } from 'lucide-react';
 import { PROJECTS, PROJECT_CATEGORIES, projectsSorted, type Project, type ProjectLink } from '@/data/portfolio';
 import { ProjectArt } from '@/components/ProjectArt';
+import { SplitHeading } from '@/components/SplitHeading';
 import { useReveal } from '@/hooks/useReveal';
+import { usePointerTilt } from '@/hooks/usePointerTilt';
 
 type Filter = (typeof PROJECT_CATEGORIES)[number];
 type View = 'list' | 'timeline';
@@ -53,12 +55,17 @@ export function ProjectLinks({ project, size = 'md' }: { project: Project; size?
   );
 }
 
-function ProjectRow({ project }: { project: Project }) {
+function ProjectRow({ project, index }: { project: Project; index: number }) {
   const href = `/project/${project.slug}`;
+  const tilt = usePointerTilt<HTMLAnchorElement>();
   return (
-    <article className="toon-card toon-screws reveal group grid gap-6 p-4 pt-9 md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] md:p-6 md:pt-9">
-      <Link to={href} className="block aspect-video overflow-hidden rounded-xl border-2 border-[#1e3a8a]" tabIndex={-1} aria-hidden="true">
+    <article
+      className="toon-card toon-screws reveal group grid gap-6 p-4 pt-9 md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] md:p-6 md:pt-9"
+      data-reveal={index % 2 ? 'right' : 'left'}
+    >
+      <Link ref={tilt} to={href} className="tilt relative block aspect-video overflow-hidden rounded-xl border-2 border-[#1e3a8a]" tabIndex={-1} aria-hidden="true">
         <ProjectArt project={project} className="transition-transform duration-500 group-hover:scale-105" />
+        <span className="tilt-glare" />
       </Link>
 
       <div className="flex flex-col">
@@ -116,7 +123,11 @@ function TimelineView({ projects }: { projects: Project[] }) {
           </div>
           <ol className="space-y-10">
             {items.map((p, i) => (
-              <li key={p.slug} className={`reveal relative pl-12 md:w-1/2 md:pl-0 ${i % 2 ? 'md:ml-auto md:pl-10' : 'md:pr-10'}`}>
+              <li
+                key={p.slug}
+                className={`reveal relative pl-12 md:w-1/2 md:pl-0 ${i % 2 ? 'md:ml-auto md:pl-10' : 'md:pr-10'}`}
+                data-reveal={i % 2 ? 'right' : 'left'}
+              >
                 <span
                   aria-hidden="true"
                   className={`absolute left-[7px] top-6 h-6 w-6 rounded-full border-4 border-toon-card bg-toon-blue md:left-auto ${i % 2 ? 'md:-left-3' : 'md:-right-3'}`}
@@ -157,7 +168,7 @@ export default function Projects() {
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
-            <h2 id="projects-heading" className="toon-heading text-5xl md:text-7xl">Projects</h2>
+            <SplitHeading id="projects-heading" text="Projects" className="toon-heading text-5xl md:text-7xl" />
             <p className="mt-2 font-tech text-lg font-bold uppercase tracking-[0.2em] text-toon-blue">Games, tools &amp; client work</p>
           </div>
           <div role="group" aria-label="View" className="flex gap-2">
@@ -196,7 +207,7 @@ export default function Projects() {
         <div className="mt-10">
           {view === 'list' ? (
             <div className="space-y-8">
-              {shown.map(p => <ProjectRow key={p.slug} project={p} />)}
+              {shown.map((p, i) => <ProjectRow key={p.slug} project={p} index={i} />)}
             </div>
           ) : (
             <TimelineView projects={shown} />

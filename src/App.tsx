@@ -1,15 +1,23 @@
-import { BrowserRouter, Routes, Route } from 'react-router';
+import { Routes, Route, useLocation } from 'react-router';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import ScrollManager from './components/ScrollManager';
+import ScrollProgress from './components/ScrollProgress';
 import Home from './pages/Home';
 import ProjectPage from './pages/ProjectPage';
 import NotFound from './pages/NotFound';
+import { useSmoothScroll } from './hooks/useSmoothScroll';
 
+// Everything inside the router. main.tsx wraps it in a BrowserRouter, and
+// src/entry-server.tsx in a StaticRouter to pre-render each page at build time.
 export default function App() {
+  const { pathname } = useLocation();
+  useSmoothScroll();
+
   return (
-    <BrowserRouter basename={import.meta.env.BASE_URL}>
+    <>
       <ScrollManager />
+      <ScrollProgress />
       <div className="relative min-h-screen overflow-x-hidden">
         <a
           href="#main"
@@ -18,7 +26,8 @@ export default function App() {
           Skip to content
         </a>
         <Navigation />
-        <main id="main">
+        {/* Keyed by route so each page plays the enter animation */}
+        <main id="main" key={pathname} className="page-enter">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/project/:slug" element={<ProjectPage />} />
@@ -27,6 +36,6 @@ export default function App() {
         </main>
         <Footer />
       </div>
-    </BrowserRouter>
+    </>
   );
 }

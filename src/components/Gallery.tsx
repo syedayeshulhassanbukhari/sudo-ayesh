@@ -44,6 +44,7 @@ export function Gallery({ shots, title }: { shots: Shot[]; title: string }) {
 
       <dialog
         ref={dialogRef}
+        data-lenis-prevent
         onClick={e => e.target === dialogRef.current && dialogRef.current?.close()}
         onKeyDown={e => {
           if (e.key === 'ArrowRight') step(1);

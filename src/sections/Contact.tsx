@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Mail, Phone, Github, Linkedin, Gamepad2, BriefcaseBusiness, Send } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import { PROFILE } from '@/data/portfolio';
+import { SplitHeading } from '@/components/SplitHeading';
 
 // EmailJS credentials (see SETUP_EMAILJS.md). The public key is meant to be public.
 const EMAILJS = {
@@ -52,7 +53,7 @@ export default function Contact() {
     <section id="contact" aria-labelledby="contact-heading" className="px-4 py-16 md:px-6 md:py-24">
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-wrap items-center justify-center gap-3">
-          <h2 id="contact-heading" className="toon-heading text-4xl md:text-6xl">Get in touch</h2>
+          <SplitHeading id="contact-heading" text="Get in touch" className="toon-heading text-4xl md:text-6xl" />
           <span className="rounded-full border-2 border-toon-orange/40 px-4 py-1 font-tech text-lg font-bold uppercase tracking-[0.2em] text-toon-orange">
             Contact me
           </span>

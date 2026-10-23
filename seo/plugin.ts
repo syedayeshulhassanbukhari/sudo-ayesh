@@ -1,19 +1,18 @@
-// Build-time SEO: injects meta tags, JSON-LD and a <noscript> content fallback into index.html,
-// then writes a static HTML page per project plus robots.txt, sitemap.xml, llms.txt,
-// site.webmanifest and a 404.html SPA fallback into the output directory.
+// Build-time SEO: injects meta tags and JSON-LD into index.html, then writes a static HTML
+// page per project plus robots.txt, sitemap.xml, llms.txt, llms-full.txt, site.webmanifest
+// and a 404.html SPA fallback into the output directory. scripts/prerender.mjs then fills
+// each page's <div id="root"> with the server-rendered app.
 import fs from 'node:fs';
 import path from 'node:path';
 import type { Plugin, ResolvedConfig } from 'vite';
 import { SITE, PROFILE, PROJECTS } from '../src/data/portfolio';
 import {
-  homeMeta, projectMeta, renderHead, renderNoscript, renderLlmsTxt, absUrl, projectPath,
+  homeMeta, projectMeta, renderHead, renderLlmsTxt, renderLlmsFullTxt, absUrl, projectPath,
 } from '../src/seo/meta';
 
 const HEAD_RE = /<!-- seo:head -->[\s\S]*?<!-- \/seo:head -->/;
-const BODY_RE = /<!-- seo:body -->[\s\S]*?<!-- \/seo:body -->/;
 
 const head = (html: string) => `<!-- seo:head -->\n    ${html}\n    <!-- /seo:head -->`;
-const body = (html: string) => `<!-- seo:body -->\n    ${html}\n    <!-- /seo:body -->`;
 
 export function seoPlugin(): Plugin {
   let config: ResolvedConfig;
@@ -26,13 +25,12 @@ export function seoPlugin(): Plugin {
     },
 
     transformIndexHtml(html) {
-      return html
-        .replace(HEAD_RE, head(renderHead(homeMeta())))
-        .replace(BODY_RE, body(renderNoscript({})));
+      return html.replace(HEAD_RE, head(renderHead(homeMeta())));
     },
 
     closeBundle() {
-      if (config.command !== 'build') return;
+      // Skip the SSR bundle pass (vite build --ssr), which has no index.html.
+      if (config.command !== 'build' || config.build.ssr) return;
       const out = path.resolve(config.root, config.build.outDir);
       const indexHtml = fs.readFileSync(path.join(out, 'index.html'), 'utf8');
       const write = (rel: string, content: string) => {
@@ -44,9 +42,7 @@ export function seoPlugin(): Plugin {
       // One static page per project so each has its own title/description/OG/JSON-LD
       // and works as a direct link on GitHub Pages.
       for (const p of PROJECTS) {
-        const html = indexHtml
-          .replace(HEAD_RE, head(renderHead(projectMeta(p))))
-          .replace(BODY_RE, body(renderNoscript({ project: p })));
+        const html = indexHtml.replace(HEAD_RE, head(renderHead(projectMeta(p))));
         write(path.join(projectPath(p.slug), 'index.html'), html);
       }
 
@@ -99,6 +95,7 @@ export function seoPlugin(): Plugin {
       ].join('\n'));
 
       write('llms.txt', renderLlmsTxt());
+      write('llms-full.txt', renderLlmsFullTxt());
 
       write('site.webmanifest', JSON.stringify({
         name: `${PROFILE.name} | ${PROFILE.handle}`,

@@ -2,7 +2,7 @@
 // and seo/plugin.ts (static HTML generated at build time).
 import {
   SITE, PROFILE, EXPERIENCE, EDUCATION, CERTIFICATIONS, CORE_SKILLS, SECONDARY_SKILLS,
-  MILESTONES, KEYWORDS, PROJECTS, type Project,
+  MILESTONES, KEYWORDS, PROJECTS, SERVICES, FAQS, type Project,
 } from '../data/portfolio';
 
 export interface PageMeta {
@@ -31,8 +31,23 @@ const person = () => ({
   description: PROFILE.summary,
   address: { '@type': 'PostalAddress', addressLocality: 'Peshawar', addressCountry: 'PK' },
   knowsAbout: [...CORE_SKILLS, ...SECONDARY_SKILLS].map(s => s.name)
-    .concat(['Gameplay Programming', 'NPC AI', 'Stealth Mechanics', 'VFX', 'UI/UX', 'Level Design']),
+    .concat(['Gameplay Programming', 'NPC AI', 'Stealth Mechanics', 'VFX', 'UI/UX', 'Level Design',
+      'Roblox Game Development', 'Roblox UI Design', 'Roblox VFX']),
+  knowsLanguage: PROFILE.languages.map(l => ({ '@type': 'Language', name: l.name, alternateName: l.code })),
   sameAs: PROFILE.socials.map(s => s.url),
+  makesOffer: SERVICES.map(s => ({
+    '@type': 'Offer',
+    url: s.url,
+    priceSpecification: { '@type': 'PriceSpecification', minPrice: s.priceFrom, priceCurrency: 'USD' },
+    itemOffered: {
+      '@type': 'Service',
+      name: s.title,
+      description: s.summary,
+      serviceType: s.title,
+      areaServed: 'Worldwide',
+      provider: { '@id': `${absUrl()}#person` },
+    },
+  })),
   alumniOf: [
     { '@type': 'CollegeOrUniversity', name: 'City University of Science and Information Technology, Peshawar' },
     { '@type': 'EducationalOrganization', name: 'Peshawar Model Degree College' },
@@ -67,10 +82,13 @@ const projectSchema = (p: Project) => {
       : { applicationCategory: p.engine === 'Web' ? 'WebApplication' : 'MobileApplication' }),
     operatingSystem: p.engine === 'Roblox Studio' ? 'Roblox' : undefined,
     keywords: p.tags.join(', '),
+    dateCreated: p.sortKey,
     creator: { '@id': `${absUrl()}#person` },
     ...(live ? { sameAs: live.url } : {}),
   };
 };
+
+const buildDate = new Date().toISOString().slice(0, 10);
 
 export function homeMeta(): PageMeta {
   const projects = PROJECTS;
@@ -78,7 +96,7 @@ export function homeMeta(): PageMeta {
     path: '',
     title: `${PROFILE.name} (${PROFILE.handle}) | Game Developer: Unreal Engine 5, Roblox & Unity`,
     description:
-      `Portfolio of ${PROFILE.name}, a game developer from Peshawar working in Unreal Engine 5, Roblox and Unity: gameplay systems, NPC AI, stealth mechanics, VFX and UI/UX. Shipped Locked In Fear (500+ wishlists).`,
+      'Game developer from Peshawar building in Unreal Engine 5, Roblox and Unity: gameplay systems, NPC AI, VFX and UI. Shipped Locked In Fear (500+ wishlists).',
     image: absUrl(SITE.ogImage),
     imageAlt: `${PROFILE.name}, Game Developer`,
     type: 'website',
@@ -89,7 +107,17 @@ export function homeMeta(): PageMeta {
         '@type': 'ProfilePage',
         url: absUrl(),
         name: `${PROFILE.name} Portfolio`,
+        dateModified: buildDate,
         mainEntity: person(),
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: FAQS.map(f => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: { '@type': 'Answer', text: f.a },
+        })),
       },
       {
         '@context': 'https://schema.org',
@@ -186,65 +214,14 @@ export function renderHead(m: PageMeta): string {
   return tags.join('\n    ');
 }
 
-// Plain-HTML copy of the page for crawlers that don't run JavaScript.
-export function renderNoscript(page: { project?: Project }): string {
-  const link = (href: string, text: string) => `<a href="${href}">${esc(text)}</a>`;
-  const list = (items: string[]) => `<ul>${items.map(i => `<li>${i}</li>`).join('')}</ul>`;
-  const p = page.project;
-  const body: string[] = [];
-
-  if (p) {
-    body.push(
-      `<p>${link(absUrl(), `← ${PROFILE.name}`)}</p>`,
-      `<h1>${esc(p.title)}</h1>`,
-      `<p><strong>${esc(p.kind)}</strong> · ${esc(p.period)}${p.status ? ` · ${esc(p.status)}` : ''}</p>`,
-      `<p>Role: ${esc(p.role)}${p.team ? ` · Team: ${esc(p.team)}` : ''}${p.org ? ` · ${esc(p.org)}` : ''}</p>`,
-      ...p.overview.map(t => `<p>${esc(t)}</p>`),
-      `<h2>Highlights</h2>`,
-      list(p.highlights.map(esc)),
-      `<p>Tech: ${esc(p.tags.join(', '))}</p>`,
-      p.links.length ? list(p.links.map(l => link(l.url, l.label))) : '',
-    );
-  } else {
-    body.push(
-      `<h1>${esc(PROFILE.name)} (${esc(PROFILE.handle)})</h1>`,
-      `<p><strong>${esc(PROFILE.tagline)}</strong></p>`,
-      ...PROFILE.intro.map(t => `<p>${esc(t)}</p>`),
-      `<h2>Experience</h2>`,
-      list(EXPERIENCE.map(e => `<strong>${esc(e.title)}</strong>, ${esc(e.org)} (${esc(e.date)})`)),
-      `<h2>Projects</h2>`,
-      list(PROJECTS.map(x => `${link(absUrl(projectPath(x.slug)), x.title)}: ${esc(x.summary)}`)),
-      `<h2>Skills</h2>`,
-      `<p>${esc([...CORE_SKILLS, ...SECONDARY_SKILLS].map(s => s.name).join(', '))}</p>`,
-      `<h2>Education</h2>`,
-      list(EDUCATION.map(e => `${esc(e.title)}, ${esc(e.org)} (${esc(e.date)})`)),
-      `<h2>Certifications</h2>`,
-      list(CERTIFICATIONS.map(c => `${esc(c.title)}, ${esc(c.org)} (${esc(c.date)})`)),
-      `<h2>Milestones</h2>`,
-      list(MILESTONES.map(m => `${esc(m.title)}, ${esc(m.org)} (${esc(m.date)})`)),
-    );
-  }
-
-  body.push(
-    `<h2>Contact</h2>`,
-    list([
-      link(`mailto:${PROFILE.email}`, PROFILE.email),
-      ...PROFILE.socials.map(s => link(s.url, s.label)),
-      link(absUrl(PROFILE.resume), 'Resume (PDF)'),
-    ]),
-  );
-
-  return `<noscript><div style="max-width:860px;margin:0 auto;padding:2rem;font-family:system-ui,sans-serif;color:#f8fafc;background:#1e293b;line-height:1.6">${body.join('')}</div></noscript>`;
-}
-
-// https://llmstxt.org
+// https://llmstxt.org — a short, link-rich profile for AI assistants.
 export function renderLlmsTxt(): string {
   const lines = [
     `# ${PROFILE.name} (${PROFILE.handle})`,
     '',
     `> ${PROFILE.summary}`,
     '',
-    `Based in ${PROFILE.location}. Contact: ${PROFILE.email}`,
+    `Based in ${PROFILE.location} (${PROFILE.timezone}). Languages: ${PROFILE.languages.map(l => l.name).join(', ')}. Contact: ${PROFILE.email}`,
     '',
     '## Experience',
     ...EXPERIENCE.map(e => `- ${e.title}, ${e.org} (${e.date})`),
@@ -253,6 +230,9 @@ export function renderLlmsTxt(): string {
     ...PROJECTS.map(
       p => `- [${p.title}](${absUrl(projectPath(p.slug))}): ${p.kind}. ${p.summary} Tech: ${p.tags.join(', ')}.`,
     ),
+    '',
+    '## Services (freelance, via Fiverr)',
+    ...SERVICES.map(s => `- [${s.title}](${s.url}): from $${s.priceFrom}, ${s.deliveryDays}-day delivery. ${s.summary}`),
     '',
     '## Skills',
     `- Core: ${CORE_SKILLS.map(s => s.name).join(', ')}`,
@@ -266,11 +246,54 @@ export function renderLlmsTxt(): string {
     '## Milestones',
     ...MILESTONES.map(m => `- ${m.title}, ${m.org} (${m.date})`),
     '',
+    '## FAQ',
+    ...FAQS.flatMap(f => [`### ${f.q}`, f.a, '']),
     '## Links',
     `- [Portfolio](${absUrl()})`,
+    `- [Full profile for LLMs](${absUrl('llms-full.txt')})`,
     `- [Resume (PDF)](${absUrl(PROFILE.resume)})`,
     ...PROFILE.socials.map(s => `- [${s.label}](${s.url})`),
     '',
+  ];
+  return lines.join('\n');
+}
+
+// Everything on the site as one Markdown document, so an assistant can answer
+// detailed questions without crawling each project page.
+export function renderLlmsFullTxt(): string {
+  const lines = [
+    renderLlmsTxt().trimEnd(),
+    '',
+    '---',
+    '',
+    '# Project details',
+    '',
+    ...PROJECTS.flatMap(p => [
+      `## ${p.title}`,
+      '',
+      `${p.kind} · ${p.period}${p.status ? ` · ${p.status}` : ''} · Role: ${p.role}${p.team ? ` · Team: ${p.team}` : ''}${p.org ? ` · ${p.org}` : ''}`,
+      `Page: ${absUrl(projectPath(p.slug))}`,
+      '',
+      ...p.overview.flatMap(t => [t, '']),
+      'What I did:',
+      ...p.highlights.map(h => `- ${h}`),
+      '',
+      `Tech: ${p.tags.join(', ')}`,
+      ...p.links.map(l => `- [${l.label}](${l.url})`),
+      '',
+    ]),
+    '# Services in detail',
+    '',
+    ...SERVICES.flatMap(s => [
+      `## ${s.title}`,
+      '',
+      s.summary,
+      '',
+      ...s.includes.map(i => `- ${i}`),
+      '',
+      `From $${s.priceFrom} · ${s.deliveryDays}-day delivery · [Order on Fiverr](${s.url})`,
+      '',
+    ]),
   ];
   return lines.join('\n');
 }

@@ -39,9 +39,86 @@ export const PROFILE = {
     { label: 'GitHub', url: 'https://github.com/syedayeshulhassanbukhari' },
     { label: 'LinkedIn', url: 'https://www.linkedin.com/in/syedaishulhassan' },
     { label: 'itch.io', url: 'https://sudo-ayesh.itch.io/' },
-    { label: 'Fiverr', url: 'https://www.fiverr.com/users/syedaish' },
+    { label: 'Fiverr', url: 'https://www.fiverr.com/syedaish' },
   ],
+  languages: [
+    { name: 'English', code: 'en' },
+    { name: 'Urdu', code: 'ur' },
+    { name: 'Hindi', code: 'hi' },
+  ],
+  timezone: 'PKT, UTC+5',
 };
+
+// Freelance services, mirroring the live Fiverr gigs. Keep prices and delivery times in sync
+// with the gigs' Basic package (Fiverr FAQ + gig PDFs quote the same numbers).
+export interface Service {
+  slug: string;
+  title: string;
+  summary: string;
+  includes: string[];
+  priceFrom: number; // USD, Basic package
+  deliveryDays: number; // Basic package
+  url: string;
+  icon: 'game' | 'ui' | 'vfx';
+}
+
+export const SERVICES: Service[] = [
+  {
+    slug: 'roblox-full-game',
+    title: 'Roblox Full Game Development',
+    summary:
+      'Complete Roblox games built in Roblox Studio: simulators, tycoons, brainrot and obby games, from a one-mechanic prototype to a trending-style multiplayer game.',
+    includes: [
+      'Custom Luau scripting for the core gameplay loop',
+      'DataStore saving so players keep progress',
+      'Game Passes, Developer Products and a shop',
+      'Leaderboards, badges and mobile + PC friendly UI',
+    ],
+    priceFrom: 30,
+    deliveryDays: 5,
+    url: 'https://www.fiverr.com/syedaish/create-a-roblox-full-game-simulator-tycoon-or-brainrot-game',
+    icon: 'game',
+  },
+  {
+    slug: 'roblox-ui',
+    title: 'Roblox UI, GUI & HUD Design',
+    summary:
+      'Custom Roblox interfaces that match your game\'s style: HUDs, menus, shops, inventories and loading screens, designed mobile-first.',
+    includes: [
+      'HUDs, main menus, shops, inventories and settings',
+      'Custom buttons, icons, frames and currency bars',
+      'Hover, click, pop-up and shine UI animations',
+      'PNG assets ready for Studio, plus editable source files',
+    ],
+    priceFrom: 15,
+    deliveryDays: 2,
+    url: 'https://www.fiverr.com/syedaish/design-professional-roblox-ui-ux-gui-and-vfx',
+    icon: 'ui',
+  },
+  {
+    slug: 'roblox-vfx',
+    title: 'Roblox Anime & Combat VFX',
+    summary:
+      'Stylised Roblox visual effects for combat and abilities: slashes, beams, auras, impacts and full anime skill sets, optimised for mobile.',
+    includes: [
+      'Slashes, dashes, energy beams and domain expansions',
+      'Elemental magic, portals, auras and hit sparks',
+      'Clean particle and mesh budgets for mobile and PC',
+      'Delivered as organised .rbxm or .rbxl files',
+    ],
+    priceFrom: 15,
+    deliveryDays: 2,
+    url: 'https://www.fiverr.com/syedaish/do-high-quality-roblox-anime-or-stylized-vfx',
+    icon: 'vfx',
+  },
+];
+
+// Headline numbers shown in the hero (and quoted in structured data / llms.txt).
+export const STATS: { value: number; suffix?: string; label: string }[] = [
+  { value: 500, suffix: '+', label: 'Wishlists on Locked In Fear' },
+  { value: 3, label: 'Game engines: UE5, Roblox, Unity' },
+  { value: 60, suffix: ' FPS', label: 'Target hit on GTX 1080-class PCs' },
+];
 
 export interface TimelineItem {
   date: string;
@@ -551,7 +628,44 @@ export const KEYWORDS = [
   'Locked In Fear',
   'game developer Pakistan',
   'game developer Peshawar',
+  'Roblox game developer for hire',
+  'Roblox scripter',
+  'Luau',
+  'Roblox UI designer',
+  'Roblox VFX',
   'portfolio',
+];
+
+// Answer-first Q&A, shown on the page and emitted as FAQPage structured data.
+// Prices and engines come from the data above so the answers can't drift.
+const usd = (n: number) => `$${n}`;
+const [fullGame, ui, vfx] = SERVICES;
+
+export const FAQS: { q: string; a: string }[] = [
+  {
+    q: `Who is ${PROFILE.name}?`,
+    a: `${PROFILE.name} (${PROFILE.handle}) is a game developer from ${PROFILE.location}, building games in Unreal Engine 5, Roblox Studio and Unity. ${PROFILE.firstName} works as a Junior Roblox Developer at Zehn Studio 26 and shipped Locked In Fear, a UE5 horror-survival game with 500+ wishlists before full release.`,
+  },
+  {
+    q: `Which game engines and languages does ${PROFILE.firstName} work with?`,
+    a: 'Unreal Engine 5 with C++ and Blueprints, Roblox Studio with Luau, and Unity with C#. Also Blender for 3D, Figma for UI design, and Flutter for apps.',
+  },
+  {
+    q: `Can I hire ${PROFILE.firstName} for Roblox work?`,
+    a: `Yes, through Fiverr: Roblox full games from ${usd(fullGame.priceFrom)} (${fullGame.deliveryDays}-day delivery), UI, GUI and HUD design from ${usd(ui.priceFrom)} (${ui.deliveryDays} days), and anime and combat VFX from ${usd(vfx.priceFrom)} (${vfx.deliveryDays} days). Bigger projects get a fixed-price custom offer.`,
+  },
+  {
+    q: `What has ${PROFILE.firstName} shipped?`,
+    a: 'Locked In Fear, a UE5 horror-survival game with enemy AI that hears the player\'s real microphone (500+ wishlists), and Vermilian Mask, a live Roblox experience at Zehn Studio 26, as its sole VFX artist and UI/UX owner.',
+  },
+  {
+    q: `Is ${PROFILE.firstName} open to studio roles?`,
+    a: 'Yes: game studio roles, freelance Roblox work and collaborations, all remote-friendly.',
+  },
+  {
+    q: `Where is ${PROFILE.firstName} based, and in what time zone?`,
+    a: `${PROFILE.location} (${PROFILE.timezone}). Works remotely with clients worldwide, in ${PROFILE.languages.map(l => l.name).join(', ')}.`,
+  },
 ];
 
 export function projectsSorted(): Project[] {

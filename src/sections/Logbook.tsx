@@ -1,11 +1,12 @@
 import { Calendar, Trophy } from 'lucide-react';
 import { MILESTONES } from '@/data/portfolio';
+import { SplitHeading } from '@/components/SplitHeading';
 
 export default function Logbook() {
   return (
     <section id="logbook" aria-labelledby="logbook-heading" className="relative bg-toon-deep px-4 py-16 md:px-6 md:py-24">
       <div className="mx-auto max-w-6xl">
-        <h2 id="logbook-heading" className="toon-heading text-center text-5xl md:text-7xl">Logbook</h2>
+        <SplitHeading id="logbook-heading" text="Logbook" className="toon-heading text-center text-5xl md:text-7xl" />
         <p className="mt-2 text-center font-tech text-lg font-bold uppercase tracking-[0.2em] text-toon-blue">Events, leadership &amp; milestones</p>
 
         <div className="reveal relative mt-16 rounded-[2rem] border-4 border-black bg-toon-card px-5 pb-8 pt-14 shadow-pop-lg md:px-8">
@@ -18,10 +19,12 @@ export default function Logbook() {
           </div>
 
           <ul className="mt-6 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {MILESTONES.map(m => (
+            {MILESTONES.map((m, i) => (
               <li
                 key={m.title}
-                className="flex flex-col rounded-2xl border-2 border-toon-line bg-[#111a2e] p-5 shadow-pop transition-transform hover:-translate-y-1"
+                className="reveal flex flex-col rounded-2xl border-2 border-toon-line bg-[#111a2e] p-5 shadow-pop hover:-translate-y-1"
+                data-reveal="pop"
+                style={{ transitionDelay: `${i * 80}ms` }}
               >
                 <p className="flex items-center gap-2 font-mono text-xs text-slate-400">
                   <Calendar size={13} aria-hidden="true" /> {m.date}

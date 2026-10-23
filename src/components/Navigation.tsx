@@ -3,12 +3,15 @@ import { Link, useLocation } from 'react-router';
 import { Menu, X } from 'lucide-react';
 import { PROFILE } from '@/data/portfolio';
 import { asset } from '@/lib/asset';
+import { scrollToId } from '@/lib/motion';
 
 const navLinks = [
   { label: 'Home', hash: 'hero' },
   { label: 'About', hash: 'about' },
   { label: 'Projects', hash: 'projects' },
+  { label: 'Services', hash: 'services' },
   { label: 'Logbook', hash: 'logbook' },
+  { label: 'FAQ', hash: 'faq' },
   { label: 'Contact', hash: 'contact' },
 ];
 
@@ -28,7 +31,7 @@ export default function Navigation() {
   // Re-clicking a link whose hash is already in the URL doesn't change location, so scroll manually.
   const jump = (hash: string) => {
     setOpen(false);
-    if (onHome) document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth' });
+    if (onHome) scrollToId(hash);
   };
 
   return (
@@ -47,7 +50,7 @@ export default function Navigation() {
           <span className="font-display text-base text-white">{PROFILE.handle}</span>
         </Link>
 
-        <ul className="hidden items-center gap-1 md:flex">
+        <ul className="hidden items-center gap-1 lg:flex">
           {navLinks.map(l => (
             <li key={l.hash}>
               <Link
@@ -64,7 +67,7 @@ export default function Navigation() {
         <button
           type="button"
           onClick={() => setOpen(o => !o)}
-          className="rounded-lg border-2 border-toon-line p-2 text-white md:hidden"
+          className="rounded-lg border-2 border-toon-line p-2 text-white lg:hidden"
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
         >
@@ -74,7 +77,7 @@ export default function Navigation() {
 
       {open && (
         <ul
-          className="mx-auto mt-2 flex flex-col gap-1 rounded-2xl border-[3px] border-toon-blue bg-toon-card p-3 shadow-pop md:hidden"
+          className="mx-auto mt-2 flex flex-col gap-1 rounded-2xl border-[3px] border-toon-blue bg-toon-card p-3 shadow-pop lg:hidden"
           style={{ width: 'calc(100% - 24px)' }}
         >
           {navLinks.map(l => (
