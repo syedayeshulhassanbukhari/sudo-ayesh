@@ -4,6 +4,7 @@ import {
   SITE, PROFILE, EXPERIENCE, EDUCATION, CERTIFICATIONS, CORE_SKILLS, SECONDARY_SKILLS,
   MILESTONES, KEYWORDS, PROJECTS, SERVICES, FAQS, type Project,
 } from '../data/portfolio';
+import type { Collection } from '../data/models';
 
 export interface PageMeta {
   path: string; // relative to the site root, '' for home, e.g. 'project/locked-in-fear/'
@@ -138,6 +139,40 @@ export function homeMeta(): PageMeta {
           url: absUrl(projectPath(p.slug)),
           name: p.title,
         })),
+      },
+    ],
+  };
+}
+
+export const collectionPath = (slug: string) => `collection/${slug}/`;
+
+export function collectionMeta(c: Collection): PageMeta {
+  return {
+    path: collectionPath(c.slug),
+    title: `${c.title}: ${c.models.length} live 3D models | ${PROFILE.name}`,
+    description: c.about,
+    image: absUrl(SITE.ogImage),
+    imageAlt: `${c.title} by ${PROFILE.name}`,
+    type: 'article',
+    keywords: [c.title, c.sub, '3D models', 'Blender', 'game-ready', ...(c.engine ? [c.engine] : []), PROFILE.name, PROFILE.handle],
+    jsonLd: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'CollectionPage',
+        name: c.title,
+        description: c.about,
+        url: absUrl(collectionPath(c.slug)),
+        author: { '@type': 'Person', name: PROFILE.name, url: absUrl() },
+        hasPart: c.models.map(m => ({ '@type': '3DModel', name: m.name, encodingFormat: 'model/gltf-binary', contentUrl: absUrl(`models/${m.file}`) })),
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: PROFILE.name, item: absUrl() },
+          { '@type': 'ListItem', position: 2, name: 'Modeling', item: `${absUrl()}#modeling` },
+          { '@type': 'ListItem', position: 3, name: c.title, item: absUrl(collectionPath(c.slug)) },
+        ],
       },
     ],
   };

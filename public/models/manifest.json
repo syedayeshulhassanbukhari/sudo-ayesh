@@ -1,0 +1,1832 @@
+{
+ "eggs": [
+  {
+   "file": "eggs/chick.glb",
+   "name": "Chick",
+   "tris": 3856,
+   "kb": 53,
+   "clips": []
+  },
+  {
+   "file": "eggs/ladybug.glb",
+   "name": "Ladybug",
+   "tris": 4052,
+   "kb": 44,
+   "clips": []
+  },
+  {
+   "file": "eggs/hedgehog.glb",
+   "name": "Hedgehog",
+   "tris": 5470,
+   "kb": 54,
+   "clips": []
+  },
+  {
+   "file": "eggs/axolotl.glb",
+   "name": "Axolotl",
+   "tris": 4558,
+   "kb": 52,
+   "clips": []
+  },
+  {
+   "file": "eggs/peacock.glb",
+   "name": "Peacock",
+   "tris": 5298,
+   "kb": 55,
+   "clips": []
+  },
+  {
+   "file": "eggs/chameleon.glb",
+   "name": "Chameleon",
+   "tris": 3256,
+   "kb": 51,
+   "clips": []
+  },
+  {
+   "file": "eggs/anglerfish.glb",
+   "name": "Anglerfish",
+   "tris": 3084,
+   "kb": 32,
+   "clips": []
+  },
+  {
+   "file": "eggs/star-whale.glb",
+   "name": "Star Whale",
+   "tris": 4228,
+   "kb": 45,
+   "clips": []
+  },
+  {
+   "file": "eggs/toast.glb",
+   "name": "Toast",
+   "tris": 1352,
+   "kb": 27,
+   "clips": []
+  },
+  {
+   "file": "eggs/donut.glb",
+   "name": "Donut",
+   "tris": 3602,
+   "kb": 49,
+   "clips": []
+  },
+  {
+   "file": "eggs/sushi.glb",
+   "name": "Sushi",
+   "tris": 3404,
+   "kb": 44,
+   "clips": []
+  },
+  {
+   "file": "eggs/ice-cream.glb",
+   "name": "Ice Cream",
+   "tris": 4122,
+   "kb": 53,
+   "clips": []
+  },
+  {
+   "file": "eggs/watermelon.glb",
+   "name": "Watermelon",
+   "tris": 2542,
+   "kb": 42,
+   "clips": []
+  },
+  {
+   "file": "eggs/bubble-tea.glb",
+   "name": "Bubble Tea",
+   "tris": 4674,
+   "kb": 51,
+   "clips": []
+  },
+  {
+   "file": "eggs/burger.glb",
+   "name": "Burger",
+   "tris": 3566,
+   "kb": 47,
+   "clips": []
+  },
+  {
+   "file": "eggs/birthday-cake.glb",
+   "name": "Birthday Cake",
+   "tris": 4856,
+   "kb": 60,
+   "clips": []
+  },
+  {
+   "file": "eggs/yarn-ball.glb",
+   "name": "Yarn Ball",
+   "tris": 6644,
+   "kb": 62,
+   "clips": []
+  },
+  {
+   "file": "eggs/wind-up.glb",
+   "name": "Wind Up",
+   "tris": 2944,
+   "kb": 42,
+   "clips": []
+  },
+  {
+   "file": "eggs/dice.glb",
+   "name": "Dice",
+   "tris": 1636,
+   "kb": 31,
+   "clips": []
+  },
+  {
+   "file": "eggs/arcade.glb",
+   "name": "Arcade",
+   "tris": 2678,
+   "kb": 40,
+   "clips": []
+  },
+  {
+   "file": "eggs/robot.glb",
+   "name": "Robot",
+   "tris": 3328,
+   "kb": 44,
+   "clips": []
+  },
+  {
+   "file": "eggs/clockwork.glb",
+   "name": "Clockwork",
+   "tris": 3112,
+   "kb": 46,
+   "clips": []
+  },
+  {
+   "file": "eggs/glitch.glb",
+   "name": "Glitch",
+   "tris": 3228,
+   "kb": 38,
+   "clips": []
+  },
+  {
+   "file": "eggs/rocket.glb",
+   "name": "Rocket",
+   "tris": 3236,
+   "kb": 50,
+   "clips": []
+  },
+  {
+   "file": "eggs/mossy-rock.glb",
+   "name": "Mossy Rock",
+   "tris": 3146,
+   "kb": 42,
+   "clips": []
+  },
+  {
+   "file": "eggs/cactus.glb",
+   "name": "Cactus",
+   "tris": 3242,
+   "kb": 44,
+   "clips": []
+  },
+  {
+   "file": "eggs/beehive.glb",
+   "name": "Beehive",
+   "tris": 3642,
+   "kb": 48,
+   "clips": []
+  },
+  {
+   "file": "eggs/snow-globe.glb",
+   "name": "Snow Globe",
+   "tris": 6094,
+   "kb": 64,
+   "clips": []
+  },
+  {
+   "file": "eggs/coral-reef.glb",
+   "name": "Coral Reef",
+   "tris": 4034,
+   "kb": 51,
+   "clips": []
+  },
+  {
+   "file": "eggs/volcano.glb",
+   "name": "Volcano",
+   "tris": 3520,
+   "kb": 40,
+   "clips": []
+  },
+  {
+   "file": "eggs/lighthouse.glb",
+   "name": "Lighthouse",
+   "tris": 3830,
+   "kb": 47,
+   "clips": []
+  },
+  {
+   "file": "eggs/floating-island.glb",
+   "name": "Floating Island",
+   "tris": 3431,
+   "kb": 41,
+   "clips": []
+  },
+  {
+   "file": "eggs/viking.glb",
+   "name": "Viking",
+   "tris": 3004,
+   "kb": 42,
+   "clips": []
+  },
+  {
+   "file": "eggs/wizard.glb",
+   "name": "Wizard",
+   "tris": 3424,
+   "kb": 44,
+   "clips": []
+  },
+  {
+   "file": "eggs/tiki-totem.glb",
+   "name": "Tiki Totem",
+   "tris": 2908,
+   "kb": 40,
+   "clips": []
+  },
+  {
+   "file": "eggs/pharaoh.glb",
+   "name": "Pharaoh",
+   "tris": 3008,
+   "kb": 50,
+   "clips": []
+  },
+  {
+   "file": "eggs/samurai.glb",
+   "name": "Samurai",
+   "tris": 4298,
+   "kb": 43,
+   "clips": []
+  },
+  {
+   "file": "eggs/medusa.glb",
+   "name": "Medusa",
+   "tris": 5038,
+   "kb": 53,
+   "clips": []
+  },
+  {
+   "file": "eggs/watcher.glb",
+   "name": "Watcher",
+   "tris": 3144,
+   "kb": 34,
+   "clips": []
+  },
+  {
+   "file": "eggs/hourglass.glb",
+   "name": "Hourglass",
+   "tris": 8581,
+   "kb": 87,
+   "clips": []
+  },
+  {
+   "file": "eggs/gramophone.glb",
+   "name": "Gramophone",
+   "tris": 3870,
+   "kb": 51,
+   "clips": []
+  },
+  {
+   "file": "eggs/paper-lantern.glb",
+   "name": "Paper Lantern",
+   "tris": 2306,
+   "kb": 28,
+   "clips": []
+  },
+  {
+   "file": "eggs/hot-air-balloon.glb",
+   "name": "Hot Air Balloon",
+   "tris": 2800,
+   "kb": 55,
+   "clips": []
+  },
+  {
+   "file": "eggs/gnome-cottage.glb",
+   "name": "Gnome Cottage",
+   "tris": 3808,
+   "kb": 51,
+   "clips": []
+  },
+  {
+   "file": "eggs/pirate-ship.glb",
+   "name": "Pirate Ship",
+   "tris": 1796,
+   "kb": 30,
+   "clips": []
+  },
+  {
+   "file": "eggs/diving-helmet.glb",
+   "name": "Diving Helmet",
+   "tris": 4884,
+   "kb": 54,
+   "clips": []
+  },
+  {
+   "file": "eggs/teapot.glb",
+   "name": "Teapot",
+   "tris": 3254,
+   "kb": 51,
+   "clips": []
+  },
+  {
+   "file": "eggs/pinata.glb",
+   "name": "Pinata",
+   "tris": 4888,
+   "kb": 62,
+   "clips": []
+  },
+  {
+   "file": "eggs/disco-ball.glb",
+   "name": "Disco Ball",
+   "tris": 3086,
+   "kb": 49,
+   "clips": []
+  },
+  {
+   "file": "eggs/gift-box.glb",
+   "name": "Gift Box",
+   "tris": 3676,
+   "kb": 47,
+   "clips": []
+  },
+  {
+   "file": "eggs/sunflower.glb",
+   "name": "Sunflower",
+   "tris": 3164,
+   "kb": 45,
+   "clips": []
+  },
+  {
+   "file": "eggs/acorn.glb",
+   "name": "Acorn",
+   "tris": 2833,
+   "kb": 36,
+   "clips": []
+  },
+  {
+   "file": "eggs/steam-train.glb",
+   "name": "Steam Train",
+   "tris": 4016,
+   "kb": 41,
+   "clips": []
+  },
+  {
+   "file": "eggs/snowman.glb",
+   "name": "Snowman",
+   "tris": 3368,
+   "kb": 46,
+   "clips": []
+  },
+  {
+   "file": "eggs/trophy.glb",
+   "name": "Trophy",
+   "tris": 3702,
+   "kb": 46,
+   "clips": []
+  },
+  {
+   "file": "eggs/cartoon-bomb.glb",
+   "name": "Cartoon Bomb",
+   "tris": 3334,
+   "kb": 30,
+   "clips": []
+  },
+  {
+   "file": "eggs/ufo.glb",
+   "name": "UFO",
+   "tris": 4998,
+   "kb": 58,
+   "clips": []
+  },
+  {
+   "file": "eggs/gumball-machine.glb",
+   "name": "Gumball Machine",
+   "tris": 7262,
+   "kb": 81,
+   "clips": []
+  },
+  {
+   "file": "eggs/camera.glb",
+   "name": "Camera",
+   "tris": 2968,
+   "kb": 39,
+   "clips": []
+  },
+  {
+   "file": "eggs/paint-splat.glb",
+   "name": "Paint Splat",
+   "tris": 3270,
+   "kb": 54,
+   "clips": []
+  }
+ ],
+ "treadmills": [
+  {
+   "file": "treadmills/starter-runner.glb",
+   "name": "Starter Runner",
+   "tris": 640,
+   "kb": 23,
+   "clips": []
+  },
+  {
+   "file": "treadmills/candy-rush.glb",
+   "name": "Candy Rush",
+   "tris": 1960,
+   "kb": 51,
+   "clips": []
+  },
+  {
+   "file": "treadmills/arcade-cabinet.glb",
+   "name": "Arcade Cabinet",
+   "tris": 1426,
+   "kb": 34,
+   "clips": []
+  },
+  {
+   "file": "treadmills/glacier-peak.glb",
+   "name": "Glacier Peak",
+   "tris": 6086,
+   "kb": 72,
+   "clips": []
+  },
+  {
+   "file": "treadmills/lava-forge.glb",
+   "name": "Lava Forge",
+   "tris": 3102,
+   "kb": 30,
+   "clips": []
+  },
+  {
+   "file": "treadmills/royal-throne.glb",
+   "name": "Royal Throne",
+   "tris": 3502,
+   "kb": 50,
+   "clips": []
+  },
+  {
+   "file": "treadmills/dragon-run.glb",
+   "name": "Dragon Run",
+   "tris": 6694,
+   "kb": 62,
+   "clips": []
+  },
+  {
+   "file": "treadmills/galaxy-portal.glb",
+   "name": "Galaxy Portal",
+   "tris": 3552,
+   "kb": 45,
+   "clips": []
+  },
+  {
+   "file": "treadmills/solar-crown.glb",
+   "name": "Solar Crown",
+   "tris": 2862,
+   "kb": 42,
+   "clips": []
+  },
+  {
+   "file": "treadmills/void-eclipse.glb",
+   "name": "Void Eclipse",
+   "tris": 5804,
+   "kb": 42,
+   "clips": []
+  }
+ ],
+ "axes": [
+  {
+   "file": "axes/sandglass.glb",
+   "name": "Sandglass",
+   "tris": 4554,
+   "kb": 110,
+   "clips": []
+  },
+  {
+   "file": "axes/venomcane.glb",
+   "name": "Venomcane",
+   "tris": 3062,
+   "kb": 108,
+   "clips": []
+  },
+  {
+   "file": "axes/duskwarden.glb",
+   "name": "Duskwarden",
+   "tris": 4110,
+   "kb": 252,
+   "clips": []
+  },
+  {
+   "file": "axes/shardfall.glb",
+   "name": "Shardfall",
+   "tris": 2796,
+   "kb": 57,
+   "clips": []
+  },
+  {
+   "file": "axes/hanagiri.glb",
+   "name": "Hanagiri",
+   "tris": 4302,
+   "kb": 75,
+   "clips": []
+  },
+  {
+   "file": "axes/anvilheart.glb",
+   "name": "Anvilheart",
+   "tris": 3430,
+   "kb": 87,
+   "clips": []
+  },
+  {
+   "file": "axes/barrowbone.glb",
+   "name": "Barrowbone",
+   "tris": 4116,
+   "kb": 187,
+   "clips": []
+  },
+  {
+   "file": "axes/crimson-eclipse.glb",
+   "name": "Crimson Eclipse",
+   "tris": 4302,
+   "kb": 85,
+   "clips": []
+  },
+  {
+   "file": "axes/hourwright.glb",
+   "name": "Hourwright",
+   "tris": 3720,
+   "kb": 124,
+   "clips": []
+  },
+  {
+   "file": "axes/stormwing-labrys.glb",
+   "name": "Stormwing Labrys",
+   "tris": 3782,
+   "kb": 68,
+   "clips": []
+  },
+  {
+   "file": "axes/rimefang.glb",
+   "name": "Rimefang",
+   "tris": 3052,
+   "kb": 61,
+   "clips": []
+  },
+  {
+   "file": "axes/ember-crescent.glb",
+   "name": "Ember Crescent",
+   "tris": 3698,
+   "kb": 77,
+   "clips": []
+  },
+  {
+   "file": "axes/voidcleaver.glb",
+   "name": "Voidcleaver",
+   "tris": 4148,
+   "kb": 66,
+   "clips": []
+  },
+  {
+   "file": "axes/jade-thunderstone.glb",
+   "name": "Jade Thunderstone",
+   "tris": 2592,
+   "kb": 48,
+   "clips": []
+  },
+  {
+   "file": "axes/sunhalo.glb",
+   "name": "Sunhalo",
+   "tris": 5944,
+   "kb": 129,
+   "clips": []
+  },
+  {
+   "file": "axes/tidecaller.glb",
+   "name": "Tidecaller",
+   "tris": 4258,
+   "kb": 96,
+   "clips": []
+  },
+  {
+   "file": "axes/galeshear.glb",
+   "name": "Galeshear",
+   "tris": 4660,
+   "kb": 173,
+   "clips": []
+  },
+  {
+   "file": "axes/thornmaw.glb",
+   "name": "Thornmaw",
+   "tris": 3700,
+   "kb": 110,
+   "clips": []
+  }
+ ],
+ "scifi": [
+  {
+   "file": "scifi/sci-fi-crate.glb",
+   "name": "Sci-Fi Crate",
+   "tris": 1400,
+   "kb": 133,
+   "clips": []
+  }
+ ],
+ "megastore": [
+  {
+   "file": "megastore/air-machine.glb",
+   "name": "Air Machine",
+   "tris": 444,
+   "kb": 7,
+   "clips": []
+  },
+  {
+   "file": "megastore/barrier.glb",
+   "name": "Barrier",
+   "tris": 548,
+   "kb": 6,
+   "clips": []
+  },
+  {
+   "file": "megastore/cart.glb",
+   "name": "Cart",
+   "tris": 1660,
+   "kb": 14,
+   "clips": []
+  },
+  {
+   "file": "megastore/cart-merchant.glb",
+   "name": "Cart Merchant",
+   "tris": 5792,
+   "kb": 45,
+   "clips": []
+  },
+  {
+   "file": "megastore/crate.glb",
+   "name": "Crate",
+   "tris": 696,
+   "kb": 5,
+   "clips": []
+  },
+  {
+   "file": "megastore/delivery-truck.glb",
+   "name": "Delivery Truck",
+   "tris": 12696,
+   "kb": 108,
+   "clips": []
+  },
+  {
+   "file": "megastore/duffel-bag.glb",
+   "name": "Duffel Bag",
+   "tris": 360,
+   "kb": 3,
+   "clips": []
+  },
+  {
+   "file": "megastore/entrance.glb",
+   "name": "Entrance",
+   "tris": 3226,
+   "kb": 21,
+   "clips": []
+  },
+  {
+   "file": "megastore/fuel-bin.glb",
+   "name": "Fuel Bin",
+   "tris": 488,
+   "kb": 6,
+   "clips": []
+  },
+  {
+   "file": "megastore/fuel-canopy.glb",
+   "name": "Fuel Canopy",
+   "tris": 5424,
+   "kb": 29,
+   "clips": []
+  },
+  {
+   "file": "megastore/fuel-kiosk.glb",
+   "name": "Fuel Kiosk",
+   "tris": 756,
+   "kb": 9,
+   "clips": []
+  },
+  {
+   "file": "megastore/fuel-pump.glb",
+   "name": "Fuel Pump",
+   "tris": 1488,
+   "kb": 14,
+   "clips": []
+  },
+  {
+   "file": "megastore/getaway-van.glb",
+   "name": "Getaway Van",
+   "tris": 3868,
+   "kb": 26,
+   "clips": []
+  },
+  {
+   "file": "megastore/guard-booth.glb",
+   "name": "Guard Booth",
+   "tris": 1504,
+   "kb": 13,
+   "clips": []
+  },
+  {
+   "file": "megastore/lamp-post.glb",
+   "name": "Lamp Post",
+   "tris": 1234,
+   "kb": 10,
+   "clips": []
+  },
+  {
+   "file": "megastore/leaderboard.glb",
+   "name": "Leaderboard",
+   "tris": 5736,
+   "kb": 37,
+   "clips": []
+  },
+  {
+   "file": "megastore/mega-sign.glb",
+   "name": "Mega Sign",
+   "tris": 4976,
+   "kb": 26,
+   "clips": []
+  },
+  {
+   "file": "megastore/merchant.glb",
+   "name": "Merchant",
+   "tris": 8476,
+   "kb": 52,
+   "clips": []
+  },
+  {
+   "file": "megastore/plan-table.glb",
+   "name": "Plan Table",
+   "tris": 356,
+   "kb": 7,
+   "clips": []
+  },
+  {
+   "file": "megastore/poster-box.glb",
+   "name": "Poster Box",
+   "tris": 1048,
+   "kb": 9,
+   "clips": []
+  },
+  {
+   "file": "megastore/price-pylon.glb",
+   "name": "Price Pylon",
+   "tris": 4736,
+   "kb": 28,
+   "clips": []
+  },
+  {
+   "file": "megastore/pump-island.glb",
+   "name": "Pump Island",
+   "tris": 748,
+   "kb": 5,
+   "clips": []
+  },
+  {
+   "file": "megastore/work-lamp.glb",
+   "name": "Work Lamp",
+   "tris": 928,
+   "kb": 8,
+   "clips": []
+  }
+ ],
+ "creatures": [
+  {
+   "file": "creatures/winged-lion.glb",
+   "name": "Winged Lion",
+   "tris": 5234,
+   "kb": 282,
+   "clips": []
+  },
+  {
+   "file": "creatures/crystal-lizard.glb",
+   "name": "Crystal Lizard",
+   "tris": 4542,
+   "kb": 254,
+   "clips": []
+  },
+  {
+   "file": "creatures/turtle.glb",
+   "name": "Turtle",
+   "tris": 10533,
+   "kb": 229,
+   "clips": []
+  }
+ ],
+ "animation": [
+  {
+   "file": "animation/winged-lion-flight.glb",
+   "name": "Winged Lion Flight",
+   "tris": 5234,
+   "kb": 448,
+   "clips": [
+    "Scene"
+   ]
+  },
+  {
+   "file": "animation/crystal-lizard-attack.glb",
+   "name": "Crystal Lizard Attack",
+   "tris": 4542,
+   "kb": 388,
+   "clips": [
+    "Scene"
+   ]
+  },
+  {
+   "file": "animation/crystal-surge.glb",
+   "name": "Crystal Surge",
+   "tris": 4542,
+   "kb": 537,
+   "clips": [
+    "Scene"
+   ]
+  },
+  {
+   "file": "animation/turtle-roar.glb",
+   "name": "Turtle Roar",
+   "tris": 10533,
+   "kb": 321,
+   "clips": [
+    "Scene"
+   ]
+  },
+  {
+   "file": "animation/r6-shoto-combo.glb",
+   "name": "R6 Shoto Combo",
+   "tris": 1706,
+   "kb": 113,
+   "clips": [
+    "__RigAction",
+    "ArmatureAction",
+    "FightCombo",
+    "Hadoken_CoreAction.001",
+    "Hadoken_ShellAction.001",
+    "ShotoCombo",
+    "SpearCombo",
+    "Take 001"
+   ]
+  }
+ ],
+ "dinos": [
+  {
+   "file": "dinos/allosaurus.glb",
+   "name": "Allosaurus",
+   "tris": 5768,
+   "kb": 146,
+   "clips": []
+  },
+  {
+   "file": "dinos/ankylosaurus.glb",
+   "name": "Ankylosaurus",
+   "tris": 6848,
+   "kb": 138,
+   "clips": []
+  },
+  {
+   "file": "dinos/compsognathus.glb",
+   "name": "Compsognathus",
+   "tris": 4328,
+   "kb": 146,
+   "clips": []
+  },
+  {
+   "file": "dinos/dimorphodon.glb",
+   "name": "Dimorphodon",
+   "tris": 4564,
+   "kb": 81,
+   "clips": []
+  },
+  {
+   "file": "dinos/fish.glb",
+   "name": "Fish",
+   "tris": 1348,
+   "kb": 108,
+   "clips": []
+  },
+  {
+   "file": "dinos/lizard.glb",
+   "name": "Lizard",
+   "tris": 3180,
+   "kb": 94,
+   "clips": []
+  },
+  {
+   "file": "dinos/mammoth.glb",
+   "name": "Mammoth",
+   "tris": 7220,
+   "kb": 117,
+   "clips": []
+  },
+  {
+   "file": "dinos/pteranodon.glb",
+   "name": "Pteranodon",
+   "tris": 4228,
+   "kb": 66,
+   "clips": []
+  },
+  {
+   "file": "dinos/quetzalcoatlus.glb",
+   "name": "Quetzalcoatlus",
+   "tris": 4228,
+   "kb": 62,
+   "clips": []
+  },
+  {
+   "file": "dinos/spinosaurus.glb",
+   "name": "Spinosaurus",
+   "tris": 5848,
+   "kb": 133,
+   "clips": []
+  },
+  {
+   "file": "dinos/stegosaurus.glb",
+   "name": "Stegosaurus",
+   "tris": 4948,
+   "kb": 118,
+   "clips": []
+  },
+  {
+   "file": "dinos/trex.glb",
+   "name": "TRex",
+   "tris": 5560,
+   "kb": 144,
+   "clips": []
+  },
+  {
+   "file": "dinos/triceratops.glb",
+   "name": "Triceratops",
+   "tris": 5216,
+   "kb": 126,
+   "clips": []
+  },
+  {
+   "file": "dinos/utahraptor.glb",
+   "name": "Utahraptor",
+   "tris": 5724,
+   "kb": 149,
+   "clips": []
+  },
+  {
+   "file": "dinos/velociraptor.glb",
+   "name": "Velociraptor",
+   "tris": 4784,
+   "kb": 145,
+   "clips": []
+  }
+ ],
+ "dino-props": [
+  {
+   "file": "dino-props/center-egg.glb",
+   "name": "Center Egg",
+   "tris": 3876,
+   "kb": 26,
+   "clips": []
+  },
+  {
+   "file": "dino-props/egg-basic.glb",
+   "name": "Egg Basic",
+   "tris": 1360,
+   "kb": 8,
+   "clips": []
+  },
+  {
+   "file": "dino-props/egg-golden.glb",
+   "name": "Egg Golden",
+   "tris": 1428,
+   "kb": 9,
+   "clips": []
+  },
+  {
+   "file": "dino-props/egg-jungle.glb",
+   "name": "Egg Jungle",
+   "tris": 1840,
+   "kb": 12,
+   "clips": []
+  },
+  {
+   "file": "dino-props/incubator-advanced.glb",
+   "name": "Incubator Advanced",
+   "tris": 2456,
+   "kb": 18,
+   "clips": []
+  },
+  {
+   "file": "dino-props/incubator-basic.glb",
+   "name": "Incubator Basic",
+   "tris": 2932,
+   "kb": 19,
+   "clips": []
+  },
+  {
+   "file": "dino-props/incubator-improved.glb",
+   "name": "Incubator Improved",
+   "tris": 3856,
+   "kb": 24,
+   "clips": []
+  },
+  {
+   "file": "dino-props/pickaxe.glb",
+   "name": "Pickaxe",
+   "tris": 1088,
+   "kb": 10,
+   "clips": []
+  },
+  {
+   "file": "dino-props/resource-fish.glb",
+   "name": "Resource Fish",
+   "tris": 1052,
+   "kb": 9,
+   "clips": []
+  },
+  {
+   "file": "dino-props/resource-hide.glb",
+   "name": "Resource Hide",
+   "tris": 916,
+   "kb": 7,
+   "clips": []
+  },
+  {
+   "file": "dino-props/resource-ore.glb",
+   "name": "Resource Ore",
+   "tris": 180,
+   "kb": 4,
+   "clips": []
+  },
+  {
+   "file": "dino-props/resource-tusk.glb",
+   "name": "Resource Tusk",
+   "tris": 692,
+   "kb": 5,
+   "clips": []
+  },
+  {
+   "file": "dino-props/stall-egg-shop.glb",
+   "name": "Stall Egg Shop",
+   "tris": 7688,
+   "kb": 42,
+   "clips": []
+  },
+  {
+   "file": "dino-props/stall-incubators.glb",
+   "name": "Stall Incubators",
+   "tris": 6656,
+   "kb": 38,
+   "clips": []
+  },
+  {
+   "file": "dino-props/stall-pickaxe.glb",
+   "name": "Stall Pickaxe",
+   "tris": 5632,
+   "kb": 36,
+   "clips": []
+  },
+  {
+   "file": "dino-props/stall-sell.glb",
+   "name": "Stall Sell",
+   "tris": 7868,
+   "kb": 41,
+   "clips": []
+  }
+ ],
+ "dino-env": [
+  {
+   "file": "dino-env/boss-board.glb",
+   "name": "Boss Board",
+   "tris": 1748,
+   "kb": 19,
+   "clips": []
+  },
+  {
+   "file": "dino-env/burrow.glb",
+   "name": "Burrow",
+   "tris": 822,
+   "kb": 15,
+   "clips": []
+  },
+  {
+   "file": "dino-env/bush-fern.glb",
+   "name": "Bush Fern",
+   "tris": 1012,
+   "kb": 17,
+   "clips": []
+  },
+  {
+   "file": "dino-env/bush-round.glb",
+   "name": "Bush Round",
+   "tris": 800,
+   "kb": 14,
+   "clips": []
+  },
+  {
+   "file": "dino-env/cliff-pillar.glb",
+   "name": "Cliff Pillar",
+   "tris": 710,
+   "kb": 15,
+   "clips": []
+  },
+  {
+   "file": "dino-env/cliff-wall.glb",
+   "name": "Cliff Wall",
+   "tris": 2484,
+   "kb": 36,
+   "clips": []
+  },
+  {
+   "file": "dino-env/fallen-log.glb",
+   "name": "Fallen Log",
+   "tris": 714,
+   "kb": 12,
+   "clips": []
+  },
+  {
+   "file": "dino-env/flower-patch.glb",
+   "name": "Flower Patch",
+   "tris": 504,
+   "kb": 9,
+   "clips": []
+  },
+  {
+   "file": "dino-env/fountain.glb",
+   "name": "Fountain",
+   "tris": 4364,
+   "kb": 28,
+   "clips": []
+  },
+  {
+   "file": "dino-env/grass-tuft.glb",
+   "name": "Grass Tuft",
+   "tris": 182,
+   "kb": 5,
+   "clips": []
+  },
+  {
+   "file": "dino-env/lily-pad.glb",
+   "name": "Lily Pad",
+   "tris": 702,
+   "kb": 9,
+   "clips": []
+  },
+  {
+   "file": "dino-env/mammoth-cave.glb",
+   "name": "Mammoth Cave",
+   "tris": 3454,
+   "kb": 40,
+   "clips": []
+  },
+  {
+   "file": "dino-env/mining-rock.glb",
+   "name": "Mining Rock",
+   "tris": 852,
+   "kb": 14,
+   "clips": []
+  },
+  {
+   "file": "dino-env/mining-rock-broken.glb",
+   "name": "Mining Rock Broken",
+   "tris": 380,
+   "kb": 9,
+   "clips": []
+  },
+  {
+   "file": "dino-env/owner-sign.glb",
+   "name": "Owner Sign",
+   "tris": 1642,
+   "kb": 16,
+   "clips": []
+  },
+  {
+   "file": "dino-env/quarry-rock-a.glb",
+   "name": "Quarry Rock A",
+   "tris": 478,
+   "kb": 11,
+   "clips": []
+  },
+  {
+   "file": "dino-env/quarry-rock-b.glb",
+   "name": "Quarry Rock B",
+   "tris": 382,
+   "kb": 10,
+   "clips": []
+  },
+  {
+   "file": "dino-env/reeds.glb",
+   "name": "Reeds",
+   "tris": 328,
+   "kb": 6,
+   "clips": []
+  },
+  {
+   "file": "dino-env/stepping-stones.glb",
+   "name": "Stepping Stones",
+   "tris": 564,
+   "kb": 7,
+   "clips": []
+  },
+  {
+   "file": "dino-env/tree-broadleaf.glb",
+   "name": "Tree Broadleaf",
+   "tris": 1214,
+   "kb": 22,
+   "clips": []
+  },
+  {
+   "file": "dino-env/tree-cycad.glb",
+   "name": "Tree Cycad",
+   "tris": 1588,
+   "kb": 27,
+   "clips": []
+  },
+  {
+   "file": "dino-env/tree-pine.glb",
+   "name": "Tree Pine",
+   "tris": 382,
+   "kb": 9,
+   "clips": []
+  },
+  {
+   "file": "dino-env/waterfall.glb",
+   "name": "Waterfall",
+   "tris": 1714,
+   "kb": 28,
+   "clips": []
+  },
+  {
+   "file": "dino-env/zone-sign.glb",
+   "name": "Zone Sign",
+   "tris": 466,
+   "kb": 10,
+   "clips": []
+  }
+ ],
+ "dainty-skins": [
+  {
+   "file": "dainty-skins/danda-bamboo.glb",
+   "name": "Danda Bamboo",
+   "tris": 5712,
+   "kb": 27,
+   "clips": []
+  },
+  {
+   "file": "dainty-skins/danda-champion.glb",
+   "name": "Danda Champion",
+   "tris": 4954,
+   "kb": 21,
+   "clips": []
+  },
+  {
+   "file": "dainty-skins/danda-classic.glb",
+   "name": "Danda Classic",
+   "tris": 1748,
+   "kb": 10,
+   "clips": []
+  },
+  {
+   "file": "dainty-skins/danda-cricket.glb",
+   "name": "Danda Cricket",
+   "tris": 3644,
+   "kb": 20,
+   "clips": []
+  },
+  {
+   "file": "dainty-skins/danda-crystal.glb",
+   "name": "Danda Crystal",
+   "tris": 1956,
+   "kb": 13,
+   "clips": []
+  },
+  {
+   "file": "dainty-skins/danda-golden.glb",
+   "name": "Danda Golden",
+   "tris": 3020,
+   "kb": 16,
+   "clips": []
+  },
+  {
+   "file": "dainty-skins/gulli-bamboo.glb",
+   "name": "Gulli Bamboo",
+   "tris": 1192,
+   "kb": 8,
+   "clips": []
+  },
+  {
+   "file": "dainty-skins/gulli-champion.glb",
+   "name": "Gulli Champion",
+   "tris": 1548,
+   "kb": 10,
+   "clips": []
+  },
+  {
+   "file": "dainty-skins/gulli-classic.glb",
+   "name": "Gulli Classic",
+   "tris": 280,
+   "kb": 4,
+   "clips": []
+  },
+  {
+   "file": "dainty-skins/gulli-crystal.glb",
+   "name": "Gulli Crystal",
+   "tris": 192,
+   "kb": 4,
+   "clips": []
+  },
+  {
+   "file": "dainty-skins/gulli-golden.glb",
+   "name": "Gulli Golden",
+   "tris": 1544,
+   "kb": 8,
+   "clips": []
+  },
+  {
+   "file": "dainty-skins/gulli-painted.glb",
+   "name": "Gulli Painted",
+   "tris": 2432,
+   "kb": 15,
+   "clips": []
+  },
+  {
+   "file": "dainty-skins/danda.glb",
+   "name": "Danda",
+   "tris": 408,
+   "kb": 5,
+   "clips": []
+  },
+  {
+   "file": "dainty-skins/gulli.glb",
+   "name": "Gulli",
+   "tris": 180,
+   "kb": 3,
+   "clips": []
+  }
+ ],
+ "dainty-festival": [
+  {
+   "file": "dainty-festival/bamboo.glb",
+   "name": "Bamboo",
+   "tris": 1260,
+   "kb": 15,
+   "clips": []
+  },
+  {
+   "file": "dainty-festival/chochin-gate.glb",
+   "name": "Chochin Gate",
+   "tris": 2192,
+   "kb": 17,
+   "clips": []
+  },
+  {
+   "file": "dainty-festival/chochin-pole.glb",
+   "name": "Chochin Pole",
+   "tris": 136,
+   "kb": 5,
+   "clips": []
+  },
+  {
+   "file": "dainty-festival/chochin-span.glb",
+   "name": "Chochin Span",
+   "tris": 838,
+   "kb": 9,
+   "clips": []
+  },
+  {
+   "file": "dainty-festival/chochin-span-yellow.glb",
+   "name": "Chochin Span Yellow",
+   "tris": 838,
+   "kb": 10,
+   "clips": []
+  },
+  {
+   "file": "dainty-festival/ema-rack.glb",
+   "name": "Ema Rack",
+   "tris": 1200,
+   "kb": 8,
+   "clips": []
+  },
+  {
+   "file": "dainty-festival/firework-launcher.glb",
+   "name": "Firework Launcher",
+   "tris": 412,
+   "kb": 7,
+   "clips": []
+  },
+  {
+   "file": "dainty-festival/kingyo-gate.glb",
+   "name": "Kingyo Gate",
+   "tris": 1160,
+   "kb": 18,
+   "clips": []
+  },
+  {
+   "file": "dainty-festival/machiya-a.glb",
+   "name": "Machiya A",
+   "tris": 1784,
+   "kb": 24,
+   "clips": []
+  },
+  {
+   "file": "dainty-festival/machiya-b.glb",
+   "name": "Machiya B",
+   "tris": 1592,
+   "kb": 25,
+   "clips": []
+  },
+  {
+   "file": "dainty-festival/machiya-shop.glb",
+   "name": "Machiya Shop",
+   "tris": 1820,
+   "kb": 25,
+   "clips": []
+  },
+  {
+   "file": "dainty-festival/maple-red.glb",
+   "name": "Maple Red",
+   "tris": 670,
+   "kb": 13,
+   "clips": []
+  },
+  {
+   "file": "dainty-festival/maple-summer.glb",
+   "name": "Maple Summer",
+   "tris": 670,
+   "kb": 13,
+   "clips": []
+  },
+  {
+   "file": "dainty-festival/nobori.glb",
+   "name": "Nobori",
+   "tris": 160,
+   "kb": 6,
+   "clips": []
+  },
+  {
+   "file": "dainty-festival/shrine-fence.glb",
+   "name": "Shrine Fence",
+   "tris": 460,
+   "kb": 5,
+   "clips": []
+  },
+  {
+   "file": "dainty-festival/stall-kakigori.glb",
+   "name": "Stall Kakigori",
+   "tris": 1778,
+   "kb": 27,
+   "clips": []
+  },
+  {
+   "file": "dainty-festival/stall-kingyo.glb",
+   "name": "Stall Kingyo",
+   "tris": 1896,
+   "kb": 30,
+   "clips": []
+  },
+  {
+   "file": "dainty-festival/stall-omen.glb",
+   "name": "Stall Omen",
+   "tris": 1868,
+   "kb": 26,
+   "clips": []
+  },
+  {
+   "file": "dainty-festival/stall-takoyaki.glb",
+   "name": "Stall Takoyaki",
+   "tris": 1944,
+   "kb": 26,
+   "clips": []
+  },
+  {
+   "file": "dainty-festival/stall-yoyo.glb",
+   "name": "Stall Yoyo",
+   "tris": 1680,
+   "kb": 28,
+   "clips": []
+  },
+  {
+   "file": "dainty-festival/taiko-stage.glb",
+   "name": "Taiko Stage",
+   "tris": 1124,
+   "kb": 16,
+   "clips": []
+  },
+  {
+   "file": "dainty-festival/toro-lantern.glb",
+   "name": "Toro Lantern",
+   "tris": 96,
+   "kb": 4,
+   "clips": []
+  },
+  {
+   "file": "dainty-festival/tree-sugi.glb",
+   "name": "Tree Sugi",
+   "tris": 164,
+   "kb": 5,
+   "clips": []
+  },
+  {
+   "file": "dainty-festival/vermilion-bridge.glb",
+   "name": "Vermilion Bridge",
+   "tris": 2732,
+   "kb": 19,
+   "clips": []
+  },
+  {
+   "file": "dainty-festival/yagura.glb",
+   "name": "Yagura",
+   "tris": 3832,
+   "kb": 31,
+   "clips": []
+  },
+  {
+   "file": "dainty-festival/yagura-spokes.glb",
+   "name": "Yagura Spokes",
+   "tris": 4080,
+   "kb": 25,
+   "clips": []
+  }
+ ],
+ "dainty-street": [
+  {
+   "file": "dainty-street/buffalo.glb",
+   "name": "Buffalo",
+   "tris": 296,
+   "kb": 7,
+   "clips": []
+  },
+  {
+   "file": "dainty-street/chingchi.glb",
+   "name": "Chingchi",
+   "tris": 584,
+   "kb": 12,
+   "clips": []
+  },
+  {
+   "file": "dainty-street/delhi-gate.glb",
+   "name": "Delhi Gate",
+   "tris": 1032,
+   "kb": 11,
+   "clips": []
+  },
+  {
+   "file": "dainty-street/dhaba.glb",
+   "name": "Dhaba",
+   "tris": 1148,
+   "kb": 19,
+   "clips": []
+  },
+  {
+   "file": "dainty-street/goat.glb",
+   "name": "Goat",
+   "tris": 128,
+   "kb": 4,
+   "clips": []
+  },
+  {
+   "file": "dainty-street/haveli.glb",
+   "name": "Haveli",
+   "tris": 3938,
+   "kb": 31,
+   "clips": []
+  },
+  {
+   "file": "dainty-street/kite.glb",
+   "name": "Kite",
+   "tris": 56,
+   "kb": 4,
+   "clips": []
+  },
+  {
+   "file": "dainty-street/laundry-line.glb",
+   "name": "Laundry Line",
+   "tris": 212,
+   "kb": 7,
+   "clips": []
+  },
+  {
+   "file": "dainty-street/motorbike.glb",
+   "name": "Motorbike",
+   "tris": 272,
+   "kb": 5,
+   "clips": []
+  },
+  {
+   "file": "dainty-street/truck-art.glb",
+   "name": "Truck Art",
+   "tris": 2856,
+   "kb": 23,
+   "clips": []
+  }
+ ],
+ "dainty-backyard": [
+  {
+   "file": "dainty-backyard/bike.glb",
+   "name": "Bike",
+   "tris": 328,
+   "kb": 6,
+   "clips": []
+  },
+  {
+   "file": "dainty-backyard/church-steeple.glb",
+   "name": "Church Steeple",
+   "tris": 230,
+   "kb": 6,
+   "clips": []
+  },
+  {
+   "file": "dainty-backyard/colonial-house.glb",
+   "name": "Colonial House",
+   "tris": 4224,
+   "kb": 31,
+   "clips": []
+  },
+  {
+   "file": "dainty-backyard/craftsman-house.glb",
+   "name": "Craftsman House",
+   "tris": 2952,
+   "kb": 32,
+   "clips": []
+  },
+  {
+   "file": "dainty-backyard/deck-pergola.glb",
+   "name": "Deck Pergola",
+   "tris": 2638,
+   "kb": 22,
+   "clips": []
+  },
+  {
+   "file": "dainty-backyard/dog-house.glb",
+   "name": "Dog House",
+   "tris": 162,
+   "kb": 8,
+   "clips": []
+  },
+  {
+   "file": "dainty-backyard/garden-bed.glb",
+   "name": "Garden Bed",
+   "tris": 624,
+   "kb": 13,
+   "clips": []
+  },
+  {
+   "file": "dainty-backyard/hedge.glb",
+   "name": "Hedge",
+   "tris": 372,
+   "kb": 8,
+   "clips": []
+  },
+  {
+   "file": "dainty-backyard/hoop-driveway.glb",
+   "name": "Hoop Driveway",
+   "tris": 440,
+   "kb": 10,
+   "clips": []
+  },
+  {
+   "file": "dainty-backyard/kettle-grill.glb",
+   "name": "Kettle Grill",
+   "tris": 312,
+   "kb": 6,
+   "clips": []
+  },
+  {
+   "file": "dainty-backyard/kiddie-pool.glb",
+   "name": "Kiddie Pool",
+   "tris": 232,
+   "kb": 5,
+   "clips": []
+  },
+  {
+   "file": "dainty-backyard/lawn-mower.glb",
+   "name": "Lawn Mower",
+   "tris": 220,
+   "kb": 5,
+   "clips": []
+  },
+  {
+   "file": "dainty-backyard/lemonade-stand.glb",
+   "name": "Lemonade Stand",
+   "tris": 1324,
+   "kb": 12,
+   "clips": []
+  },
+  {
+   "file": "dainty-backyard/mailbox.glb",
+   "name": "Mailbox",
+   "tris": 208,
+   "kb": 7,
+   "clips": []
+  },
+  {
+   "file": "dainty-backyard/maple.glb",
+   "name": "Maple",
+   "tris": 1420,
+   "kb": 26,
+   "clips": []
+  },
+  {
+   "file": "dainty-backyard/maple-autumn.glb",
+   "name": "Maple Autumn",
+   "tris": 1420,
+   "kb": 26,
+   "clips": []
+  },
+  {
+   "file": "dainty-backyard/parked-car.glb",
+   "name": "Parked Car",
+   "tris": 628,
+   "kb": 11,
+   "clips": []
+  },
+  {
+   "file": "dainty-backyard/patio-set.glb",
+   "name": "Patio Set",
+   "tris": 372,
+   "kb": 7,
+   "clips": []
+  },
+  {
+   "file": "dainty-backyard/picket-fence.glb",
+   "name": "Picket Fence",
+   "tris": 312,
+   "kb": 4,
+   "clips": []
+  },
+  {
+   "file": "dainty-backyard/play-fort.glb",
+   "name": "Play Fort",
+   "tris": 596,
+   "kb": 11,
+   "clips": []
+  },
+  {
+   "file": "dainty-backyard/pool-above.glb",
+   "name": "Pool Above",
+   "tris": 984,
+   "kb": 14,
+   "clips": []
+  },
+  {
+   "file": "dainty-backyard/power-pole.glb",
+   "name": "Power Pole",
+   "tris": 128,
+   "kb": 4,
+   "clips": []
+  },
+  {
+   "file": "dainty-backyard/privacy-fence.glb",
+   "name": "Privacy Fence",
+   "tris": 276,
+   "kb": 5,
+   "clips": []
+  },
+  {
+   "file": "dainty-backyard/privacy-fence-run.glb",
+   "name": "Privacy Fence Run",
+   "tris": 516,
+   "kb": 5,
+   "clips": []
+  },
+  {
+   "file": "dainty-backyard/ranch-house.glb",
+   "name": "Ranch House",
+   "tris": 2156,
+   "kb": 23,
+   "clips": []
+  },
+  {
+   "file": "dainty-backyard/shed.glb",
+   "name": "Shed",
+   "tris": 272,
+   "kb": 8,
+   "clips": []
+  },
+  {
+   "file": "dainty-backyard/sprinkler.glb",
+   "name": "Sprinkler",
+   "tris": 102,
+   "kb": 4,
+   "clips": []
+  },
+  {
+   "file": "dainty-backyard/street-tree.glb",
+   "name": "Street Tree",
+   "tris": 956,
+   "kb": 19,
+   "clips": []
+  },
+  {
+   "file": "dainty-backyard/treehouse-oak.glb",
+   "name": "Treehouse Oak",
+   "tris": 3454,
+   "kb": 46,
+   "clips": []
+  },
+  {
+   "file": "dainty-backyard/water-tower.glb",
+   "name": "Water Tower",
+   "tris": 2446,
+   "kb": 24,
+   "clips": []
+  }
+ ]
+}

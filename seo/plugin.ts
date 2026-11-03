@@ -6,8 +6,9 @@ import fs from 'node:fs';
 import path from 'node:path';
 import type { Plugin, ResolvedConfig } from 'vite';
 import { SITE, PROFILE, PROJECTS } from '../src/data/portfolio';
+import { COLLECTIONS } from '../src/data/models';
 import {
-  homeMeta, projectMeta, renderHead, renderLlmsTxt, renderLlmsFullTxt, absUrl, projectPath,
+  homeMeta, projectMeta, collectionMeta, collectionPath, renderHead, renderLlmsTxt, renderLlmsFullTxt, absUrl, projectPath,
 } from '../src/seo/meta';
 
 const HEAD_RE = /<!-- seo:head -->[\s\S]*?<!-- \/seo:head -->/;
@@ -46,6 +47,11 @@ export function seoPlugin(): Plugin {
         write(path.join(projectPath(p.slug), 'index.html'), html);
       }
 
+      // One static page per 3D model collection
+      for (const c of COLLECTIONS) {
+        write(path.join(collectionPath(c.slug), 'index.html'), indexHtml.replace(HEAD_RE, head(renderHead(collectionMeta(c)))));
+      }
+
       // GitHub Pages serves 404.html for unknown paths; the SPA router shows its own not-found view.
       write('404.html', indexHtml.replace(
         /<meta name="robots" content="[^"]*" \/>/,
@@ -53,7 +59,7 @@ export function seoPlugin(): Plugin {
       ));
 
       const today = new Date().toISOString().slice(0, 10);
-      const urls = ['', ...PROJECTS.map(p => projectPath(p.slug))];
+      const urls = ['', ...PROJECTS.map(p => projectPath(p.slug)), ...COLLECTIONS.map(c => collectionPath(c.slug))];
       write('sitemap.xml', [
         '<?xml version="1.0" encoding="UTF-8"?>',
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">',

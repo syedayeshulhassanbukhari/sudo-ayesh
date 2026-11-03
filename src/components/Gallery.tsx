@@ -50,7 +50,7 @@ export function Gallery({ shots, title }: { shots: Shot[]; title: string }) {
           if (e.key === 'ArrowRight') step(1);
           if (e.key === 'ArrowLeft') step(-1);
         }}
-        className="m-auto max-h-[94vh] w-[min(1200px,94vw)] rounded-2xl border-4 border-toon-blue bg-toon-card p-0 text-white shadow-pop-lg backdrop:bg-black/85"
+        className="m-auto max-h-[94vh] w-[min(1200px,94vw)] rounded-md border border-toon-line bg-toon-card p-0 text-toon-text shadow-pop-lg backdrop:bg-black/85"
       >
         {current && (
           <figure>

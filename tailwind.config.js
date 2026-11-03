@@ -5,26 +5,32 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        display: ['"Bungee"', 'system-ui', 'sans-serif'],
-        sans: ['"Lexend"', 'system-ui', 'sans-serif'],
-        tech: ['"Rajdhani"', 'system-ui', 'sans-serif'],
-        mono: ['"Share Tech Mono"', 'ui-monospace', 'monospace'],
-        script: ['"Caveat"', 'cursive'],
-        hand: ['"Patrick Hand"', 'cursive'],
+        display: ['"Chakra Petch"', '"Arial Narrow"', 'system-ui', 'sans-serif'],
+        sans: ['"IBM Plex Sans"', 'system-ui', 'sans-serif'],
+        tech: ['"IBM Plex Sans"', 'system-ui', 'sans-serif'],
+        mono: ['"IBM Plex Mono"', 'ui-monospace', 'Consolas', 'monospace'],
+        script: ['"Chakra Petch"', 'system-ui', 'sans-serif'],
+        hand: ['"IBM Plex Mono"', 'ui-monospace', 'monospace'],
       },
       colors: {
+        // Blueprint + Loot palette: navy base, blue primary, yellow used sparingly for CTAs/prices.
+        // `orange` keeps its name so existing classes resolve to the yellow accent.
+        // Blueprint + Loot palette (values live in src/index.css). `orange` keeps its
+        // old name so existing classes resolve to the yellow "loot" accent.
         toon: {
-          blue: '#3b82f6',
-          'blue-dark': '#1d4ed8',
-          orange: '#f97316',
-          'orange-dark': '#c2410c',
-          yellow: '#fde047',
-          bg: '#1e293b',
-          card: '#0f172a',
-          deep: '#151c28',
-          text: '#f8fafc',
-          muted: '#94a3b8',
-          line: '#334155',
+          blue: 'rgb(var(--c-blue) / <alpha-value>)',
+          'blue-dark': 'rgb(var(--c-blue-dark) / <alpha-value>)',
+          glow: 'rgb(var(--c-glow) / <alpha-value>)',
+          orange: 'rgb(var(--c-yellow) / <alpha-value>)',
+          'orange-dark': 'rgb(var(--c-yellow-dark) / <alpha-value>)',
+          yellow: 'rgb(var(--c-yellow-text) / <alpha-value>)',
+          bg: 'rgb(var(--c-bg) / <alpha-value>)',
+          card: 'rgb(var(--c-surface) / <alpha-value>)',
+          deep: 'rgb(var(--c-deep) / <alpha-value>)',
+          text: 'rgb(var(--c-text) / <alpha-value>)',
+          muted: 'rgb(var(--c-muted) / <alpha-value>)',
+          line: 'rgb(var(--c-line) / <alpha-value>)',
+          danger: 'rgb(var(--c-danger) / <alpha-value>)',
         },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -79,8 +85,8 @@ module.exports = {
       },
       boxShadow: {
         xs: "0 1px 2px 0 rgb(0 0 0 / 0.05)",
-        pop: "4px 4px 0 0 rgba(0,0,0,0.55)",
-        'pop-lg': "8px 8px 0 0 rgba(0,0,0,0.55)",
+        pop: "0 1px 0 0 rgba(255,255,255,0.04) inset, 0 8px 24px -12px rgba(0,0,0,0.6)",
+        'pop-lg': "0 1px 0 0 rgba(255,255,255,0.05) inset, 0 20px 50px -24px rgba(0,0,0,0.7)",
       },
       keyframes: {
         "accordion-down": {

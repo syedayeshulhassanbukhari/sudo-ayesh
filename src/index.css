@@ -3,27 +3,69 @@
 @tailwind utilities;
 
 @layer base {
+  /* Blueprint + Loot palette. Colors are RGB triplets so Tailwind opacity modifiers work.
+     Dark is the default; light ("paper") applies via [data-theme='light']. */
   :root {
-    --background: 217 33% 17%;
-    --foreground: 210 40% 98%;
-    --card: 222 47% 11%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222 47% 11%;
-    --popover-foreground: 210 40% 98%;
+    --c-bg: 11 18 32;          /* #0B1220 */
+    --c-deep: 8 13 24;
+    --c-surface: 17 27 46;     /* #111B2E */
+    --c-line: 31 44 68;        /* #1F2C44 */
+    --c-text: 232 237 245;     /* #E8EDF5 */
+    --c-muted: 138 151 173;    /* #8A97AD */
+    --c-blue: 59 130 246;      /* #3B82F6 */
+    --c-blue-dark: 29 78 216;
+    --c-glow: 96 165 250;      /* #60A5FA */
+    --c-yellow: 250 204 21;    /* #FACC15 */
+    --c-yellow-dark: 202 138 4;
+    --c-yellow-text: 253 224 71; /* #FDE047 */
+    --c-danger: 244 63 94;
+    --c-on-accent: 11 18 32;
+    --grid: rgba(59, 130, 246, 0.07);
+
+    --background: 222 49% 8%;
+    --foreground: 216 41% 94%;
+    --card: 221 46% 12%;
+    --card-foreground: 216 41% 94%;
+    --popover: 221 46% 12%;
+    --popover-foreground: 216 41% 94%;
     --primary: 217 91% 60%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 215 25% 27%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 215 25% 27%;
-    --muted-foreground: 215 20% 65%;
-    --accent: 25 95% 53%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 84% 60%;
+    --secondary: 219 37% 19%;
+    --secondary-foreground: 216 41% 94%;
+    --muted: 219 37% 19%;
+    --muted-foreground: 218 17% 61%;
+    --accent: 48 96% 53%;
+    --accent-foreground: 222 49% 8%;
+    --destructive: 350 89% 60%;
     --destructive-foreground: 0 0% 98%;
-    --border: 215 25% 27%;
-    --input: 215 25% 27%;
+    --border: 219 37% 19%;
+    --input: 219 37% 19%;
     --ring: 217 91% 60%;
-    --radius: 0.75rem;
+    --radius: 0.375rem;
+    color-scheme: dark;
+  }
+  :root[data-theme='light'] {
+    --c-bg: 243 241 234;       /* #F3F1EA paper */
+    --c-deep: 233 230 220;
+    --c-surface: 255 255 255;
+    --c-line: 214 210 198;
+    --c-text: 11 18 32;
+    --c-muted: 84 96 117;
+    --c-blue: 29 78 216;       /* #1D4ED8 */
+    --c-blue-dark: 30 58 138;
+    --c-glow: 37 99 235;
+    --c-yellow: 250 204 21;
+    --c-yellow-dark: 161 98 7;
+    --c-yellow-text: 161 98 7; /* amber: bright yellow is unreadable on paper */
+    --grid: rgba(29, 78, 216, 0.08);
+    --background: 48 26% 94%;
+    --foreground: 222 49% 8%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 49% 8%;
+    --muted: 45 14% 81%;
+    --muted-foreground: 218 16% 39%;
+    --border: 45 14% 81%;
+    color-scheme: light;
   }
 
   html {
@@ -33,116 +75,105 @@
 
   body {
     @apply font-sans text-toon-text antialiased;
-    background-color: #1e293b;
+    background-color: rgb(var(--c-bg));
+    /* Blueprint grid plus a soft blue glow top-left */
     background-image:
-      radial-gradient(circle at 15% 40%, rgba(59, 130, 246, 0.08), transparent 28%),
-      radial-gradient(circle at 85% 25%, rgba(249, 115, 22, 0.07), transparent 28%);
+      radial-gradient(circle at 12% 0%, rgb(var(--c-blue) / 0.12), transparent 40%),
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size: 100% 100%, 48px 48px, 48px 48px;
     background-attachment: fixed;
     overflow-x: hidden;
   }
 
-  /* Pixel-hand cursor (public/pointer.png, 32px, hotspot on the fingertip).
-     Text fields keep the I-beam so typing still feels normal. */
-  html {
-    cursor: url('/pointer.png') 7 0, auto;
-  }
-  a, button, summary, label, select, [role='button'], [role='img'] {
-    cursor: url('/pointer.png') 7 0, pointer;
-  }
-  input:not([type='checkbox']):not([type='radio']), textarea {
-    cursor: text;
-  }
-  button:disabled {
-    cursor: url('/pointer.png') 7 0, not-allowed;
-  }
-
   ::selection {
-    background: #f97316;
-    color: #0f172a;
+    background: rgb(var(--c-yellow));
+    color: rgb(var(--c-on-accent));
   }
 
-  ::-webkit-scrollbar { width: 12px; }
-  ::-webkit-scrollbar-track { background: #0f172a; }
-  ::-webkit-scrollbar-thumb {
-    background: #3b82f6;
-    border: 2px solid #0f172a;
-    border-radius: 6px;
-  }
-  ::-webkit-scrollbar-thumb:hover { background: #f97316; }
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-track { background: rgb(var(--c-deep)); }
+  ::-webkit-scrollbar-thumb { background: rgb(var(--c-line)); border: 2px solid rgb(var(--c-deep)); }
+  ::-webkit-scrollbar-thumb:hover { background: rgb(var(--c-blue)); }
 
   :focus-visible {
-    outline: 3px solid #fde047;
+    outline: 2px solid rgb(var(--c-yellow));
     outline-offset: 3px;
   }
 }
 
 @layer components {
-  /* Thick-outlined card with a hard offset shadow */
+  /* HUD panel: thin line border, small radius, blue on hover */
   .toon-card {
-    @apply relative rounded-[1.75rem] border-4 border-toon-blue bg-toon-card shadow-pop-lg;
+    @apply relative rounded-md border border-toon-line bg-toon-card shadow-pop-lg transition-colors duration-300;
   }
-
-  /* Little "screws" in the top corners of a card */
+  .toon-card:hover { border-color: rgb(var(--c-blue) / 0.55); }
+  /* The old "screws" are now blue corner brackets on the top corners */
   .toon-screws::before,
   .toon-screws::after {
     content: '';
     position: absolute;
-    top: 14px;
+    top: -1px;
+    width: 14px;
+    height: 14px;
+    border-top: 2px solid rgb(var(--c-blue));
+    pointer-events: none;
+  }
+  .toon-screws::before { left: -1px; border-left: 2px solid rgb(var(--c-blue)); }
+  .toon-screws::after { right: -1px; border-right: 2px solid rgb(var(--c-blue)); }
+
+  /* Bottom corner brackets for media viewports: <span class="corner bl"> / <span class="corner br"> */
+  .corner {
+    position: absolute;
+    bottom: 8px;
     width: 12px;
     height: 12px;
-    border-radius: 9999px;
-    background: #1e3a8a;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    border-bottom: 2px solid rgb(var(--c-glow) / 0.8);
+    pointer-events: none;
+    z-index: 2;
   }
-  .toon-screws::before { left: 16px; }
-  .toon-screws::after { right: 16px; }
+  .corner.bl { left: 8px; border-left: 2px solid rgb(var(--c-glow) / 0.8); }
+  .corner.br { right: 8px; border-right: 2px solid rgb(var(--c-glow) / 0.8); }
+
+  /* Small mono HUD label, e.g. "02 // Projects" */
+  .hud {
+    @apply font-mono text-[11px] uppercase tracking-[0.18em] text-toon-muted;
+  }
+  .hud-tag {
+    @apply absolute left-3 top-3 z-[2] rounded-sm bg-toon-deep/80 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.16em] text-toon-glow backdrop-blur;
+  }
 
   .toon-heading {
-    @apply font-display uppercase text-white;
-    text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.55);
+    @apply font-display font-bold uppercase tracking-tight text-toon-text;
   }
 
-  /* Chunky buttons with a pressable bottom edge */
+  /* Buttons with clipped corners */
   .btn-toon {
-    @apply inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 font-display text-sm uppercase tracking-wide transition-all duration-150;
-    border-bottom-width: 5px;
+    @apply inline-flex items-center justify-center gap-2 rounded-sm border px-6 py-3 font-display text-sm font-semibold uppercase tracking-[0.08em] transition-all duration-150;
+    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
   }
-  .btn-toon:hover { transform: translateY(-2px); }
-  .btn-toon:active { transform: translateY(2px); border-bottom-width: 2px; }
+  .btn-toon:hover { transform: translateY(-1px); }
+  .btn-toon:active { transform: translateY(1px); }
 
-  .btn-blue { @apply bg-toon-blue text-white border-toon-blue-dark; }
-  .btn-orange { @apply bg-toon-orange text-white border-toon-orange-dark; }
-  .btn-ghost { @apply border-2 border-toon-line bg-transparent text-slate-200 hover:border-toon-blue hover:text-white; border-bottom-width: 5px; }
+  .btn-blue { @apply border-toon-blue bg-toon-blue text-white hover:bg-toon-glow; }
+  /* Yellow is the "loot" accent, for primary CTAs only. Text stays navy for contrast. */
+  .btn-orange { @apply border-toon-orange bg-toon-orange hover:brightness-110; color: rgb(var(--c-on-accent)); }
+  .btn-ghost { @apply border-toon-line bg-transparent text-toon-text hover:border-toon-blue hover:text-toon-glow; }
 
-  /* Ticket badges with punched side notches */
+  /* Ticket badges (Experience section), restyled as HUD plates */
   .ticket {
-    @apply relative px-6 py-5 text-center font-display text-base uppercase leading-tight;
-    border: 3px dashed rgba(255, 255, 255, 0.35);
-    border-radius: 0.75rem;
-    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.45);
+    @apply relative rounded-sm border px-6 py-5 text-center font-display text-base font-semibold uppercase leading-tight;
+    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
   }
-  .ticket::before,
-  .ticket::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    width: 18px;
-    height: 18px;
-    border-radius: 9999px;
-    background: #0f172a;
-    transform: translateY(-50%);
-  }
-  .ticket::before { left: -11px; }
-  .ticket::after { right: -11px; }
-  .ticket-blue { @apply bg-toon-blue text-white; }
-  .ticket-orange { @apply bg-toon-orange text-white; }
-  .ticket-white { @apply bg-slate-50 text-toon-card; border-color: rgba(15, 23, 42, 0.3); }
+  .ticket-blue { @apply border-toon-blue bg-toon-blue/15 text-toon-glow; }
+  .ticket-orange { @apply border-toon-orange bg-toon-orange/10 text-toon-yellow; }
+  .ticket-white { @apply border-toon-line bg-toon-card text-toon-text; }
 
   .chip {
-    @apply inline-flex items-center gap-1.5 rounded-full border border-toon-blue/50 bg-toon-blue/10 px-3 py-1 font-tech text-xs font-semibold text-blue-200;
+    @apply inline-flex items-center gap-1.5 rounded-sm border border-toon-blue/40 bg-toon-blue/10 px-2.5 py-1 font-mono text-[11px] uppercase tracking-wider text-toon-glow;
   }
   .tag {
-    @apply rounded-md border border-toon-line bg-toon-bg/60 px-2 py-1 font-tech text-xs font-semibold text-slate-300;
+    @apply rounded-sm border border-toon-line bg-toon-bg/60 px-2 py-1 font-mono text-[11px] text-toon-muted;
   }
 
   .dot-grid {
@@ -173,17 +204,17 @@
   .js .reveal.split { opacity: 1; transform: none; }
   .split-char {
     display: inline-block;
-    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease;
-    transition-delay: calc(var(--i) * 40ms);
+    transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s ease;
+    transition-delay: calc(var(--i) * 22ms);
   }
   .js .split:not(.is-visible) .split-char {
     opacity: 0;
-    transform: translateY(0.6em) rotate(8deg) scale(0.6);
+    transform: translateY(0.35em);
   }
 
   /* Pointer tilt (see src/hooks/usePointerTilt.ts) */
   .tilt {
-    transform: perspective(900px) rotateX(calc(var(--py, 0) * -6deg)) rotateY(calc(var(--px, 0) * 8deg));
+    transform: perspective(900px) rotateX(calc(var(--py, 0) * -3deg)) rotateY(calc(var(--px, 0) * 4deg));
     transition: transform 0.25s ease-out;
     will-change: transform;
   }
@@ -193,7 +224,7 @@
     inset: 0;
     border-radius: inherit;
     pointer-events: none;
-    background: radial-gradient(circle at calc(50% + var(--px, 0) * 50%) calc(50% + var(--py, 0) * 50%), rgba(255, 255, 255, 0.12), transparent 55%);
+    background: radial-gradient(circle at calc(50% + var(--px, 0) * 50%) calc(50% + var(--py, 0) * 50%), rgb(var(--c-glow) / 0.14), transparent 55%);
     opacity: 0;
     transition: opacity 0.3s ease;
   }
@@ -239,8 +270,8 @@ html.lenis, html.lenis body { height: auto; }
 
 @keyframes marquee { to { transform: translateX(-50%); } }
 @keyframes card-deal {
-  from { transform: translateY(70px) rotate(-14deg) scale(0.88); }
-  to { transform: rotate(-2deg); }
+  from { transform: translateY(40px); clip-path: inset(0 0 100% 0); }
+  to { transform: none; clip-path: inset(0 0 0 0); }
 }
 @keyframes fan-out { from { transform: none; } }
 @keyframes rise-in { from { opacity: 0; transform: translateY(22px); } }

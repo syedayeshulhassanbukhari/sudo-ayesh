@@ -1,0 +1,1213 @@
+[
+{
+"collection": "eggs",
+"src": "All_Blender_Work/01_Stud_Eggs/exports/roblox\\Eggs_01_Critters.fbx",
+"mode": "split",
+"tex": 512,
+"strip": "^Egg_[A-Za-z]+_"
+},
+{
+"collection": "eggs",
+"src": "All_Blender_Work/01_Stud_Eggs/exports/roblox\\Eggs_02_Snack.fbx",
+"mode": "split",
+"tex": 512,
+"strip": "^Egg_[A-Za-z]+_"
+},
+{
+"collection": "eggs",
+"src": "All_Blender_Work/01_Stud_Eggs/exports/roblox\\Eggs_03_Toys.fbx",
+"mode": "split",
+"tex": 512,
+"strip": "^Egg_[A-Za-z]+_"
+},
+{
+"collection": "eggs",
+"src": "All_Blender_Work/01_Stud_Eggs/exports/roblox\\Eggs_04_Wild.fbx",
+"mode": "split",
+"tex": 512,
+"strip": "^Egg_[A-Za-z]+_"
+},
+{
+"collection": "eggs",
+"src": "All_Blender_Work/01_Stud_Eggs/exports/roblox\\Eggs_05_Myth.fbx",
+"mode": "split",
+"tex": 512,
+"strip": "^Egg_[A-Za-z]+_"
+},
+{
+"collection": "eggs",
+"src": "All_Blender_Work/01_Stud_Eggs/exports/roblox\\Eggs_06_Epic.fbx",
+"mode": "split",
+"tex": 512,
+"strip": "^Egg_[A-Za-z]+_"
+},
+{
+"collection": "treadmills",
+"src": "All_Blender_Work/02_Treadmills/exports/roblox/Treadmills_10.fbx",
+"mode": "split",
+"tex": 512,
+"strip": "^Treadmill_"
+},
+{
+"collection": "axes",
+"src": "AxePack/exports\\AX10_Sandglass.fbx",
+"mode": "whole",
+"tex": 512,
+"strip": "^AX\\d+_"
+},
+{
+"collection": "axes",
+"src": "AxePack/exports\\AX11_Venomcane.fbx",
+"mode": "whole",
+"tex": 512,
+"strip": "^AX\\d+_"
+},
+{
+"collection": "axes",
+"src": "AxePack/exports\\AX12_Duskwarden.fbx",
+"mode": "whole",
+"tex": 512,
+"strip": "^AX\\d+_"
+},
+{
+"collection": "axes",
+"src": "AxePack/exports\\AX13_Shardfall.fbx",
+"mode": "whole",
+"tex": 512,
+"strip": "^AX\\d+_"
+},
+{
+"collection": "axes",
+"src": "AxePack/exports\\AX14_Hanagiri.fbx",
+"mode": "whole",
+"tex": 512,
+"strip": "^AX\\d+_"
+},
+{
+"collection": "axes",
+"src": "AxePack/exports\\AX15_Anvilheart.fbx",
+"mode": "whole",
+"tex": 512,
+"strip": "^AX\\d+_"
+},
+{
+"collection": "axes",
+"src": "AxePack/exports\\AX16_Barrowbone.fbx",
+"mode": "whole",
+"tex": 512,
+"strip": "^AX\\d+_"
+},
+{
+"collection": "axes",
+"src": "AxePack/exports\\AX17_CrimsonEclipse.fbx",
+"mode": "whole",
+"tex": 512,
+"strip": "^AX\\d+_"
+},
+{
+"collection": "axes",
+"src": "AxePack/exports\\AX18_Hourwright.fbx",
+"mode": "whole",
+"tex": 512,
+"strip": "^AX\\d+_"
+},
+{
+"collection": "axes",
+"src": "AxePack/exports\\AX1_StormwingLabrys.fbx",
+"mode": "whole",
+"tex": 512,
+"strip": "^AX\\d+_"
+},
+{
+"collection": "axes",
+"src": "AxePack/exports\\AX2_Rimefang.fbx",
+"mode": "whole",
+"tex": 512,
+"strip": "^AX\\d+_"
+},
+{
+"collection": "axes",
+"src": "AxePack/exports\\AX3_EmberCrescent.fbx",
+"mode": "whole",
+"tex": 512,
+"strip": "^AX\\d+_"
+},
+{
+"collection": "axes",
+"src": "AxePack/exports\\AX4_Voidcleaver.fbx",
+"mode": "whole",
+"tex": 512,
+"strip": "^AX\\d+_"
+},
+{
+"collection": "axes",
+"src": "AxePack/exports\\AX5_JadeThunderstone.fbx",
+"mode": "whole",
+"tex": 512,
+"strip": "^AX\\d+_"
+},
+{
+"collection": "axes",
+"src": "AxePack/exports\\AX6_Sunhalo.fbx",
+"mode": "whole",
+"tex": 512,
+"strip": "^AX\\d+_"
+},
+{
+"collection": "axes",
+"src": "AxePack/exports\\AX7_Tidecaller.fbx",
+"mode": "whole",
+"tex": 512,
+"strip": "^AX\\d+_"
+},
+{
+"collection": "axes",
+"src": "AxePack/exports\\AX8_Galeshear.fbx",
+"mode": "whole",
+"tex": 512,
+"strip": "^AX\\d+_"
+},
+{
+"collection": "axes",
+"src": "AxePack/exports\\AX9_Thornmaw.fbx",
+"mode": "whole",
+"tex": 512,
+"strip": "^AX\\d+_"
+},
+{
+"collection": "scifi",
+"src": "All_Blender_Work/03_SciFi_Crate/export/SM_SciFiCrate.fbx",
+"mode": "whole",
+"tex": 1024,
+"strip": "^SM_",
+"name": "Sci-Fi Crate"
+},
+{
+"collection": "megastore",
+"src": "All_Blender_Work/04_MegaStore/export\\MS_AirMachine.fbx",
+"mode": "whole",
+"tex": 512,
+"strip": "^MS_"
+},
+{
+"collection": "megastore",
+"src": "All_Blender_Work/04_MegaStore/export\\MS_Barrier.fbx",
+"mode": "whole",
+"tex": 512,
+"strip": "^MS_"
+},
+{
+"collection": "megastore",
+"src": "All_Blender_Work/04_MegaStore/export\\MS_Cart.fbx",
+"mode": "whole",
+"tex": 512,
+"strip": "^MS_"
+},
+{
+"collection": "megastore",
+"src": "All_Blender_Work/04_MegaStore/export\\MS_CartMerchant.fbx",
+"mode": "whole",
+"tex": 512,
+"strip": "^MS_"
+},
+{
+"collection": "megastore",
+"src": "All_Blender_Work/04_MegaStore/export\\MS_Crate.fbx",
+"mode": "whole",
+"tex": 512,
+"strip": "^MS_"
+},
+{
+"collection": "megastore",
+"src": "All_Blender_Work/04_MegaStore/export\\MS_DeliveryTruck.fbx",
+"mode": "whole",
+"tex": 512,
+"strip": "^MS_"
+},
+{
+"collection": "megastore",
+"src": "All_Blender_Work/04_MegaStore/export\\MS_DuffelBag.fbx",
+"mode": "whole",
+"tex": 512,
+"strip": "^MS_"
+},
+{
+"collection": "megastore",
+"src": "All_Blender_Work/04_MegaStore/export\\MS_Entrance.fbx",
+"mode": "whole",
+"tex": 512,
+"strip": "^MS_"
+},
+{
+"collection": "megastore",
+"src": "All_Blender_Work/04_MegaStore/export\\MS_FuelBin.fbx",
+"mode": "whole",
+"tex": 512,
+"strip": "^MS_"
+},
+{
+"collection": "megastore",
+"src": "All_Blender_Work/04_MegaStore/export\\MS_FuelCanopy.fbx",
+"mode": "whole",
+"tex": 512,
+"strip": "^MS_"
+},
+{
+"collection": "megastore",
+"src": "All_Blender_Work/04_MegaStore/export\\MS_FuelKiosk.fbx",
+"mode": "whole",
+"tex": 512,
+"strip": "^MS_"
+},
+{
+"collection": "megastore",
+"src": "All_Blender_Work/04_MegaStore/export\\MS_FuelPump.fbx",
+"mode": "whole",
+"tex": 512,
+"strip": "^MS_"
+},
+{
+"collection": "megastore",
+"src": "All_Blender_Work/04_MegaStore/export\\MS_GetawayVan.fbx",
+"mode": "whole",
+"tex": 512,
+"strip": "^MS_"
+},
+{
+"collection": "megastore",
+"src": "All_Blender_Work/04_MegaStore/export\\MS_GuardBooth.fbx",
+"mode": "whole",
+"tex": 512,
+"strip": "^MS_"
+},
+{
+"collection": "megastore",
+"src": "All_Blender_Work/04_MegaStore/export\\MS_LampPost.fbx",
+"mode": "whole",
+"tex": 512,
+"strip": "^MS_"
+},
+{
+"collection": "megastore",
+"src": "All_Blender_Work/04_MegaStore/export\\MS_Leaderboard.fbx",
+"mode": "whole",
+"tex": 512,
+"strip": "^MS_"
+},
+{
+"collection": "megastore",
+"src": "All_Blender_Work/04_MegaStore/export\\MS_MegaSign.fbx",
+"mode": "whole",
+"tex": 512,
+"strip": "^MS_"
+},
+{
+"collection": "megastore",
+"src": "All_Blender_Work/04_MegaStore/export\\MS_Merchant.fbx",
+"mode": "whole",
+"tex": 512,
+"strip": "^MS_"
+},
+{
+"collection": "megastore",
+"src": "All_Blender_Work/04_MegaStore/export\\MS_PlanTable.fbx",
+"mode": "whole",
+"tex": 512,
+"strip": "^MS_"
+},
+{
+"collection": "megastore",
+"src": "All_Blender_Work/04_MegaStore/export\\MS_PosterBox.fbx",
+"mode": "whole",
+"tex": 512,
+"strip": "^MS_"
+},
+{
+"collection": "megastore",
+"src": "All_Blender_Work/04_MegaStore/export\\MS_PricePylon.fbx",
+"mode": "whole",
+"tex": 512,
+"strip": "^MS_"
+},
+{
+"collection": "megastore",
+"src": "All_Blender_Work/04_MegaStore/export\\MS_PumpIsland.fbx",
+"mode": "whole",
+"tex": 512,
+"strip": "^MS_"
+},
+{
+"collection": "megastore",
+"src": "All_Blender_Work/04_MegaStore/export\\MS_WorkLamp.fbx",
+"mode": "whole",
+"tex": 512,
+"strip": "^MS_"
+},
+{
+"collection": "creatures",
+"src": "All_Blender_Work/07_Client_Creatures_Car_CLZ_LION_TRTL_GMG/exports/LION/LION_Roblox.fbx",
+"mode": "whole",
+"tex": 1024,
+"name": "Winged Lion"
+},
+{
+"collection": "creatures",
+"src": "All_Blender_Work/07_Client_Creatures_Car_CLZ_LION_TRTL_GMG/exports/CLZ/CLZ_Roblox.fbx",
+"mode": "whole",
+"tex": 1024,
+"name": "Crystal Lizard"
+},
+{
+"collection": "creatures",
+"src": "All_Blender_Work/07_Client_Creatures_Car_CLZ_LION_TRTL_GMG/exports/TRTL/TRTL_Roblox.fbx",
+"mode": "whole",
+"tex": 1024,
+"name": "Turtle"
+},
+{
+"collection": "animation",
+"src": "All_Blender_Work/07_Client_Creatures_Car_CLZ_LION_TRTL_GMG/exports/LION/LION_Flight.fbx",
+"mode": "whole",
+"tex": 1024,
+"name": "Winged Lion Flight"
+},
+{
+"collection": "animation",
+"src": "All_Blender_Work/07_Client_Creatures_Car_CLZ_LION_TRTL_GMG/exports/CLZ/CLZ_Attack.fbx",
+"mode": "whole",
+"tex": 1024,
+"name": "Crystal Lizard Attack"
+},
+{
+"collection": "animation",
+"src": "All_Blender_Work/07_Client_Creatures_Car_CLZ_LION_TRTL_GMG/exports/CLZ/CLZ_CrystalSurge.fbx",
+"mode": "whole",
+"tex": 1024,
+"name": "Crystal Surge"
+},
+{
+"collection": "animation",
+"src": "All_Blender_Work/07_Client_Creatures_Car_CLZ_LION_TRTL_GMG/exports/TRTL/TRTL_Roar.fbx",
+"mode": "whole",
+"tex": 1024,
+"name": "Turtle Roar"
+},
+{
+"collection": "animation",
+"src": "All_Blender_Work/05_R6_IK_Rig/StreetFighter.blend",
+"mode": "whole",
+"tex": 512,
+"name": "R6 Shoto Combo",
+"exclude": "^(Cube|Icosphere)|pPipe"
+},
+{
+"collection": "dinos",
+"src": "Roblox/Dino-Empire/Dino Empire Roblox Models/Exports/Creatures\\Allosaurus.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dinos",
+"src": "Roblox/Dino-Empire/Dino Empire Roblox Models/Exports/Creatures\\Ankylosaurus.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dinos",
+"src": "Roblox/Dino-Empire/Dino Empire Roblox Models/Exports/Creatures\\Compsognathus.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dinos",
+"src": "Roblox/Dino-Empire/Dino Empire Roblox Models/Exports/Creatures\\Dimorphodon.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dinos",
+"src": "Roblox/Dino-Empire/Dino Empire Roblox Models/Exports/Creatures\\Fish.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dinos",
+"src": "Roblox/Dino-Empire/Dino Empire Roblox Models/Exports/Creatures\\Lizard.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dinos",
+"src": "Roblox/Dino-Empire/Dino Empire Roblox Models/Exports/Creatures\\Mammoth.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dinos",
+"src": "Roblox/Dino-Empire/Dino Empire Roblox Models/Exports/Creatures\\Pteranodon.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dinos",
+"src": "Roblox/Dino-Empire/Dino Empire Roblox Models/Exports/Creatures\\Quetzalcoatlus.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dinos",
+"src": "Roblox/Dino-Empire/Dino Empire Roblox Models/Exports/Creatures\\Spinosaurus.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dinos",
+"src": "Roblox/Dino-Empire/Dino Empire Roblox Models/Exports/Creatures\\Stegosaurus.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dinos",
+"src": "Roblox/Dino-Empire/Dino Empire Roblox Models/Exports/Creatures\\TRex.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dinos",
+"src": "Roblox/Dino-Empire/Dino Empire Roblox Models/Exports/Creatures\\Triceratops.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dinos",
+"src": "Roblox/Dino-Empire/Dino Empire Roblox Models/Exports/Creatures\\Utahraptor.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dinos",
+"src": "Roblox/Dino-Empire/Dino Empire Roblox Models/Exports/Creatures\\Velociraptor.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dino-props",
+"src": "Roblox/Dino-Empire/Dino Empire Roblox Models/Exports/Props\\CenterEgg.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dino-props",
+"src": "Roblox/Dino-Empire/Dino Empire Roblox Models/Exports/Props\\EggBasic.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dino-props",
+"src": "Roblox/Dino-Empire/Dino Empire Roblox Models/Exports/Props\\EggGolden.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dino-props",
+"src": "Roblox/Dino-Empire/Dino Empire Roblox Models/Exports/Props\\EggJungle.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dino-props",
+"src": "Roblox/Dino-Empire/Dino Empire Roblox Models/Exports/Props\\IncubatorAdvanced.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dino-props",
+"src": "Roblox/Dino-Empire/Dino Empire Roblox Models/Exports/Props\\IncubatorBasic.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dino-props",
+"src": "Roblox/Dino-Empire/Dino Empire Roblox Models/Exports/Props\\IncubatorImproved.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dino-props",
+"src": "Roblox/Dino-Empire/Dino Empire Roblox Models/Exports/Props\\Pickaxe.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dino-props",
+"src": "Roblox/Dino-Empire/Dino Empire Roblox Models/Exports/Props\\ResourceFish.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dino-props",
+"src": "Roblox/Dino-Empire/Dino Empire Roblox Models/Exports/Props\\ResourceHide.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dino-props",
+"src": "Roblox/Dino-Empire/Dino Empire Roblox Models/Exports/Props\\ResourceOre.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dino-props",
+"src": "Roblox/Dino-Empire/Dino Empire Roblox Models/Exports/Props\\ResourceTusk.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dino-props",
+"src": "Roblox/Dino-Empire/Dino Empire Roblox Models/Exports/Props\\StallEggShop.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dino-props",
+"src": "Roblox/Dino-Empire/Dino Empire Roblox Models/Exports/Props\\StallIncubators.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dino-props",
+"src": "Roblox/Dino-Empire/Dino Empire Roblox Models/Exports/Props\\StallPickaxe.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dino-props",
+"src": "Roblox/Dino-Empire/Dino Empire Roblox Models/Exports/Props\\StallSell.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dino-env",
+"src": "Roblox/Dino-Empire/Dino Empire Roblox Models/Exports/Environment\\BossBoard.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dino-env",
+"src": "Roblox/Dino-Empire/Dino Empire Roblox Models/Exports/Environment\\Burrow.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dino-env",
+"src": "Roblox/Dino-Empire/Dino Empire Roblox Models/Exports/Environment\\BushFern.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dino-env",
+"src": "Roblox/Dino-Empire/Dino Empire Roblox Models/Exports/Environment\\BushRound.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dino-env",
+"src": "Roblox/Dino-Empire/Dino Empire Roblox Models/Exports/Environment\\CliffPillar.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dino-env",
+"src": "Roblox/Dino-Empire/Dino Empire Roblox Models/Exports/Environment\\CliffWall.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dino-env",
+"src": "Roblox/Dino-Empire/Dino Empire Roblox Models/Exports/Environment\\FallenLog.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dino-env",
+"src": "Roblox/Dino-Empire/Dino Empire Roblox Models/Exports/Environment\\FlowerPatch.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dino-env",
+"src": "Roblox/Dino-Empire/Dino Empire Roblox Models/Exports/Environment\\Fountain.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dino-env",
+"src": "Roblox/Dino-Empire/Dino Empire Roblox Models/Exports/Environment\\GrassTuft.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dino-env",
+"src": "Roblox/Dino-Empire/Dino Empire Roblox Models/Exports/Environment\\LilyPad.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dino-env",
+"src": "Roblox/Dino-Empire/Dino Empire Roblox Models/Exports/Environment\\MammothCave.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dino-env",
+"src": "Roblox/Dino-Empire/Dino Empire Roblox Models/Exports/Environment\\MiningRock.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dino-env",
+"src": "Roblox/Dino-Empire/Dino Empire Roblox Models/Exports/Environment\\MiningRockBroken.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dino-env",
+"src": "Roblox/Dino-Empire/Dino Empire Roblox Models/Exports/Environment\\OwnerSign.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dino-env",
+"src": "Roblox/Dino-Empire/Dino Empire Roblox Models/Exports/Environment\\QuarryRockA.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dino-env",
+"src": "Roblox/Dino-Empire/Dino Empire Roblox Models/Exports/Environment\\QuarryRockB.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dino-env",
+"src": "Roblox/Dino-Empire/Dino Empire Roblox Models/Exports/Environment\\Reeds.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dino-env",
+"src": "Roblox/Dino-Empire/Dino Empire Roblox Models/Exports/Environment\\SteppingStones.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dino-env",
+"src": "Roblox/Dino-Empire/Dino Empire Roblox Models/Exports/Environment\\TreeBroadleaf.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dino-env",
+"src": "Roblox/Dino-Empire/Dino Empire Roblox Models/Exports/Environment\\TreeCycad.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dino-env",
+"src": "Roblox/Dino-Empire/Dino Empire Roblox Models/Exports/Environment\\TreePine.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dino-env",
+"src": "Roblox/Dino-Empire/Dino Empire Roblox Models/Exports/Environment\\Waterfall.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dino-env",
+"src": "Roblox/Dino-Empire/Dino Empire Roblox Models/Exports/Environment\\ZoneSign.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-skins",
+"src": "Roblox/DaintyMVP/blender/exports/skins\\DandaBamboo.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-skins",
+"src": "Roblox/DaintyMVP/blender/exports/skins\\DandaChampion.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-skins",
+"src": "Roblox/DaintyMVP/blender/exports/skins\\DandaClassic.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-skins",
+"src": "Roblox/DaintyMVP/blender/exports/skins\\DandaCricket.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-skins",
+"src": "Roblox/DaintyMVP/blender/exports/skins\\DandaCrystal.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-skins",
+"src": "Roblox/DaintyMVP/blender/exports/skins\\DandaGolden.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-skins",
+"src": "Roblox/DaintyMVP/blender/exports/skins\\GulliBamboo.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-skins",
+"src": "Roblox/DaintyMVP/blender/exports/skins\\GulliChampion.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-skins",
+"src": "Roblox/DaintyMVP/blender/exports/skins\\GulliClassic.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-skins",
+"src": "Roblox/DaintyMVP/blender/exports/skins\\GulliCrystal.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-skins",
+"src": "Roblox/DaintyMVP/blender/exports/skins\\GulliGolden.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-skins",
+"src": "Roblox/DaintyMVP/blender/exports/skins\\GulliPainted.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-skins",
+"src": "Roblox/DaintyMVP/blender/exports/Danda.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-skins",
+"src": "Roblox/DaintyMVP/blender/exports/Gulli.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-festival",
+"src": "Roblox/DaintyMVP/blender/exports/festival2\\Bamboo.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-festival",
+"src": "Roblox/DaintyMVP/blender/exports/festival2\\ChochinGate.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-festival",
+"src": "Roblox/DaintyMVP/blender/exports/festival2\\ChochinPole.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-festival",
+"src": "Roblox/DaintyMVP/blender/exports/festival2\\ChochinSpan.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-festival",
+"src": "Roblox/DaintyMVP/blender/exports/festival2\\ChochinSpanYellow.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-festival",
+"src": "Roblox/DaintyMVP/blender/exports/festival2\\EmaRack.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-festival",
+"src": "Roblox/DaintyMVP/blender/exports/festival2\\FireworkLauncher.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-festival",
+"src": "Roblox/DaintyMVP/blender/exports/festival2\\KingyoGate.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-festival",
+"src": "Roblox/DaintyMVP/blender/exports/festival2\\MachiyaA.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-festival",
+"src": "Roblox/DaintyMVP/blender/exports/festival2\\MachiyaB.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-festival",
+"src": "Roblox/DaintyMVP/blender/exports/festival2\\MachiyaShop.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-festival",
+"src": "Roblox/DaintyMVP/blender/exports/festival2\\MapleRed.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-festival",
+"src": "Roblox/DaintyMVP/blender/exports/festival2\\MapleSummer.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-festival",
+"src": "Roblox/DaintyMVP/blender/exports/festival2\\Nobori.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-festival",
+"src": "Roblox/DaintyMVP/blender/exports/festival2\\ShrineFence.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-festival",
+"src": "Roblox/DaintyMVP/blender/exports/festival2\\StallKakigori.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-festival",
+"src": "Roblox/DaintyMVP/blender/exports/festival2\\StallKingyo.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-festival",
+"src": "Roblox/DaintyMVP/blender/exports/festival2\\StallOmen.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-festival",
+"src": "Roblox/DaintyMVP/blender/exports/festival2\\StallTakoyaki.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-festival",
+"src": "Roblox/DaintyMVP/blender/exports/festival2\\StallYoyo.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-festival",
+"src": "Roblox/DaintyMVP/blender/exports/festival2\\TaikoStage.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-festival",
+"src": "Roblox/DaintyMVP/blender/exports/festival2\\ToroLantern.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-festival",
+"src": "Roblox/DaintyMVP/blender/exports/festival2\\TreeSugi.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-festival",
+"src": "Roblox/DaintyMVP/blender/exports/festival2\\VermilionBridge.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-festival",
+"src": "Roblox/DaintyMVP/blender/exports/festival2\\Yagura.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-festival",
+"src": "Roblox/DaintyMVP/blender/exports/festival2\\YaguraSpokes.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-street",
+"src": "Roblox/DaintyMVP/blender/exports/street2\\Buffalo.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-street",
+"src": "Roblox/DaintyMVP/blender/exports/street2\\Chingchi.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-street",
+"src": "Roblox/DaintyMVP/blender/exports/street2\\DelhiGate.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-street",
+"src": "Roblox/DaintyMVP/blender/exports/street2\\Dhaba.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-street",
+"src": "Roblox/DaintyMVP/blender/exports/street2\\Goat.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-street",
+"src": "Roblox/DaintyMVP/blender/exports/street2\\Haveli.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-street",
+"src": "Roblox/DaintyMVP/blender/exports/street2\\Kite.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-street",
+"src": "Roblox/DaintyMVP/blender/exports/street2\\LaundryLine.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-street",
+"src": "Roblox/DaintyMVP/blender/exports/street2\\Motorbike.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-street",
+"src": "Roblox/DaintyMVP/blender/exports/street2\\TruckArt.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-backyard",
+"src": "Roblox/DaintyMVP/blender/exports/backyard2\\Bike.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-backyard",
+"src": "Roblox/DaintyMVP/blender/exports/backyard2\\ChurchSteeple.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-backyard",
+"src": "Roblox/DaintyMVP/blender/exports/backyard2\\ColonialHouse.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-backyard",
+"src": "Roblox/DaintyMVP/blender/exports/backyard2\\CraftsmanHouse.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-backyard",
+"src": "Roblox/DaintyMVP/blender/exports/backyard2\\DeckPergola.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-backyard",
+"src": "Roblox/DaintyMVP/blender/exports/backyard2\\DogHouse.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-backyard",
+"src": "Roblox/DaintyMVP/blender/exports/backyard2\\GardenBed.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-backyard",
+"src": "Roblox/DaintyMVP/blender/exports/backyard2\\Hedge.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-backyard",
+"src": "Roblox/DaintyMVP/blender/exports/backyard2\\HoopDriveway.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-backyard",
+"src": "Roblox/DaintyMVP/blender/exports/backyard2\\KettleGrill.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-backyard",
+"src": "Roblox/DaintyMVP/blender/exports/backyard2\\KiddiePool.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-backyard",
+"src": "Roblox/DaintyMVP/blender/exports/backyard2\\LawnMower.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-backyard",
+"src": "Roblox/DaintyMVP/blender/exports/backyard2\\LemonadeStand.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-backyard",
+"src": "Roblox/DaintyMVP/blender/exports/backyard2\\Mailbox.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-backyard",
+"src": "Roblox/DaintyMVP/blender/exports/backyard2\\Maple.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-backyard",
+"src": "Roblox/DaintyMVP/blender/exports/backyard2\\MapleAutumn.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-backyard",
+"src": "Roblox/DaintyMVP/blender/exports/backyard2\\ParkedCar.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-backyard",
+"src": "Roblox/DaintyMVP/blender/exports/backyard2\\PatioSet.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-backyard",
+"src": "Roblox/DaintyMVP/blender/exports/backyard2\\PicketFence.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-backyard",
+"src": "Roblox/DaintyMVP/blender/exports/backyard2\\PlayFort.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-backyard",
+"src": "Roblox/DaintyMVP/blender/exports/backyard2\\PoolAbove.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-backyard",
+"src": "Roblox/DaintyMVP/blender/exports/backyard2\\PowerPole.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-backyard",
+"src": "Roblox/DaintyMVP/blender/exports/backyard2\\PrivacyFence.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-backyard",
+"src": "Roblox/DaintyMVP/blender/exports/backyard2\\PrivacyFenceRun.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-backyard",
+"src": "Roblox/DaintyMVP/blender/exports/backyard2\\RanchHouse.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-backyard",
+"src": "Roblox/DaintyMVP/blender/exports/backyard2\\Shed.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-backyard",
+"src": "Roblox/DaintyMVP/blender/exports/backyard2\\Sprinkler.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-backyard",
+"src": "Roblox/DaintyMVP/blender/exports/backyard2\\StreetTree.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-backyard",
+"src": "Roblox/DaintyMVP/blender/exports/backyard2\\TreehouseOak.fbx",
+"mode": "whole",
+"tex": 512
+},
+{
+"collection": "dainty-backyard",
+"src": "Roblox/DaintyMVP/blender/exports/backyard2\\WaterTower.fbx",
+"mode": "whole",
+"tex": 512
+}
+]

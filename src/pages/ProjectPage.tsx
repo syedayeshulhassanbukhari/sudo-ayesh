@@ -4,7 +4,7 @@ import { ArrowLeft, ArrowRight, Check } from 'lucide-react';
 import { PROFILE, PROJECTS } from '@/data/portfolio';
 import { ProjectArt } from '@/components/ProjectArt';
 import { Gallery } from '@/components/Gallery';
-import { StatusChip, ProjectLinks } from '@/sections/Projects';
+import { StatusChip, ProjectLinks } from '@/components/ProjectBits';
 import { useDocumentMeta } from '@/hooks/useDocumentMeta';
 import { useReveal } from '@/hooks/useReveal';
 import { homeMeta, projectMeta } from '@/seo/meta';
@@ -38,7 +38,7 @@ export default function ProjectPage() {
             <li aria-hidden="true">/</li>
             <li><Link to="/#projects" className="hover:text-white">Projects</Link></li>
             <li aria-hidden="true">/</li>
-            <li aria-current="page" className="text-toon-orange">{project.title}</li>
+            <li aria-current="page" className="text-toon-glow">{project.title}</li>
           </ol>
         </nav>
 
@@ -48,7 +48,7 @@ export default function ProjectPage() {
             {project.categories.map(c => <span key={c} className="chip">{c}</span>)}
           </div>
           <h1 className="toon-heading mt-4 text-4xl leading-tight md:text-6xl">{project.title}</h1>
-          <p className="mt-2 font-script text-2xl font-bold text-toon-orange md:text-3xl">{project.kind}</p>
+          <p className="hud mt-3 text-toon-yellow">{project.kind}</p>
         </header>
 
         <div className="toon-card mt-8 aspect-video overflow-hidden p-0">
@@ -66,7 +66,7 @@ export default function ProjectPage() {
             <ul className="mt-4 space-y-3">
               {project.highlights.map(h => (
                 <li key={h} className="flex gap-3 font-tech text-lg leading-relaxed text-slate-300">
-                  <Check size={20} className="mt-1 shrink-0 text-toon-orange" aria-hidden="true" />
+                  <Check size={20} className="mt-1 shrink-0 text-toon-glow" aria-hidden="true" />
                   <span>{h}</span>
                 </li>
               ))}
