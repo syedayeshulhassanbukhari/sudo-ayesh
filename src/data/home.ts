@@ -5,6 +5,7 @@ import { PROJECTS, SERVICES, type Project } from './portfolio';
 import { ANIMATIONS, COLLECTIONS, MODEL_TOTAL } from './models';
 
 export const NAV = [
+  { label: 'Studio', id: 'studio' },
   { label: 'Skills', id: 'skills' },
   { label: 'Modeling', id: 'modeling' },
   { label: 'Animation', id: 'animation' },

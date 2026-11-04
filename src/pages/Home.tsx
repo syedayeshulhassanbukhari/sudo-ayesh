@@ -1,7 +1,8 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState, type CSSProperties } from 'react';
 import { useDocumentMeta } from '@/hooks/useDocumentMeta';
 import { homeMeta } from '@/seo/meta';
-import { PROFILE } from '@/data/portfolio';
+import { PROFILE, STUDIO } from '@/data/portfolio';
+import { asset } from '@/lib/asset';
 import { PRICES, SECTIONS, SKILL_CARDS, TICKER } from '@/data/home';
 import { BootScreen } from '@/components/hud/BootScreen';
 import { Scramble } from '@/components/hud/Scramble';
@@ -41,16 +42,16 @@ function Hero() {
     <section ref={hero} className="hx-hero" id="top">
       <div className="hx-wrap">
         <div className="hx-hero-copy">
-          <div className="hx-eyebrow">Founder · <a href={PROFILE.studio.url} target="_blank" rel="noopener">Odd Studios</a> · Game developer</div>
+          <div className="hx-eyebrow">Founder · <a className="hx-red-ink" href="#studio">Odd Studios</a> · Game developer</div>
           <h1 aria-label={PROFILE.name}>
             <Scramble text={first} replayOnBoot />
             <Scramble text={rest.join(' ')} className="outline" replayOnBoot />
           </h1>
           <div className="hx-tagline">UE5 · Roblox · Unity · Blender</div>
-          <p>Founder of <a href={PROFILE.studio.url} target="_blank" rel="noopener">Odd Studios</a>, a Roblox game studio with six shipped games. I build games and game-ready assets in Unreal Engine 5, Roblox and Blender: NPC AI, 3D models, animation, UI and VFX.</p>
+          <p>Founder of <a className="hx-red-ink" href="#studio">Odd Studios</a>, a Roblox game studio with six shipped games. I build games and game-ready assets in Unreal Engine 5, Roblox and Blender: NPC AI, 3D models, animation, UI and VFX.</p>
           <div className="hx-ctas">
             <a className="hx-btn solid go" href="#modeling">View work</a>
-            <a className="hx-btn" href={PROFILE.studio.url} target="_blank" rel="noopener">Odd Studios ↗</a>
+            <a className="hx-btn red" href="#studio">Odd Studios</a>
             <a className="hx-btn" href="#contact">Contact</a>
           </div>
         </div>
@@ -61,6 +62,31 @@ function Hero() {
         </div>
       </div>
       <canvas ref={cv} className="hx-hero-3d" aria-hidden="true" />
+    </section>
+  );
+}
+
+function Studio() {
+  return (
+    <section className="hx-sec hx-studio" id="studio" aria-labelledby="studio-h">
+      <SecHead idx="Studio · Founder" id="studio-h" title={STUDIO.name} blurb={`${STUDIO.motto} ${STUDIO.blurb}`} />
+      <dl className="hx-studio-stats">
+        {STUDIO.stats.map(s => <div key={s.label}><dt>{s.label}</dt><dd>{s.value}</dd></div>)}
+      </dl>
+      <div className="hx-games">
+        {STUDIO.games.map(g => (
+          <a key={g.id} className="hx-game" href={STUDIO.url} target="_blank" rel="noopener" style={{ '--g': g.color } as CSSProperties}>
+            <div className="hx-game-shot"><img src={asset(`media/odd/${g.id}.webp`)} alt={`${g.title} gameplay`} loading="lazy" width={960} height={422} /></div>
+            <div className="hx-game-body">
+              <span className="hx-game-genre">{g.genre}</span>
+              <h3>{g.title}</h3>
+              <p>{g.tagline}</p>
+              <ul>{g.numbers.map(([v, l]) => <li key={l}><b>{v}</b> {l}</li>)}</ul>
+            </div>
+          </a>
+        ))}
+      </div>
+      <a className="hx-btn red go" href={STUDIO.url} target="_blank" rel="noopener">Visit Odd Studios</a>
     </section>
   );
 }
@@ -109,6 +135,8 @@ export default function Home() {
       </div>
 
       <div className="hx-wrap">
+        <Studio />
+
         <section className="hx-sec" id="skills" aria-labelledby="skills-h">
           <SecHead idx="Skills" id="skills-h" title="Skills & Services" blurb="What I build for your game, in Unreal Engine 5, Roblox Studio and Unity." />
           <div className="hx-skills">
