@@ -120,7 +120,7 @@ export const SERVICES: Service[] = [
 export const STATS: { value: number; suffix?: string; label: string }[] = [
   { value: 500, suffix: '+', label: 'Wishlists on Locked In Fear' },
   { value: 255, suffix: '+', label: 'Game-ready 3D models' },
-  { value: 3, label: 'Game engines: UE5, Roblox, Unity' },
+  { value: 4, label: 'Game engines: UE5, Roblox, Unity, Godot' },
 ];
 
 export interface TimelineItem {
@@ -221,6 +221,46 @@ export interface Project {
 
 // Order here is the order on the page (List view). The Timeline view sorts by `sortKey`.
 export const PROJECTS: Project[] = [
+  {
+    slug: 'pixel-war',
+    title: 'Pixel War',
+    kind: 'Godot 4 Pixel-Art Action Game',
+    summary:
+      'A side-view pixel-art action game I made solo in Godot 4, out free for Android and Windows: five worlds, fifteen stages, five bosses, eight weapons and six skills.',
+    overview: [
+      'Pixel War is a side-view action campaign. An armoured knight fights through five cursed worlds (Ashen Crypt, Frostbite Cavern, Thornwood, Ember Forge and Void Rift), three stages each, the third ending in a boss.',
+      'I built it alone in Godot 4 with GDScript: combat, enemy and boss AI, hazards, the shop and upgrade loop, saving, touch and gamepad controls, and the game\'s website. It ships as an Android APK and a single Windows EXE.',
+    ],
+    highlights: [
+      'Eight weapons with their own reach, hit timing and effects (crits, stuns, sweeps, lifesteal), swapped in the shop\'s Armory.',
+      'Six skills with elemental rules: fire melts ice, frozen enemies shatter. Unlocked by clearing stages, upgraded with coins.',
+      'Five bosses with readable telegraphs and an enraged second phase.',
+      'Frame-by-frame pixel effects, streamed per stage by a threaded loading screen so phones only hold what the stage needs.',
+      'Mobile-first: multi-touch controls, any aspect ratio from 4:3 to 21:9, notch-safe HUD, adjustable button size.',
+      'Trailer recorded in-engine with Godot\'s Movie Maker and a director script that plays the game by itself.',
+    ],
+    role: 'Solo developer',
+    engine: 'Godot 4',
+    engineIcon: 'siGodotengine',
+    period: '2026',
+    sortKey: '2026-11',
+    status: 'Live',
+    categories: ['Games'],
+    tags: ['Godot 4', 'GDScript', 'Pixel art', 'Android', 'Windows', 'Boss fights'],
+    links: [
+      { label: 'Download (Android & Windows)', url: 'https://syedayeshulhassanbukhari.github.io/Pixel-War/', kind: 'play' },
+      { label: 'Watch trailer', url: 'https://syedayeshulhassanbukhari.github.io/sudo-ayesh/media/godot/pixel-war-trailer.mp4', kind: 'video' },
+      { label: 'Source on GitHub', url: 'https://github.com/syedayeshulhassanbukhari/Pixel-War', kind: 'code' },
+    ],
+    image: 'projectImages/pixel-war/cover.webp',
+    gallery: [
+      { src: 'projectImages/pixel-war/shot_boss_void.webp', caption: 'Fighting the Eye of the Void with a greatsword' },
+      { src: 'projectImages/pixel-war/shot_boss_toad.webp', caption: 'The Elder Toad boss in Thornwood' },
+      { src: 'projectImages/pixel-war/shot_frost.webp', caption: 'Dagger flurry in the Frostbite Cavern' },
+      { src: 'projectImages/pixel-war/shot_fight.webp', caption: 'Touch controls during a fight' },
+    ],
+    accent: '#c684ff',
+  },
   {
     slug: 'dainty-gulli-danda',
     title: 'Dainty: Gulli Danda',

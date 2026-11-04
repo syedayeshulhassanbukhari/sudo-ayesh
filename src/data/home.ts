@@ -16,12 +16,12 @@ export const NAV = [
 export const TICKER = ['Unreal Engine 5', 'C++', 'Blueprints', 'Roblox Studio', 'Luau', 'Unity', 'C#', 'NPC AI', 'Game UI', 'VFX', 'Blender', 'Godot', 'Rigging', 'Game-ready assets'];
 
 // glyph = short code in the icon tile (no brand logos). image = a shot of real work in that skill;
-// skills with nothing to show yet (Unity, Godot) get a code snippet instead of a borrowed picture.
+// skills with nothing to show yet (Unity) get a code snippet instead of a borrowed picture.
 export const SKILL_CARDS: { glyph: string; name: string; note: string; tags: string[]; image?: string; code?: string }[] = [
   { glyph: 'UE5', name: 'Unreal Engine 5', note: 'Player controllers, stealth and NPC AI in C++ and Blueprints, tuned to hold frame rate on mid-range PCs.', tags: ['C++', 'Blueprints', 'AI Perception'], image: 'projectImages/locked-in-fear.jpg' },
   { glyph: 'RBX', name: 'Roblox Development', note: 'Full Roblox games and systems in Luau: core loops, data saving, shops, game passes and leaderboards.', tags: ['Luau', 'DataStores', 'Remotes'], image: 'media/dainty/g-m2-drive.webp' },
   { glyph: 'C#', name: 'Unity Development', note: 'Gameplay mechanics, physics and tools in C# for PC and mobile.', tags: ['C#', 'Physics', 'Tools'], code: '<k>void</k> FixedUpdate() {\n    rb.AddForce(input * speed);\n}' },
-  { glyph: 'GD', name: 'Godot', note: 'Prototypes and tools in Godot 4 with GDScript. In development now.', tags: ['GDScript', 'Godot 4', 'Shaders'], code: '<k>func</k> _physics_process(delta):\n    move_and_slide()' },
+  { glyph: 'GD', name: 'Godot', note: 'Pixel War, a full action game for Android and Windows, built solo in Godot 4 with GDScript.', tags: ['GDScript', 'Godot 4', 'Android'], image: 'media/godot/pixel-war.webp' },
   { glyph: '3D', name: '3D Modeling', note: 'Characters, weapons, props and full environment kits in Blender, low-poly and game-ready.', tags: ['Blender', 'Texturing', 'Low-poly'], image: 'media/dainty/blender-overview.webp' },
   { glyph: 'ANM', name: 'Rigging & Animation', note: 'Creature and character rigs with attack, flight and combo animations for Roblox and Unity.', tags: ['Rigging', 'IK', 'Keyframe'], image: 'media/anim/winged-lion-flight.webp' },
   { glyph: 'FX', name: 'VFX', note: 'Anime and combat effects: slashes, beams, auras, impacts and full skill sets, light enough for mobile.', tags: ['Particles', 'Beams', 'Trails'], image: 'media/vfx/crimson_finish.webp' },
@@ -127,8 +127,8 @@ export const SECTIONS: WorkSection[] = [
   {
     id: 'games',
     title: 'Games',
-    blurb: 'Unreal Engine 5 games, menus and scenes. Click a card for the full breakdown.',
-    items: ['locked-in-fear', 'investigation-51', 'ghost-of-yotei-menu', 'sword-in-the-stone'].map(s => fromProject(bySlug(s))),
+    blurb: 'Games in Unreal Engine 5 and Godot, plus menus and scenes. Click a card for the full breakdown.',
+    items: ['pixel-war', 'locked-in-fear', 'investigation-51', 'ghost-of-yotei-menu', 'sword-in-the-stone'].map(s => fromProject(bySlug(s))),
   },
   {
     id: 'roblox',
@@ -154,9 +154,9 @@ export const SECTIONS: WorkSection[] = [
   {
     id: 'godot',
     title: 'Godot',
-    blurb: 'New work in Godot 4 and GDScript, in development. Slots fill as builds land.',
+    blurb: 'Games in Godot 4 and GDScript, out now for Android and Windows.',
     items: [
-      { key: 'godot-1', slot: 'Prototype 01', name: '', note: '', code: '<k>extends</k> CharacterBody3D\n\n<k>func</k> _physics_process(delta):\n    velocity = input_dir() * SPEED\n    move_and_slide()' },
+      { ...fromProject(bySlug('pixel-war')), video: 'media/godot/pixel-war-sm.mp4', poster: 'media/godot/pixel-war.webp', full: 'media/godot/pixel-war-trailer.mp4' },
       { key: 'godot-2', slot: 'Shader Lab', name: '', note: '' },
       { key: 'godot-3', slot: 'Tools & Plugins', name: '', note: '' },
     ],

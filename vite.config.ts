@@ -10,6 +10,8 @@ export default defineConfig({
   plugins: [react(), seoPlugin()],
   server: {
     port: 3000,
+    // Projects/ holds gigabytes of source files; keep the dev server from watching them
+    watch: { ignored: ['**/Projects/**'] },
   },
   resolve: {
     alias: {

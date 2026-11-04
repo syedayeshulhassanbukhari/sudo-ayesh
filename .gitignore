@@ -27,3 +27,6 @@ dist-ssr
 _removed-assets/
 # Source copy of the CV (the published copy lives in public/)
 sudo-ash-v1.pdf
+
+# Source files for portfolio work (Blender, Roblox, Unity); see Projects/README.md
+Projects/
