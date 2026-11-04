@@ -134,6 +134,7 @@ export const SECTIONS: WorkSection[] = [
     title: 'Roblox',
     blurb: 'Live Roblox work at Zehn Studio 26: VFX, UI/UX and game systems.',
     items: [
+      { key: 'stud-ui-pack', name: 'Stud UI Pack', note: 'Simulator UI kit: HUD, store, shops, upgrades, index, spinner, daily rewards, sell and settings.', sub: 'Roblox UI/UX', badge: 'Roblox', video: 'media/ui/stud-ui-pack-sm.mp4', poster: 'media/ui/stud-ui-pack.webp', full: 'media/ui/stud-ui-pack.mp4' },
       ...['dainty-gulli-danda', 'mma-combat-vfx', 'vermilian-mask', 'roblox-studio-ui-systems'].map(s => fromProject(bySlug(s))),
       { key: 'slot-vfx', slot: 'VFX Reel', name: '', note: '', code: '<k>local</k> fx = Combat.cast("slash")\nfx:Play(hrp.CFrame)\n<k>task</k>.wait(0.2)\nfx:Impact(target)' },
       { key: 'slot-kit', slot: 'Combat Kit', name: '', note: '' },
