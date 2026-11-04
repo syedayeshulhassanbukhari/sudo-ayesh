@@ -361,3 +361,17 @@ html.fx-cursor .hx-vbox button { cursor: pointer !important; }
 .hx-skill-pic pre b { color: var(--acc-ink); font-weight: 600; }
 .hx-skill-pic .hx-glyph { position: absolute; left: 16px; bottom: 12px; margin: 0; background: var(--bg); }
 @media (prefers-reduced-motion: reduce) { .hx-skill-pic img { transition: none; } }
+
+/* ---------- phones: long grids become swipe rows, rails lose the edge fade ---------- */
+@media (max-width: 640px) {
+  .hx-rail { -webkit-mask-image: none; mask-image: none; }
+  .hx-rail .hx-card { flex-basis: 78vw; }
+  .hx-skills, .hx-prices { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; scrollbar-width: none; margin-inline: calc(-1 * max(16px, 3vw)); padding-inline: max(16px, 3vw); scroll-padding-inline: max(16px, 3vw); border: 0; }
+  .hx-skills::-webkit-scrollbar, .hx-prices::-webkit-scrollbar { display: none; }
+  .hx-skill { flex: 0 0 84%; scroll-snap-align: start; border: 1px solid var(--line); }
+  .hx-price { flex: 0 0 86%; scroll-snap-align: start; }
+  .hx-price.feat .hx-amt { font-size: 56px; }
+  .hx-sec { padding-block: 44px; }
+  .hx-sec-head { margin-bottom: 20px; }
+}
+.hx-price.feat .hx-extra { color: var(--on-loot); }

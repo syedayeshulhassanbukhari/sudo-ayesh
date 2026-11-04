@@ -9,13 +9,12 @@ import { bootDone, bootReal, onBootLeft } from './boot';
 
 interface Item {
   o: THREE.Group;
-  d: [number, number]; // desktop: fraction of the scene slot from its centre (±.5 = brackets)
-  m: [number, number] | null; // phone: fraction of the whole canvas, null hides it
+  d: [number, number]; // fraction of the scene slot from its centre (±.5 = brackets)
+  phoneOff?: boolean; // hidden on phones, where the slot is too small for everything
   z: number;
   face: number;
   delay: number;
   sway?: number;
-  ms?: number; // phone scale
   ph: number; h: number; kick: number; extra: number; t0: number;
   base: THREE.Vector3; off?: boolean;
 }
@@ -42,12 +41,12 @@ export function startHeroScene(hero: HTMLElement, cv: HTMLCanvasElement, slot: H
   // Each item starts as an empty group and gets its model once the GLB arrives, fitted to `size`.
   const slot3d = () => new THREE.Group();
   const raw: (Omit<Item, 'ph' | 'h' | 'kick' | 'extra' | 't0' | 'base'> & { file: string; size: number })[] = [
-    { file: 'treadmills/dragon-run.glb', size: 3.6, o: slot3d(), d: [0, 0.02], m: [0, -0.3], z: 1, face: -0.5, delay: 0.1 },
-    { file: 'eggs/chick.glb', size: 1.5, o: slot3d(), d: [-0.36, -0.28], m: [-0.34, -0.36], z: -1, face: 0.3, delay: 0.3 },
-    { file: 'eggs/rocket.glb', size: 1.5, o: slot3d(), d: [0.36, -0.3], m: [0.34, -0.38], z: -1, face: -0.3, delay: 0.45 },
-    { file: 'axes/ember-crescent.glb', size: 2.5, o: slot3d(), d: [-0.4, 0.2], m: [-0.34, -0.14], z: 0.3, face: 0.3, delay: 0.6, ms: 0.6 },
-    { file: 'axes/rimefang.glb', size: 2.5, o: slot3d(), d: [0.4, 0.22], m: [0.34, -0.14], z: 0.3, face: 0, delay: 0.75, ms: 0.6 },
-    { file: 'eggs/star-whale.glb', size: 1.1, o: slot3d(), d: [0.18, -0.42], m: null, z: 0.6, face: 0.5, delay: 0.85 },
+    { file: 'treadmills/dragon-run.glb', size: 3.6, o: slot3d(), d: [0, 0.02], z: 1, face: -0.5, delay: 0.1 },
+    { file: 'eggs/chick.glb', size: 1.5, o: slot3d(), d: [-0.36, -0.28], z: -1, face: 0.3, delay: 0.3 },
+    { file: 'eggs/rocket.glb', size: 1.5, o: slot3d(), d: [0.36, -0.3], z: -1, face: -0.3, delay: 0.45 },
+    { file: 'axes/ember-crescent.glb', size: 2.5, o: slot3d(), d: [-0.4, 0.2], z: 0.3, face: 0.3, delay: 0.6 },
+    { file: 'axes/rimefang.glb', size: 2.5, o: slot3d(), d: [0.4, 0.22], z: 0.3, face: 0, delay: 0.75 },
+    { file: 'eggs/star-whale.glb', size: 1.1, o: slot3d(), d: [0.18, -0.42], phoneOff: true, z: 0.6, face: 0.5, delay: 0.85 },
   ];
   let T = reduce ? 99 : 0;
   const items: Item[] = raw.map((it, i) => ({ ...it, ph: i * 1.7, h: 0, kick: 0, extra: 0, t0: 0, base: new THREE.Vector3() }));
@@ -65,7 +64,7 @@ export function startHeroScene(hero: HTMLElement, cv: HTMLCanvasElement, slot: H
   }, undefined, settle));
   const offBoot = onBootLeft(() => { if (!reduce) items.forEach(it => { it.t0 = T + 0.25; }); });
 
-  let phone = false;
+  let phone = false, fit = 1;
   const resize = () => {
     const w = hero.clientWidth, h = hero.clientHeight; if (!w || !h) return;
     gl.setSize(w, h, false); cam.aspect = w / h; cam.updateProjectionMatrix();
@@ -75,10 +74,12 @@ export function startHeroScene(hero: HTMLElement, cv: HTMLCanvasElement, slot: H
     const hr = hero.getBoundingClientRect(), sr = slot.getBoundingClientRect();
     const sx = ((sr.left + sr.width / 2 - hr.left) / w - 0.5) * W, sy = (0.5 - (sr.top + sr.height / 2 - hr.top) / h) * H;
     const sw = (sr.width / w) * W, sh = (sr.height / h) * H;
+    fit = Math.min(1, sw / 7.5) * (w < 900 ? 1.15 : 1); // 7.5 world units is about the desktop slot width
     items.forEach(it => {
-      const p = phone ? it.m : it.d; it.off = !p; if (!p) return;
-      if (phone) it.base.set(p[0] * W, p[1] * H, it.z);
-      else it.base.set(Math.min(W / 2 - 0.7, Math.max(-W / 2 + 0.7, sx + p[0] * sw)), sy + p[1] * sh, it.z);
+      // phones use the same bracketed slot, scaled down to its width
+      it.off = phone && !!it.phoneOff; if (it.off) return;
+      const p = it.d, k = phone ? 0.72 : 1; // phones pull the ring in so nothing drops under the ticker
+      it.base.set(Math.min(W / 2 - 0.7 * fit, Math.max(-W / 2 + 0.7 * fit, sx + p[0] * sw * k)), sy + p[1] * sh * k, it.z);
     });
   };
   resize();
@@ -115,7 +116,7 @@ export function startHeroScene(hero: HTMLElement, cv: HTMLCanvasElement, slot: H
         const e = Math.min(1, Math.max(0, (T - it.t0 - it.delay) / 1.1));
         it.h += ((hov === it ? 1 : 0) - it.h) * Math.min(1, dt * 8);
         it.kick *= Math.exp(-dt * 2.2);
-        it.o.scale.setScalar((phone ? it.ms ?? 0.62 : 1) * Math.max(0.001, back(e)) * (1 + it.h * 0.15));
+        it.o.scale.setScalar(fit * Math.max(0.001, back(e)) * (1 + it.h * 0.15));
         it.o.position.set(it.base.x + Math.sin(T * 0.3 + it.ph) * 0.08, it.base.y + Math.sin(T * 0.9 + it.ph) * 0.14 - (1 - ease(e)) * 5, it.base.z);
         it.extra += (it.h * 3 + it.kick * 14) * dt;
         it.o.rotation.y = it.face + Math.sin(T * 0.45 + it.ph) * (it.sway ?? 0.5) + it.extra;
