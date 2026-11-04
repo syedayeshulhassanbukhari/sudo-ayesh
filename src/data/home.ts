@@ -5,27 +5,28 @@ import { PROJECTS, SERVICES, type Project } from './portfolio';
 import { ANIMATIONS, COLLECTIONS, MODEL_TOTAL } from './models';
 
 export const NAV = [
-  { label: 'Skills', id: 'skills' },
   { label: 'Modeling', id: 'modeling' },
   { label: 'Animation', id: 'animation' },
-  { label: 'Games', id: 'games' },
   { label: 'VFX', id: 'vfx' },
+  { label: 'Games', id: 'games' },
+  { label: 'Skills', id: 'skills' },
   { label: 'Prices', id: 'prices' },
 ];
 
 export const TICKER = ['Unreal Engine 5', 'C++', 'Blueprints', 'Roblox Studio', 'Luau', 'Unity', 'C#', 'NPC AI', 'Game UI', 'VFX', 'Blender', 'Godot', 'Rigging', 'Game-ready assets'];
 
-// glyph = short code in the icon tile (no brand logos)
-export const SKILL_CARDS = [
-  { glyph: 'UE5', name: 'Unreal Engine 5', note: 'Player controllers, stealth and NPC AI in C++ and Blueprints, tuned to hold frame rate on mid-range PCs.', tags: ['C++', 'Blueprints', 'AI Perception'] },
-  { glyph: 'RBX', name: 'Roblox Development', note: 'Full Roblox games and systems in Luau: core loops, data saving, shops, game passes and leaderboards.', tags: ['Luau', 'DataStores', 'Remotes'] },
-  { glyph: 'C#', name: 'Unity Development', note: 'Gameplay mechanics, physics and tools in C# for PC and mobile.', tags: ['C#', 'Physics', 'Tools'] },
-  { glyph: 'GD', name: 'Godot', note: 'Prototypes and tools in Godot 4 with GDScript. In development now.', tags: ['GDScript', 'Godot 4', 'Shaders'] },
-  { glyph: '3D', name: '3D Modeling', note: 'Characters, weapons, props and full environment kits in Blender, low-poly and game-ready.', tags: ['Blender', 'Texturing', 'Low-poly'] },
-  { glyph: 'ANM', name: 'Rigging & Animation', note: 'Creature and character rigs with attack, flight and combo animations for Roblox and Unity.', tags: ['Rigging', 'IK', 'Keyframe'] },
-  { glyph: 'FX', name: 'VFX', note: 'Anime and combat effects: slashes, beams, auras, impacts and full skill sets, light enough for mobile.', tags: ['Particles', 'Beams', 'Trails'] },
-  { glyph: 'GUI', name: 'Game UI / UX', note: 'HUDs, menus, shops and inventories, designed mobile-first and animated in engine.', tags: ['Figma', 'HUD', 'Menus'] },
-  { glyph: 'LVL', name: 'Level Design', note: 'Arenas and levels built around player flow, from blockout to dressed kit.', tags: ['Blockout', 'GDD', 'Flow'] },
+// glyph = short code in the icon tile (no brand logos). image = a shot of real work in that skill;
+// skills with nothing to show yet (Unity, Godot) get a code snippet instead of a borrowed picture.
+export const SKILL_CARDS: { glyph: string; name: string; note: string; tags: string[]; image?: string; code?: string }[] = [
+  { glyph: 'UE5', name: 'Unreal Engine 5', note: 'Player controllers, stealth and NPC AI in C++ and Blueprints, tuned to hold frame rate on mid-range PCs.', tags: ['C++', 'Blueprints', 'AI Perception'], image: 'projectImages/locked-in-fear.jpg' },
+  { glyph: 'RBX', name: 'Roblox Development', note: 'Full Roblox games and systems in Luau: core loops, data saving, shops, game passes and leaderboards.', tags: ['Luau', 'DataStores', 'Remotes'], image: 'media/dainty/g-m2-drive.webp' },
+  { glyph: 'C#', name: 'Unity Development', note: 'Gameplay mechanics, physics and tools in C# for PC and mobile.', tags: ['C#', 'Physics', 'Tools'], code: '<k>void</k> FixedUpdate() {\n    rb.AddForce(input * speed);\n}' },
+  { glyph: 'GD', name: 'Godot', note: 'Prototypes and tools in Godot 4 with GDScript. In development now.', tags: ['GDScript', 'Godot 4', 'Shaders'], code: '<k>func</k> _physics_process(delta):\n    move_and_slide()' },
+  { glyph: '3D', name: '3D Modeling', note: 'Characters, weapons, props and full environment kits in Blender, low-poly and game-ready.', tags: ['Blender', 'Texturing', 'Low-poly'], image: 'media/dainty/blender-overview.webp' },
+  { glyph: 'ANM', name: 'Rigging & Animation', note: 'Creature and character rigs with attack, flight and combo animations for Roblox and Unity.', tags: ['Rigging', 'IK', 'Keyframe'], image: 'media/anim/winged-lion-flight.webp' },
+  { glyph: 'FX', name: 'VFX', note: 'Anime and combat effects: slashes, beams, auras, impacts and full skill sets, light enough for mobile.', tags: ['Particles', 'Beams', 'Trails'], image: 'media/vfx/crimson_finish.webp' },
+  { glyph: 'GUI', name: 'Game UI / UX', note: 'HUDs, menus, shops and inventories, designed mobile-first and animated in engine.', tags: ['Figma', 'HUD', 'Menus'], image: 'media/ui/stud-ui-pack.webp' },
+  { glyph: 'LVL', name: 'Level Design', note: 'Arenas and levels built around player flow, from blockout to dressed kit.', tags: ['Blockout', 'GDD', 'Flow'], image: 'projectImages/investigation-51/mansion-floor-plan.jpg' },
 ];
 
 export interface CardItem {

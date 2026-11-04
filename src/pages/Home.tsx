@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { useDocumentMeta } from '@/hooks/useDocumentMeta';
 import { homeMeta } from '@/seo/meta';
 import { PROFILE } from '@/data/portfolio';
+import { asset } from '@/lib/asset';
 import { PRICES, SECTIONS, SKILL_CARDS, TICKER } from '@/data/home';
 import { BootScreen } from '@/components/hud/BootScreen';
 import { Scramble } from '@/components/hud/Scramble';
@@ -109,12 +110,19 @@ export default function Home() {
       </div>
 
       <div className="hx-wrap">
+        {SECTIONS.map(s => <WorkSection key={s.id} s={s} />)}
+
         <section className="hx-sec" id="skills" aria-labelledby="skills-h">
           <SecHead idx="Skills" id="skills-h" title="Skills & Services" blurb="What I build for your game, in Unreal Engine 5, Roblox Studio and Unity." />
           <div className="hx-skills">
             {SKILL_CARDS.map(k => (
               <article key={k.name} className="hx-skill">
-                <span className="hx-glyph" aria-hidden="true">{k.glyph}</span>
+                <div className="hx-skill-pic" aria-hidden="true">
+                  {k.image
+                    ? <img src={asset(k.image)} alt="" loading="lazy" />
+                    : <pre dangerouslySetInnerHTML={{ __html: k.code!.replace(/<k>(.*?)<\/k>/g, '<b>$1</b>') }} />}
+                  <span className="hx-glyph">{k.glyph}</span>
+                </div>
                 <h3>{k.name}</h3>
                 <p>{k.note}</p>
                 <div className="hx-tags">{k.tags.map(t => <span key={t}>{t}</span>)}</div>
@@ -122,8 +130,6 @@ export default function Home() {
             ))}
           </div>
         </section>
-
-        {SECTIONS.map(s => <WorkSection key={s.id} s={s} />)}
 
         <section className="hx-sec" id="prices" aria-labelledby="prices-h">
           <SecHead idx="Prices" id="prices-h" title="Services & Prices" blurb="Starting prices. The final quote depends on the job." />
