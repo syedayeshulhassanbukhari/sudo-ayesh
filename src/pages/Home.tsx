@@ -41,15 +41,16 @@ function Hero() {
     <section ref={hero} className="hx-hero" id="top">
       <div className="hx-wrap">
         <div className="hx-hero-copy">
-          <div className="hx-eyebrow">Player profile · Game developer</div>
+          <div className="hx-eyebrow">Founder · <a href={PROFILE.studio.url} target="_blank" rel="noopener">Odd Studios</a> · Game developer</div>
           <h1 aria-label={PROFILE.name}>
             <Scramble text={first} replayOnBoot />
             <Scramble text={rest.join(' ')} className="outline" replayOnBoot />
           </h1>
           <div className="hx-tagline">UE5 · Roblox · Unity · Blender</div>
-          <p>I build games and game-ready assets in Unreal Engine 5, Roblox and Blender: NPC AI, 3D models, animation, UI and VFX.</p>
+          <p>Founder of <a href={PROFILE.studio.url} target="_blank" rel="noopener">Odd Studios</a>, a Roblox game studio with six shipped games. I build games and game-ready assets in Unreal Engine 5, Roblox and Blender: NPC AI, 3D models, animation, UI and VFX.</p>
           <div className="hx-ctas">
             <a className="hx-btn solid go" href="#modeling">View work</a>
+            <a className="hx-btn" href={PROFILE.studio.url} target="_blank" rel="noopener">Odd Studios ↗</a>
             <a className="hx-btn" href="#contact">Contact</a>
           </div>
         </div>

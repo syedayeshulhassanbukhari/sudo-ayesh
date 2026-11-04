@@ -20,7 +20,8 @@ export const PROFILE = {
   firstName: 'Ayesh',
   handle: 'sudo-ayesh',
   role: 'Game Developer',
-  tagline: 'Game Developer | Unreal Engine 5 | Roblox',
+  tagline: 'Founder, Odd Studios | Game Developer | Unreal Engine 5 | Roblox',
+  studio: { name: 'Odd Studios', url: 'https://oddstudios.nucleusgrowthsystems.com/' },
   location: 'Peshawar, Pakistan',
   email: 'ayeshulhassan@gmail.com',
   phone: '+92-331-9304910',
@@ -29,17 +30,19 @@ export const PROFILE = {
   avatar: 'avatar.png',
   resume: 'Ayesh-Ul-Hassan-CV.pdf',
   intro: [
+    'Founder of Odd Studios, a Roblox game studio that has shipped six complete games, from co-op kaiju destruction to wingsuit flight.',
     'Game developer working across Unreal Engine 5, Roblox Studio and Unity, specialising in player controllers, stealth mechanics and NPC AI, plus VFX and UI/UX systems.',
     'Shipped Locked In Fear, a UE5 horror-survival game that pulled in 500+ wishlists before full release.',
     'Software Engineering student at CUSIT, Peshawar, and the sole VFX artist on Vermilian Mask at Zehn Studio 26.',
   ],
   summary:
-    'Game developer working across Unreal Engine 5, Roblox Studio and Unity. Builds player controllers, stealth mechanics and NPC AI in UE5, and VFX and UI/UX systems in Roblox. Shipped Locked In Fear, a UE5 horror-survival game with 500+ wishlists before full release.',
+    'Founder of Odd Studios, a Roblox game studio with six shipped games. Game developer working across Unreal Engine 5, Roblox Studio and Unity. Builds player controllers, stealth mechanics and NPC AI in UE5, and VFX and UI/UX systems in Roblox. Shipped Locked In Fear, a UE5 horror-survival game with 500+ wishlists before full release.',
   socials: [
     { label: 'GitHub', url: 'https://github.com/syedayeshulhassanbukhari' },
     { label: 'LinkedIn', url: 'https://www.linkedin.com/in/syedaishulhassan' },
     { label: 'itch.io', url: 'https://sudo-ayesh.itch.io/' },
     { label: 'Fiverr', url: 'https://www.fiverr.com/syedaish' },
+    { label: 'Odd Studios', url: 'https://oddstudios.nucleusgrowthsystems.com/' },
   ],
   languages: [
     { name: 'English', code: 'en' },
@@ -127,6 +130,7 @@ export interface TimelineItem {
 }
 
 export const EXPERIENCE: TimelineItem[] = [
+  { date: '2026 - PRESENT', title: 'Founder', org: 'Odd Studios · Roblox game studio' },
   { date: 'MAY 2026 - PRESENT', title: 'Junior Roblox Developer', org: 'Zehn Studio 26 · Vermilian Mask' },
   { date: 'JUN 2026 - JUL 2026', title: 'Unreal Engine Intern', org: 'CUSIT Battle Zone · Investigation 51' },
   { date: '2025 - 2026', title: 'Gameplay Programmer (Final Year Project)', org: 'City University of Science & IT · Locked In Fear' },
@@ -217,6 +221,34 @@ export interface Project {
 
 // Order here is the order on the page (List view). The Timeline view sorts by `sortKey`.
 export const PROJECTS: Project[] = [
+  {
+    slug: 'odd-studios',
+    title: 'Odd Studios',
+    kind: 'Roblox Game Studio (Founder)',
+    summary:
+      'The Roblox game studio I founded. "We build odd games people play": six complete Roblox games shipped, from co-op kaiju destruction to wingsuit flight.',
+    overview: [
+      'Odd Studios is a Roblox game studio I founded and run. We design the core loop, script every system, build the world and ship the game, either as a whole-game build or on just the part a client is stuck on.',
+      'Projects run on a fixed process: a brief and fixed quote, a playable greybox of the core loop in the first sprint, weekly builds, then polish and launch (VFX, sound, mobile tuning, performance) and live ops with events, updates and fixes.',
+    ],
+    highlights: [
+      'Six complete Roblox games shipped, from co-op kaiju destruction to wingsuit flight.',
+      'Full-game development: design, Luau systems, world building, monetization and launch.',
+      'Playable greybox within the first sprint, then weekly builds clients can play.',
+      'Live ops after launch: events, content updates and fixes.',
+    ],
+    role: 'Founder',
+    org: 'Odd Studios',
+    engine: 'Roblox Studio',
+    engineIcon: 'siRoblox',
+    period: '2026 — Present',
+    sortKey: '2026-11',
+    status: 'Live',
+    categories: ['Roblox', 'Work'],
+    tags: ['Studio Founder', 'Roblox Studio', 'Luau', 'Game Design', 'Live Ops'],
+    links: [{ label: 'Visit studio', url: 'https://oddstudios.nucleusgrowthsystems.com/', kind: 'site' }],
+    accent: '#a855f7',
+  },
   {
     slug: 'dainty-gulli-danda',
     title: 'Dainty: Gulli Danda',
@@ -691,6 +723,9 @@ export const MILESTONES: Milestone[] = [
 
 export const KEYWORDS = [
   'Ayesh Ul Hassan',
+  'Odd Studios',
+  'Odd Studios founder',
+  'Roblox game studio',
   'sudo-ayesh',
   'game developer',
   'gameplay programmer',
@@ -724,7 +759,7 @@ const [fullGame, ui, vfx] = SERVICES;
 export const FAQS: { q: string; a: string }[] = [
   {
     q: `Who is ${PROFILE.name}?`,
-    a: `${PROFILE.name} (${PROFILE.handle}) is a game developer from ${PROFILE.location}, building games in Unreal Engine 5, Roblox Studio and Unity. ${PROFILE.firstName} works as a Junior Roblox Developer at Zehn Studio 26 and shipped Locked In Fear, a UE5 horror-survival game with 500+ wishlists before full release.`,
+    a: `${PROFILE.name} (${PROFILE.handle}) is the founder of Odd Studios, a Roblox game studio, and a game developer from ${PROFILE.location}, building games in Unreal Engine 5, Roblox Studio and Unity. ${PROFILE.firstName} works as a Junior Roblox Developer at Zehn Studio 26 and shipped Locked In Fear, a UE5 horror-survival game with 500+ wishlists before full release.`,
   },
   {
     q: `Which game engines and languages does ${PROFILE.firstName} work with?`,
@@ -736,7 +771,7 @@ export const FAQS: { q: string; a: string }[] = [
   },
   {
     q: `What has ${PROFILE.firstName} shipped?`,
-    a: 'Locked In Fear, a UE5 horror-survival game with enemy AI that hears the player\'s real microphone (500+ wishlists), and Vermilian Mask, a live Roblox experience at Zehn Studio 26, as its sole VFX artist and UI/UX owner.',
+    a: `Six complete Roblox games through Odd Studios, the studio ${PROFILE.firstName} founded; Locked In Fear, a UE5 horror-survival game with enemy AI that hears the player\'s real microphone (500+ wishlists), and Vermilian Mask, a live Roblox experience at Zehn Studio 26, as its sole VFX artist and UI/UX owner.`,
   },
   {
     q: `Is ${PROFILE.firstName} open to studio roles?`,
