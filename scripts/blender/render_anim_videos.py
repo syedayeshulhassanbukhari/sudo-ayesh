@@ -53,7 +53,8 @@ for spec in specs:
     act = acts[0] if acts else None
     if arm and act:
         arm.animation_data_create(); arm.animation_data.action = act
-    f0, f1 = (int(act.frame_range[0]), int(act.frame_range[1])) if act else (1, 120)
+    # still models get a full 6 s turntable instead of a clip
+    f0, f1 = (int(act.frame_range[0]), int(act.frame_range[1])) if act else (1, 180)
     scene.frame_start, scene.frame_end = f0, f1
     scene.render.fps = 30
 
@@ -102,11 +103,15 @@ for spec in specs:
     cam.parent = rig
     dist = size * (2.3 if follow else 1.45)  # a moving model needs room inside the frame
     dist *= float(zoom or 1)
-    cam.location = (0, -dist, dist * 0.52)  # high enough that the horizon is out of frame
+    cam.location = (0, -dist, dist * (0.52 if act else 0.32))  # turntables sit lower to show the profile  # high enough that the horizon is out of frame
     tc = cam.constraints.new('TRACK_TO'); tc.target = rig; tc.track_axis = 'TRACK_NEGATIVE_Z'; tc.up_axis = 'UP_Y'
     scene.camera = cam
-    rig.rotation_euler = (0, 0, math.radians(-35)); rig.keyframe_insert('rotation_euler', frame=f0)
-    rig.rotation_euler = (0, 0, math.radians(35)); rig.keyframe_insert('rotation_euler', frame=f1)
+    sweep = 35 if act else 180  # animated: gentle quarter orbit; still: full turntable
+    rig.rotation_euler = (0, 0, math.radians(-sweep)); rig.keyframe_insert('rotation_euler', frame=f0)
+    rig.rotation_euler = (0, 0, math.radians(sweep)); rig.keyframe_insert('rotation_euler', frame=f1)
+    if not act:  # constant speed for a turntable
+        for fc in (rig.animation_data.action.fcurves if hasattr(rig.animation_data.action, 'fcurves') else []):
+            for k in fc.keyframe_points: k.interpolation = 'LINEAR'
 
     # three-point light
     for loc, energy, col in [((-1, -1, 1.4), 4.0, (1, .96, .9)), ((1.3, -.4, .6), 1.5, (.8, .88, 1)), ((0, 1.4, 1.1), 3.0, (.6, .75, 1))]:
