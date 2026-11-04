@@ -329,7 +329,7 @@ export const PROJECTS: Project[] = [
     tags: ['Unreal Engine 5', 'C++', 'Blueprints', 'AI Perception', 'Stealth', 'Level Design'],
     links: [
       { label: 'Website', url: 'https://lockedinfear.me/', kind: 'site' },
-      { label: 'Watch trailer', url: 'https://youtu.be/OZscZ-Jd4sU', kind: 'video' },
+      { label: 'Watch gameplay', url: 'https://youtu.be/OZscZ-Jd4sU', kind: 'video' },
     ],
     image: 'projectImages/locked-in-fear.jpg',
     accent: '#16a34a',
