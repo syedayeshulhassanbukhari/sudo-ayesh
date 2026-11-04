@@ -30,13 +30,13 @@ export const PROFILE = {
   avatar: 'avatar.png',
   resume: 'Ayesh-Ul-Hassan-CV.pdf',
   intro: [
-    'Founder of Odd Studios, a Roblox game studio that has shipped six complete games, from co-op kaiju destruction to wingsuit flight.',
+    'Founder of Odd Studios, a Roblox game studio.',
     'Game developer working across Unreal Engine 5, Roblox Studio and Unity, specialising in player controllers, stealth mechanics and NPC AI, plus VFX and UI/UX systems.',
     'Shipped Locked In Fear, a UE5 horror-survival game that pulled in 500+ wishlists before full release.',
     'Software Engineering student at CUSIT, Peshawar, and the sole VFX artist on Vermilian Mask at Zehn Studio 26.',
   ],
   summary:
-    'Founder of Odd Studios, a Roblox game studio with six shipped games. Game developer working across Unreal Engine 5, Roblox Studio and Unity. Builds player controllers, stealth mechanics and NPC AI in UE5, and VFX and UI/UX systems in Roblox. Shipped Locked In Fear, a UE5 horror-survival game with 500+ wishlists before full release.',
+    'Founder of Odd Studios. Game developer working across Unreal Engine 5, Roblox Studio and Unity. Builds player controllers, stealth mechanics and NPC AI in UE5, and VFX and UI/UX systems in Roblox. Shipped Locked In Fear, a UE5 horror-survival game with 500+ wishlists before full release.',
   socials: [
     { label: 'GitHub', url: 'https://github.com/syedayeshulhassanbukhari' },
     { label: 'LinkedIn', url: 'https://www.linkedin.com/in/syedaishulhassan' },
@@ -117,44 +117,11 @@ export const SERVICES: Service[] = [
 ];
 
 // Headline numbers shown in the hero (and quoted in structured data / llms.txt).
-// Studio numbers lead; they come from the Odd Studios site's own analysis of its place files.
 export const STATS: { value: number; suffix?: string; label: string }[] = [
-  { value: 6, label: 'Roblox games shipped at Odd Studios' },
-  { value: 140, suffix: 'k+', label: 'Lines of Luau shipped' },
-  { value: 255, suffix: '+', label: 'Game-ready 3D models' },
   { value: 500, suffix: '+', label: 'Wishlists on Locked In Fear' },
+  { value: 255, suffix: '+', label: 'Game-ready 3D models' },
+  { value: 3, label: 'Game engines: UE5, Roblox, Unity' },
 ];
-
-// Odd Studios band on the home page. Games, taglines and numbers mirror the studio site.
-export interface StudioGame {
-  id: string; // also the cover file: public/media/odd/<id>.webp
-  title: string;
-  genre: string;
-  tagline: string;
-  numbers: [string, string][];
-  color: string; // the game's own accent from the studio site
-}
-
-export const STUDIO = {
-  name: 'Odd Studios',
-  url: 'https://oddstudios.nucleusgrowthsystems.com/',
-  motto: 'We build odd games people play.',
-  blurb: 'The Roblox studio I founded. We design the loop, script every system, build the world and ship it.',
-  stats: [
-    { value: '6', label: 'Full games built' },
-    { value: '140k+', label: 'Lines of Luau' },
-    { value: '36', label: 'Game systems' },
-    { value: '50k+', label: 'Hand-placed meshes' },
-  ],
-  games: [
-    { id: 'kaiju', title: 'Kaiju', genre: 'Co-op action', tagline: 'Cut the kaiju down, block by block.', numbers: [['48k', 'lines of Luau'], ['21k', 'mesh parts']], color: '#b6f23a' },
-    { id: 'garukan', title: 'Garukan', genre: 'Wave-survival brawler', tagline: 'Rule the streets in a gakuran.', numbers: [['37k', 'lines of Luau'], ['5', 'named bosses']], color: '#ff2e3f' },
-    { id: 'wing-suit', title: 'Wing Suit', genre: 'Flight / distance', tagline: 'Mountains. City. Park. One jump.', numbers: [['100', 'XP levels'], ['10', 'wingsuits']], color: '#5ce1ff' },
-    { id: 'pirate', title: 'Pirate', genre: 'Co-op escape / horror', tagline: 'Dig, loot and escape the ghost ship.', numbers: [['22k', 'lines of Luau'], ['2', 'ghost AIs']], color: '#5fe3c8' },
-    { id: 'dino-empire', title: 'Dino Empire', genre: 'Collect / tycoon', tagline: 'Mine, hatch and grow your herd.', numbers: [['14', 'dino species'], ['60', 'animated rigs']], color: '#5bd67a' },
-    { id: 'guli-danda', title: 'Guli Danda', genre: 'Sports', tagline: 'The street game, now on Roblox.', numbers: [['18k', 'lines of Luau'], ['3', 'arenas']], color: '#ffa94d' },
-  ] as StudioGame[],
-};
 
 export interface TimelineItem {
   date: string;
@@ -254,34 +221,6 @@ export interface Project {
 
 // Order here is the order on the page (List view). The Timeline view sorts by `sortKey`.
 export const PROJECTS: Project[] = [
-  {
-    slug: 'odd-studios',
-    title: 'Odd Studios',
-    kind: 'Roblox Game Studio (Founder)',
-    summary:
-      'The Roblox game studio I founded. "We build odd games people play": six complete Roblox games shipped, from co-op kaiju destruction to wingsuit flight.',
-    overview: [
-      'Odd Studios is a Roblox game studio I founded and run. We design the core loop, script every system, build the world and ship the game, either as a whole-game build or on just the part a client is stuck on.',
-      'Projects run on a fixed process: a brief and fixed quote, a playable greybox of the core loop in the first sprint, weekly builds, then polish and launch (VFX, sound, mobile tuning, performance) and live ops with events, updates and fixes.',
-    ],
-    highlights: [
-      'Six complete Roblox games shipped, from co-op kaiju destruction to wingsuit flight.',
-      'Full-game development: design, Luau systems, world building, monetization and launch.',
-      'Playable greybox within the first sprint, then weekly builds clients can play.',
-      'Live ops after launch: events, content updates and fixes.',
-    ],
-    role: 'Founder',
-    org: 'Odd Studios',
-    engine: 'Roblox Studio',
-    engineIcon: 'siRoblox',
-    period: '2026 — Present',
-    sortKey: '2026-11',
-    status: 'Live',
-    categories: ['Roblox', 'Work'],
-    tags: ['Studio Founder', 'Roblox Studio', 'Luau', 'Game Design', 'Live Ops'],
-    links: [{ label: 'Visit studio', url: 'https://oddstudios.nucleusgrowthsystems.com/', kind: 'site' }],
-    accent: '#a855f7',
-  },
   {
     slug: 'dainty-gulli-danda',
     title: 'Dainty: Gulli Danda',
@@ -804,7 +743,7 @@ export const FAQS: { q: string; a: string }[] = [
   },
   {
     q: `What has ${PROFILE.firstName} shipped?`,
-    a: `Six complete Roblox games through Odd Studios, the studio ${PROFILE.firstName} founded; Locked In Fear, a UE5 horror-survival game with enemy AI that hears the player\'s real microphone (500+ wishlists), and Vermilian Mask, a live Roblox experience at Zehn Studio 26, as its sole VFX artist and UI/UX owner.`,
+    a: `Locked In Fear, a UE5 horror-survival game with enemy AI that hears the player\'s real microphone (500+ wishlists), and Vermilian Mask, a live Roblox experience at Zehn Studio 26, as its sole VFX artist and UI/UX owner.`,
   },
   {
     q: `Is ${PROFILE.firstName} open to studio roles?`,
