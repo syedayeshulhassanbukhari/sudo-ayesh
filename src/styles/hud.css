@@ -375,3 +375,40 @@ html.fx-cursor .hx-vbox button { cursor: pointer !important; }
   .hx-sec-head { margin-bottom: 20px; }
 }
 .hx-price.feat .hx-extra { color: var(--on-loot); }
+
+/* ---------- launch announcement: bar above the header, line on the boot screen ---------- */
+.hx-announce { background: var(--acc); color: var(--on-acc); }
+.hx-announce .hx-wrap { display: flex; align-items: center; justify-content: center; gap: 12px; padding-block: 9px; }
+.hx-announce-tag { flex: none; padding: 4px 8px; background: var(--loot); color: var(--on-loot); font: 700 10px/1 var(--f-mono); letter-spacing: .14em; text-transform: uppercase; }
+.hx-announce-link { display: flex; min-width: 0; overflow-wrap: anywhere; align-items: baseline; gap: 12px; min-width: 0; color: inherit; text-decoration: none; font: 500 14px/1.3 var(--f-body); }
+.hx-announce-link b { flex: none; font: 700 12px/1 var(--f-display); letter-spacing: .14em; text-transform: uppercase; border-bottom: 2px solid var(--loot); padding-bottom: 2px; }
+.hx-announce-link:hover b { color: var(--loot); }
+.hx-announce-x { flex: none; margin-left: auto; padding: 4px 6px; background: none; border: 0; color: inherit; opacity: .75; cursor: pointer; font-size: 13px; }
+.hx-announce-x:hover { opacity: 1; }
+.hx-announce .hx-wrap::before { content: ""; flex: 1; } /* keeps the message centred against the close button */
+.hx-boot-news { margin-top: 22px; padding-top: 14px; border-top: 1px dashed var(--line); font: 500 12px/1.4 var(--f-mono); color: var(--ink); }
+.hx-boot-news span { margin-right: 10px; padding: 3px 7px; background: var(--loot); color: var(--on-loot); font-weight: 700; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; }
+
+/* ---------- My Games: released games with store buttons ---------- */
+.hx-releases { display: grid; gap: 20px; }
+.hx-release { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); background: var(--surface); border: 1px solid var(--line); border-top: 4px solid var(--acc); }
+.hx-release-media { position: relative; aspect-ratio: 16 / 9; overflow: hidden; background: #0B1220; }
+.hx-release-media video { display: block; width: 100%; height: 100%; object-fit: cover; image-rendering: pixelated; }
+.hx-release-play { position: absolute; left: 14px; bottom: 14px; display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; background: rgba(11, 18, 32, .82); color: #fff; border: 1px solid rgba(255, 255, 255, .35); font: 700 12px/1 var(--f-display); letter-spacing: .14em; text-transform: uppercase; cursor: pointer; backdrop-filter: blur(4px); transition: background-color .2s, color .2s; }
+.hx-release-play:hover { background: var(--loot); color: var(--on-loot); border-color: var(--loot); }
+.hx-release-body { display: flex; flex-direction: column; gap: 10px; padding: 26px 28px; }
+.hx-release-status { align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; font: 700 11px/1 var(--f-mono); letter-spacing: .16em; text-transform: uppercase; color: var(--acc-ink); }
+.hx-release-status::before { content: ""; width: 8px; height: 8px; background: #22C55E; box-shadow: 0 0 0 3px color-mix(in srgb, #22C55E 25%, transparent); }
+.hx-release h3 { margin: 0; font: 700 clamp(30px, 4vw, 44px)/1 var(--f-display); text-transform: uppercase; letter-spacing: .02em; }
+.hx-release p { margin: 0; color: var(--muted); }
+.hx-release .hx-tags { margin-top: 2px; }
+.hx-release-stores { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; padding-top: 10px; }
+.hx-soon { pointer-events: none; flex-direction: column; align-items: flex-start; gap: 4px; padding-block: 7px; border-style: dashed; color: var(--muted); cursor: default; }
+.hx-soon small { font: 500 10px/1 var(--f-mono); letter-spacing: .12em; color: var(--muted); }
+@media (max-width: 900px) { .hx-release { grid-template-columns: minmax(0, 1fr); } .hx-release-body { padding: 20px; } }
+@media (max-width: 640px) {
+  .hx-announce-link { flex: 1 1 auto; flex-direction: column; align-items: flex-start; gap: 6px; font-size: 13px; }
+  .hx-announce-tag { align-self: flex-start; margin-top: 2px; }
+  .hx-announce .hx-wrap::before { display: none; }
+  .hx-announce .hx-wrap { justify-content: flex-start; }
+}

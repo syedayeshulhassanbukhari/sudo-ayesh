@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { boot, markBootLeft } from './boot';
+import { ANNOUNCEMENT } from '@/data/home';
 
 const MSGS: [number, string][] = [[0, 'Booting'], [0.2, 'Loading scene'], [0.5, 'Compiling shaders'], [0.75, 'Lighting the level'], [0.95, 'Spawning player']];
 
@@ -58,6 +59,7 @@ export function BootScreen({ initials }: { initials: string }) {
         <div className="hx-boot-bar"><div ref={fill} className="hx-boot-fill" /></div>
         <div className="hx-boot-ticks" aria-hidden="true"><span>000</span><span>025</span><span>050</span><span>075</span><span>100</span></div>
         <div ref={msg} className="hx-boot-msg">Booting</div>
+        <div className="hx-boot-news"><span>{ANNOUNCEMENT.tag}</span>{ANNOUNCEMENT.text}</div>
       </div>
     </div>
   );

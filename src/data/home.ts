@@ -5,6 +5,7 @@ import { PROJECTS, SERVICES, type Project } from './portfolio';
 import { ANIMATIONS, COLLECTIONS, MODEL_TOTAL } from './models';
 
 export const NAV = [
+  { label: 'My Games', id: 'my-games' },
   { label: 'Modeling', id: 'modeling' },
   { label: 'Animation', id: 'animation' },
   { label: 'VFX', id: 'vfx' },
@@ -183,3 +184,37 @@ export const PRICES: PriceCard[] = [
   { name: 'VFX', amt: `$${vfx.priceFrom}+`, unit: 'Per effect', extra: `${vfx.deliveryDays}-day delivery`, note: vfx.summary, list: vfx.includes.slice(0, 3), url: vfx.url },
   { wide: true, quote: true, name: 'Custom Work', amt: 'Get a quote', note: 'Anything else your game needs, with a fixed price and delivery date.', list: ['Unreal Engine 5 systems', 'Unity games and tools', 'NPC AI and gameplay'] },
 ];
+
+// Games I've released, shown in "My Games" right after the hero. A store with no url shows as "Coming soon":
+// when the Play Store listing goes live, add its url here and the button switches on.
+export interface Release {
+  slug: string; // project page at /project/<slug>
+  title: string;
+  status: string;
+  blurb: string;
+  facts: string[];
+  poster: string;
+  video: string; // muted loop in the card
+  trailer: string; // opens in the lightbox
+  stores: { label: string; url?: string; primary?: boolean }[];
+}
+
+export const RELEASES: Release[] = [
+  {
+    slug: 'pixel-war',
+    title: 'Pixel War',
+    status: 'Out now',
+    blurb: 'A pixel-art action game, built solo in Godot 4. Fight through five cursed worlds with eight weapons and six skills, and break five bosses.',
+    facts: ['Godot 4', 'Android', 'Windows', 'Free'],
+    poster: 'media/godot/pixel-war.webp',
+    video: 'media/godot/pixel-war-sm.mp4',
+    trailer: 'media/godot/pixel-war-trailer.mp4',
+    stores: [
+      { label: 'Play free', url: 'https://syedayeshulhassanbukhari.github.io/Pixel-War/', primary: true },
+      { label: 'Google Play' },
+    ],
+  },
+];
+
+// Slim bar above the header. Bump `id` for a new announcement so visitors who closed the old one see it.
+export const ANNOUNCEMENT = { id: 'pixel-war-launch', tag: 'New release', text: 'Pixel War is out now on Android and Windows', cta: 'Play free', href: '/#my-games' };

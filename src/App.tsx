@@ -1,5 +1,6 @@
 import { Routes, Route, useLocation } from 'react-router';
 import Header from './components/hud/Header';
+import { AnnounceBar } from '@/components/hud/AnnounceBar';
 import Fx from './components/hud/Fx';
 import Footer from './components/Footer';
 import ScrollManager from './components/ScrollManager';
@@ -24,6 +25,7 @@ export default function App() {
       >
         Skip to content
       </a>
+      <AnnounceBar />
       <Header />
       {/* Keyed by route so each page plays the enter animation */}
       <main id="main" key={pathname} className={pathname === '/' ? undefined : 'page-enter'}>

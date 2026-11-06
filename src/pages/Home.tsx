@@ -3,7 +3,9 @@ import { useDocumentMeta } from '@/hooks/useDocumentMeta';
 import { homeMeta } from '@/seo/meta';
 import { PROFILE } from '@/data/portfolio';
 import { asset } from '@/lib/asset';
-import { PRICES, SECTIONS, SKILL_CARDS, TICKER } from '@/data/home';
+import { Link } from 'react-router';
+import { PRICES, RELEASES, SECTIONS, SKILL_CARDS, TICKER } from '@/data/home';
+import { VideoTile } from '@/components/hud/VideoTile';
 import { BootScreen } from '@/components/hud/BootScreen';
 import { Scramble } from '@/components/hud/Scramble';
 import { WorkSection } from '@/components/hud/WorkSection';
@@ -47,7 +49,7 @@ function Hero() {
             <Scramble text={first} replayOnBoot />
             <Scramble text={rest.join(' ')} className="outline" replayOnBoot />
           </h1>
-          <div className="hx-tagline">UE5 · Roblox · Unity · Blender</div>
+          <div className="hx-tagline">UE5 · Roblox · Godot · Blender</div>
           <p>I build games and game-ready assets in Unreal Engine 5, Roblox and Blender: NPC AI, 3D models, animation, UI and VFX.</p>
           <div className="hx-ctas">
             <a className="hx-btn solid go" href="#modeling">View work</a>
@@ -62,6 +64,40 @@ function Hero() {
         </div>
       </div>
       <canvas ref={cv} className="hx-hero-3d" aria-hidden="true" />
+    </section>
+  );
+}
+
+// Released games: a looping preview, the trailer in the lightbox, and a button per store.
+// A store without a url (Google Play for now) shows as "Coming soon".
+function MyGames() {
+  return (
+    <section className="hx-sec" id="my-games" aria-labelledby="my-games-h">
+      <SecHead idx="Released" id="my-games-h" title="My Games" blurb="Games I designed, built and released myself. Free to play." />
+      <div className="hx-releases">
+        {RELEASES.map(g => (
+          <article key={g.slug} className="hx-release">
+            <div className="hx-release-media">
+              <VideoTile src={g.video} poster={g.poster} />
+              <button className="hx-play hx-release-play" type="button" data-full={g.trailer} data-name={`${g.title} trailer`}>
+                <span aria-hidden="true">▶</span> Watch trailer
+              </button>
+            </div>
+            <div className="hx-release-body">
+              <span className="hx-release-status">{g.status}</span>
+              <h3>{g.title}</h3>
+              <p>{g.blurb}</p>
+              <div className="hx-tags">{g.facts.map(f => <span key={f}>{f}</span>)}</div>
+              <div className="hx-release-stores">
+                {g.stores.map(s => s.url
+                  ? <a key={s.label} className={`hx-btn sm go${s.primary ? ' loot' : ''}`} href={s.url} target="_blank" rel="noopener">{s.label}</a>
+                  : <span key={s.label} className="hx-btn sm hx-soon" aria-disabled="true">{s.label}<small>Coming soon</small></span>)}
+                <Link className="hx-btn sm" to={`/project/${g.slug}`}>Details</Link>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
     </section>
   );
 }
@@ -110,6 +146,7 @@ export default function Home() {
       </div>
 
       <div className="hx-wrap">
+        <MyGames />
         {SECTIONS.map(s => <WorkSection key={s.id} s={s} />)}
 
         <section className="hx-sec" id="skills" aria-labelledby="skills-h">
